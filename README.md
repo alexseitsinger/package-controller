@@ -6,23 +6,28 @@ A package that handles the packaging of packages
 
 ## Installation
 
-```pip install package_controller
+```
+pip install package_controller
 ```
 
 ## Usage
 
 To increase the patch version
-```pc version --patch
+```
+pc version --patch
 ```
 
 To increase the minor version
-```pc version --minor
+```
+pc version --minor
 ```
 
 To increase the major version
-```pc version --major
+```
+pc version --major
 ```
 
 To get the current version
-```pc version
+```
+pc version
 ```
