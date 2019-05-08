@@ -20,7 +20,7 @@
 - removed duplicate installation of local package, re-installed it to dev packages
 - added setup_utils.py module to package root
 - updated settings, fixed typos etc.
-- fixed text of version module
+- added changelog
 
 
 
