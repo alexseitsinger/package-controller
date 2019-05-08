@@ -10,15 +10,15 @@ def package_setup(*args, **kwargs):
     setup_file = find_file("setup.py")
     root_dir = os.path.dirname(setup_file)
 
-    package_name = os.path.basename(root_dir)
+    name = kwargs.pop("name", os.path.basename(root_dir))
 
     entry_points = {}
-    if "console_scripts" in kwargs:
-        console_scripts = kwargs.pop("console_scripts")
+    console_scripts = kwargs.pop("console_scripts", None)
+    if console_scripts is not None:
         entry_points["console_scripts"] = []
         for key, value in console_scripts.items():
             entry_points["console_scripts"].append(
-                "{}={}.{}".format(key, package_name, value)
+                "{}={}.{}".format(key, name, value)
             )
 
     classifiers = list(set(kwargs.pop("classifiers", []) + [
@@ -27,10 +27,10 @@ def package_setup(*args, **kwargs):
     ]))
 
     base_url = kwargs.pop("base_url")
-    url = "/".join([base_url, package_name])
+    url = "/".join([base_url, name])
 
     return setup(
-        name=package_name,
+        name=name,
         version=get_package_version(),
         long_description=get_package_long_description(),
         long_description_content_type="text/markdown",
