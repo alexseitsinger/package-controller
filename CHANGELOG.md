@@ -1,10 +1,10 @@
 # Changelog
 
 
-## [Unreleased]
+
+## v0.1.11 (2019-05-08)
 
 ### New Features
-- renamed exceptions, added new one for util
 - added new util methods
 
 
@@ -17,10 +17,8 @@
 
 ### Administration and Chores
 - deleting __version__.py module and put __version__ variable in __init__.py instead.
-- removed duplicate installation of local package, re-installed it to dev packages
 - added setup_utils.py module to package root
-- updated settings, fixed typos etc.
-- added changelog
+- updated version
 
 
 
