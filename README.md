@@ -1,15 +1,28 @@
-# Python Package
+# Package Controller
 
 ## Description
 
-A description goes here.
+A package that handles the packaging of packages
 
 ## Installation
 
-```pip install python_package```
-
-or
-
-```pipenv install python_package```
+```pip install package_controller
+```
 
 ## Usage
+
+To increase the patch version
+```pc version --patch
+```
+
+To increase the minor version
+```pc version --minor
+```
+
+To increase the major version
+```pc version --major
+```
+
+To get the current version
+```pc version
+```
