@@ -3,6 +3,7 @@ import re
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
 PACKAGE_NAME = os.path.basename(ROOT)
+RE_VERSION = r"{} = ['\"]([^'\"]*)['\"]"
 
 
 def read(path, variable=None):
@@ -11,7 +12,7 @@ def read(path, variable=None):
         content = f.read()
     if variable is None:
         return content
-    regex = "{} = ['\"](^[^'\"]*)['\"]".format(variable)
+    regex = RE_VERSION.format(variable)
     match = re.search(regex, content, re.M)
     if match:
         return match.group(1)
