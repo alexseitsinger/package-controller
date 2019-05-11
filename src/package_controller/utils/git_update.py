@@ -9,12 +9,9 @@ def git_add(*files):
     return run("git add {}".format(" ".join(files)))
 
 
-def git_commit(type, scope, subject, description):
-    if os.path.isfile(scope):
-        scope = os.path.basename(scope)
-    header = "{type}({scope}): {subject}".format(
+def git_commit(type, subject, description):
+    header = "{type}: {subject}".format(
         type=type,
-        scope=scope,
         subject=subject,
     )
     bits = [
@@ -30,7 +27,6 @@ def git_commit(type, scope, subject, description):
         out = process.stderr.strip().decode("utf-8")
         raise RuntimeError(out)
     out = process.stdout.strip().decode("utf-8")
-    print(out)
     commit_hash = run("git rev-parse HEAD")
     return commit_hash
 
@@ -56,7 +52,6 @@ def git_update(init_module, current_version, next_version):
     git_add(init_module)
     commit_hash = git_commit(
         type="docs",
-        scope=init_module,
         subject="Updates version",
         description="Version bump from {} to {}".format(
             current_version,
@@ -69,7 +64,6 @@ def git_update(init_module, current_version, next_version):
     git_add(changelog)
     git_commit(
         type="docs",
-        scope=changelog,
         subject="Updates changelog",
         description="Updates the changelog for {}".format(tag_name),
     )
