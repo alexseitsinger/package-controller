@@ -1,12 +1,11 @@
 import os
-
 from .run import run
 
 
 def git_add(*files):
     if not len(files):
         raise RuntimeError("No files passed")
-    return run("git add {}".format(" ".join(files))
+    return run("git add {}".format(" ".join(files)))
 
 
 def git_commit(type, scope, subject, description):
@@ -19,7 +18,7 @@ def git_commit(type, scope, subject, description):
         description=description,
     )
     run("git commit -m {message}".format(message=message))
-    commit_hash = run("git log | grep '^commit' | head -n 1 | awk '{print $2}'")
+    commit_hash = run("git rev-parse HEAD")
     return commit_hash
 
 
@@ -35,7 +34,7 @@ def git_tag(name, hash=None):
 def make_changelog(output="CHANGELOG.md", type="angular", style="angular"):
     run("git-changelog . -o {output} -t {type} -s {style}".format(
         output=output, type=type, style=style,
-    )
+    ))
     changelog = os.path.join(os.getcwd(), output)
     return changelog
 
