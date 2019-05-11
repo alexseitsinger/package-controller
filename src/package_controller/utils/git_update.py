@@ -21,9 +21,9 @@ def git_commit(type, scope, subject, description):
         "git",
         "commit",
         "-m",
-        "'{header}'".format(header=header),
+        "{header}".format(header=header),
         "-m",
-        "'{body}'".format(body=description)
+        "{body}".format(body=description)
     ]
     process = subprocess.run(bits, capture_output=True)
     if process.returncode != 0:
