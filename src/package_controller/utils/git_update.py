@@ -1,5 +1,6 @@
 import os
 from .run import run
+import subprocess
 
 
 def git_add(*files):
@@ -11,14 +12,24 @@ def git_add(*files):
 def git_commit(type, scope, subject, description):
     if os.path.isfile(scope):
         scope = os.path.basename(scope)
-    out = run("git commit -m '{header}' -m '{body}'".format(
-        header="{type}({scope}): {subject}".format(
-            type=type,
-            scope=scope,
-            subject=subject,
-        ),
-        body=description,
-    ))
+    header = "{type}({scope}): {subject}".format(
+        type=type,
+        scope=scope,
+        subject=subject,
+    )
+    bits = [
+        "git",
+        "commit",
+        "-m",
+        "'{header}'".format(header=header),
+        "-m",
+        "'{body}'".format(body=description)
+    ]
+    process = subprocess.run(bits, capture_output=True)
+    if process.returncode != 0:
+        out = process.stderr.strip().decode("utf-8")
+        raise RuntimeError(out)
+    out = process.stdout.strip().decode("utf-8")
     print(out)
     commit_hash = run("git rev-parse HEAD")
     return commit_hash
