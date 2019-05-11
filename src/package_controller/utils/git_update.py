@@ -11,13 +11,15 @@ def git_add(*files):
 def git_commit(type, scope, subject, description):
     if os.path.isfile(scope):
         scope = os.path.basename(scope)
-    message = "{type}({scope}): {subject}\n\n{description}".format(
-        type=type,
-        scope=scope,
-        subject=subject,
-        description=description,
-    )
-    run("git commit -m {message}".format(message=message))
+    out = run("git commit -m '{header}' -m '{body}'".format(
+        header="{type}({scope}): {subject}".format(
+            type=type,
+            scope=scope,
+            subject=subject,
+        ),
+        body=description,
+    ))
+    print(out)
     commit_hash = run("git rev-parse HEAD")
     return commit_hash
 
@@ -45,7 +47,7 @@ def git_update(init_module, current_version, next_version):
         type="chore",
         scope=init_module,
         subject="Updates version",
-        description="Updates the version from {} to {}".format(
+        description="Version bump from {} to {}".format(
             current_version,
             next_version,
         )
