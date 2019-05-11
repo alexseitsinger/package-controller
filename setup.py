@@ -1,14 +1,27 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-from setup_utils import package_setup
+from setuptools import setup, find_packages
+from setup_utils import read, PACKAGE_NAME
 
 
-package_setup(
-    description="A simple package controller for automating setups, versioning, etc.",
-    base_url="https://github.com/alexseitsinger",
+setup(
+    name=PACKAGE_NAME,
+    version=read(("src", PACKAGE_NAME, "__init__.py"), "__version__"),
+    description="A simple package for managing packages",
+    long_description=read(("README.md",)),
+    long_description_content_type="text/markdown",
     author="Alex Seitsinger",
     author_email="contact@alexseitsinger.com",
+    url="https://github.com/alexseitsinger/{}".format(PACKAGE_NAME),
+    package_dir={"": "src"},
+    packages=find_packages("src", exclude=["tests"]),
     install_requires=["click", "semver"],
-    console_scripts={"pc": "cli:main"}
+    entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_NAME)]},
+    license="BSD 2-Clause License",
+    classifiers=[
+        "License :: OSI Approved :: BSD License",
+        "Programming Language :: Python :: 3",
+    ]
 )
+
 
