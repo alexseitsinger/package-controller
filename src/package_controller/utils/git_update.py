@@ -55,7 +55,7 @@ def make_changelog(output="CHANGELOG.md", type="angular", style="angular"):
 def git_update(init_module, current_version, next_version):
     git_add(init_module)
     commit_hash = git_commit(
-        type="chore",
+        type="docs",
         scope=init_module,
         subject="Updates version",
         description="Version bump from {} to {}".format(
