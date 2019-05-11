@@ -2,7 +2,7 @@
 
 ## Description
 
-A package that handles the packaging of packages
+A package that manages packages
 
 ## Installation
 
@@ -14,17 +14,17 @@ pip install package_controller
 
 To increase the patch version
 ```
-pc version --patch
+pc version --patch (--git)
 ```
 
 To increase the minor version
 ```
-pc version --minor
+pc version --minor (--git)
 ```
 
 To increase the major version
 ```
-pc version --major
+pc version --major (--git)
 ```
 
 To get the current version
