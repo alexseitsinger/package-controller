@@ -8,3 +8,4 @@ from .package_setup import package_setup
 from .assert_latest_commit_tag import assert_latest_commit_tag
 from .get_latest_commit_hash import get_latest_commit_hash
 from .run import run
+from .git_update import git_update
