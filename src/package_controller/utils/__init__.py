@@ -9,5 +9,6 @@ from .git_add import git_add
 from .git_commit import git_commit
 from .git_tag import git_tag
 from .make_changelog import make_changelog
+from .save_version import save_version
 
 
