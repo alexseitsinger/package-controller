@@ -1,12 +1,13 @@
 import re
 
+RE_VARIABLE = r"(^{} = ['\"])([^'\"]*)(['\"])"
 
 def save_file(path, variable, value):
     encoding = "utf-8"
-    regex = r"(^{} = ['\"])([^'\"]*)(['\"])".format(variable)
     with open(path, "r", encoding=encoding) as fr:
         content = fr.read()
     with open(path, "w", encoding=encoding) as fw:
+        regex = RE_VARIABLE.format(variable)
         match = re.match(regex, content)
         try:
             groups = match.groups()
