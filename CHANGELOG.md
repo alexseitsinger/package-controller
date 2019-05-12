@@ -1,5 +1,5 @@
 <a name="v0.2.1"></a>
-## [v0.2.1](https://github.com/alexseitsinger/package_controller/compare/v0.2.0...v0.2.1)
+## [v0.2.1](https://github.com/alexseitsinger/package_controller/compare/v0.2.0...v0.2.1) (2019-05-12)
 
 ### Bug Fixes
 - fixes git_commit ([8af80ec](https://github.com/alexseitsinger/package_controller/commit/8af80ec49b5a37ae6c63ba7259ada793a60d9369))
