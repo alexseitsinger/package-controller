@@ -1,14 +1,4 @@
-import click
-
-from .version import version
-
-
-@click.group()
-def main():
-    pass
-
-
-main.add_command(version)
+from .main import main
 
 
 if __name__ == "__main__":
