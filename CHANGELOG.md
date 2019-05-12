@@ -1,3 +1,35 @@
+<a name="v0.2.3"></a>
+## [v0.2.3](https://github.com/alexseitsinger/package_controller/compare/v0.2.2...v0.2.3) (2019-05-12)
+
+### Bug Fixes
+- fixes method ([6b3cc89](https://github.com/alexseitsinger/package_controller/commit/6b3cc896c6f8b7533f5c624225de882ceebf12d0))
+
+
+<a name="v0.2.2"></a>
+## [v0.2.2](https://github.com/alexseitsinger/package_controller/compare/v0.2.1...v0.2.2) (2019-05-12)
+
+### Bug Fixes
+- fixes files args ([c5fdc08](https://github.com/alexseitsinger/package_controller/commit/c5fdc087eba506c01e598bcace9266e7e5d17ddc))
+
+### Code Refactoring
+- adjusts method ([1d553b1](https://github.com/alexseitsinger/package_controller/commit/1d553b167825cd096f3379e0fb40ae849b39a8f8))
+- adjusts method ([9f4b877](https://github.com/alexseitsinger/package_controller/commit/9f4b877459c57c550d95c99a8f4465af746d746e))
+- changes command ([3186b20](https://github.com/alexseitsinger/package_controller/commit/3186b20b0ea45c201b179abc787b75d68689fc00))
+- changes method name ([518790d](https://github.com/alexseitsinger/package_controller/commit/518790d0716bfe32f55c61a9d964208f84aff22b))
+- changes method name ([a18db13](https://github.com/alexseitsinger/package_controller/commit/a18db13d53861287bb7da0dc140df2aae3a805c7))
+- makes modules ([99dac33](https://github.com/alexseitsinger/package_controller/commit/99dac33dfbf53b2e5e72f782b84cabc7e7348d14))
+- moves module ([0544fb7](https://github.com/alexseitsinger/package_controller/commit/0544fb783373bffc76038fb4f77b15438dea1e03))
+- moves module ([84d415f](https://github.com/alexseitsinger/package_controller/commit/84d415f795e43aeb278d625c1e6b350d29c060ff))
+- optimized method ([f711440](https://github.com/alexseitsinger/package_controller/commit/f711440311f8ceba77e8d45377be02bc622f4d7c))
+- optimizes method ([695e53f](https://github.com/alexseitsinger/package_controller/commit/695e53f16f4f692e3258839f111fac972818e9b8))
+- removes unused module ([9eeac41](https://github.com/alexseitsinger/package_controller/commit/9eeac417cecb0fd4255f36523bbe20f93e5b6e74))
+- updates imports ([91cd00b](https://github.com/alexseitsinger/package_controller/commit/91cd00ba6ad54748df13973ea57f9769df5b445f))
+
+### Features
+- adds method ([b5066ab](https://github.com/alexseitsinger/package_controller/commit/b5066ab139aab3d1929af78ec9f81e39e4f19060))
+- adds module ([d09eb6b](https://github.com/alexseitsinger/package_controller/commit/d09eb6b0c92c3dfde06e7b4f641c0638c8c5a294))
+
+
 <a name="v0.2.1"></a>
 ## [v0.2.1](https://github.com/alexseitsinger/package_controller/compare/v0.2.0...v0.2.1) (2019-05-12)
 
