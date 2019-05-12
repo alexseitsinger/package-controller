@@ -2,7 +2,7 @@ import click
 import semver
 
 from ..utils import (
-    get_package_version,
+    get_version,
     save_file,
     find_init_module,
     git_update,
@@ -21,7 +21,7 @@ from ..settings import DEFAULT_VERSION_VARIABLE
 @click.option("--major", default=False, required=False, is_flag=True, help="Updates the major version.")
 @click.option("--git", default=False, required=False, is_flag=True, help="Updates git with new tag and changelog for version.")
 def version(major, minor, patch, variable, git):
-    current_version = get_package_version(variable=variable)
+    current_version = get_version(variable=variable)
     init_module = find_init_module()
     if any([x is True for x in [major, minor, patch]]):
         if major is True and all([x is False for x in [minor, patch]]):
