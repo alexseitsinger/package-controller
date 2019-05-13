@@ -28,9 +28,12 @@ def build_package():
         raise RuntimeError("Tarball already exists. ({})".format(
             os.path.basename(tarball)
         ))
+    built = [wheel, tarball]
     try:
-        return run(*BUILD_ARGS)
+        run(*BUILD_ARGS)
+        return built
     except RuntimeError:
         args = PIPENV_RUN_ARGS + BUILD_ARGS
-        return run(*args)
+        run(*args)
+        return built
 
