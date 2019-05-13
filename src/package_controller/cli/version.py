@@ -29,7 +29,7 @@ def version(major, minor, patch, git):
             message = UPDATE_SUCCESS_MESSAGE.format(VERSION_NAMES[0], current_version, next_version)
         elif minor is True and all([x is False for x in [major, patch]]):
             next_version = semver.bump_minor(current_version)
-            message = UPDATE_SUCCESS_MESSAGE.format(VERSION_NAMES[1], current_version, next_version),
+            message = UPDATE_SUCCESS_MESSAGE.format(VERSION_NAMES[1], current_version, next_version)
         elif patch is True and all([x is False for x in [major, minor]]):
             next_version = semver.bump_patch(current_version)
             message = UPDATE_SUCCESS_MESSAGE.format(VERSION_NAMES[2], current_version, next_version)
