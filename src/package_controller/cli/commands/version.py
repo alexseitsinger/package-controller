@@ -16,7 +16,7 @@ UPDATE_STATUS_MESSAGE = "Current version: {}"
 @click.option("--{}".format(VERSION_NAMES[0]), default=False, required=False, is_flag=True, help="Updates the {} version.".format(VERSION_NAMES[0]))
 @click.option("--{}".format(VERSION_NAMES[1]), default=False, required=False, is_flag=True, help="Updates the {} version.".format(VERSION_NAMES[1]))
 @click.option("--{}".format(VERSION_NAMES[2]), default=False, required=False, is_flag=True, help="Updates the {} version.".format(VERSION_NAMES[2]))
-@click.option("--git", default=False, required=False, is_flag=True, help="Updates git with new tag and changelog for version.")
+@click.option("--git", default=True, required=False, is_flag=True, help="Updates git with new tag and changelog for version.")
 def version(major, minor, patch, git):
     current_version = get_version()
     next_version = None
