@@ -1,3 +1,14 @@
+<a name="v0.3.3"></a>
+## [v0.3.3](https://github.com/alexseitsinger/package_controller/compare/v0.3.2...v0.3.3) (2019-05-13)
+
+### Code Refactoring
+- changes output ([d92b0fd](https://github.com/alexseitsinger/package_controller/commit/d92b0fdf722f521a24405f59484b6ac1e4a008ba))
+- moves method ([6a0305a](https://github.com/alexseitsinger/package_controller/commit/6a0305a2945789a21cd1fb4bf76207bdfff0f1f9))
+
+### Features
+- adds util method ([a580195](https://github.com/alexseitsinger/package_controller/commit/a580195efea27ea1ef9fb9722d7f76fb7e63f6f7))
+
+
 <a name="v0.3.2"></a>
 ## [v0.3.2](https://github.com/alexseitsinger/package_controller/compare/v0.3.1...v0.3.2) (2019-05-13)
 
