@@ -26,6 +26,7 @@ def twine_upload():
     if not os.path.exists(tarball):
         raise RuntimeError("Tarball does not exist. ({})".format(tarball))
     # Upload the files to pypi.
-    twine_upload_args = TWINE_UPLOAD_ARGS + [wheel, tarball]
-    out = run(*twine_upload_args)
-    return out
+    uploaded = [wheel, tarball]
+    twine_upload_args = TWINE_UPLOAD_ARGS + uploaded
+    run(*twine_upload_args)
+    return uploaded

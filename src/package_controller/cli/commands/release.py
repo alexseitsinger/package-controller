@@ -1,3 +1,4 @@
+import os
 import click
 
 from ...utils import (
@@ -11,15 +12,21 @@ from ...utils import (
 @click.option("--branch", default="master", required=False, help="The branch to push.")
 def release(remote, branch):
     try:
-        twine_upload()
-        click.secho("Successfully upload to PyPi", fg="green")
+        uploaded = twine_upload()
+        click.secho("Successfully uploaded to PyPi.", fg="green", bold=True)
+        click.secho(
+            "Files:\n    {}".format("\n    ".join([
+                os.path.basename(x) for x in uploaded
+            ])),
+            fg="green"
+        )
     except RuntimeError as exc:
         click.secho("Failed to upload to PyPi.", fg="red", bold=True)
         click.secho(str(exc), fg="red")
         return
     try:
         git_push(remote=remote, branch=branch)
-        click.secho("Successfully pushed to git", fg="green")
+        click.secho("Successfully pushed to git. ({}, {})".format(remote, branch), fg="green")
     except RuntimeError as exc:
         click.secho("Failed to push to git. ({}, {})".format(remote, branch), fg="red", bold=True)
         click.secho(str(exc), fg="red")
