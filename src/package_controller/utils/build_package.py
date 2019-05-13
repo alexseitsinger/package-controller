@@ -8,9 +8,12 @@ BUILD_ARGS = ["python", "setup.py", "sdist", "bdist_wheel"]
 PIPENV_RUN_ARGS = ["pipenv", "run"]
 TARBALL_NAME = "{}-{}.tar.gz"
 WHEEL_NAME = "{}-{}-py3-none-any.whl"
-
+GIT_STATUS_ARGS = ["git", "status", "-s"]
 
 def build_package():
+    status = run(*GIT_STATUS_ARGS)
+    if status is not None:
+        raise RuntimeError("There are uncommited changes.")
     current_version = get_version()
     setup_file = find_file("setup.py")
     root = os.path.dirname(setup_file)
