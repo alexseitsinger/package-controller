@@ -1,6 +1,11 @@
 import click
 
-from .commands import version, build, release
+from .commands import (
+    version,
+    build,
+    release,
+)
+
 
 @click.group()
 def main():
