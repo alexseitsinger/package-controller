@@ -1,4 +1,5 @@
 import os
+import click
 
 from .run import run
 from .find_file import find_file
@@ -24,10 +25,23 @@ def release_package():
     tarball = os.path.join(dist_dir, tarball_name)
     # Check if the wheel and tarball files exist.
     if not all([os.path.exists(x) for x in [wheel, tarball]]):
-        raise RuntimeError("Wheel and/or tarball does not exist.")
-    twine_upload_args = TWINE_UPLOAD_ARGS + [wheel, tarball]
-    run(*twine_upload_args)
-    run(*GIT_PUSH_ARGS)
-    run(*GIT_PUSH_TAGS_ARGS)
-
+        raise RuntimeError("Wheel and/or tarball does not exist. ({}, {})".format(
+            wheel, tarball
+        ))
+    try:
+        twine_upload_args = TWINE_UPLOAD_ARGS + [wheel, tarball]
+        run(*twine_upload_args)
+        click.secho("Successfully uploaded to twine.", fg="green")
+    except RuntimeError:
+        return click.secho("Failed to upload to twine.", fg="red")
+    try:
+        run(*GIT_PUSH_ARGS)
+        click.secho("Successfully pushed to git", fg="green")
+    except RuntimeError:
+        return click.secho("Failed to push to git.", fg="red")
+    try:
+        run(*GIT_PUSH_TAGS_ARGS)
+        click.secho("Successfully pushed tags to git.", fg="green")
+    except Exception as exc:
+        return click.secho("Failed to push tags to git.", fg="red")
 

@@ -1,4 +1,5 @@
 import os
+import click
 
 from .run import run
 
@@ -7,9 +8,18 @@ PIPENV_RUN_ARGS = ["pipenv", "run"]
 
 def build_package():
     try:
-        return run(*BUILD_ARGS)
-    except Exception:
-        args = PIPENV_RUN_ARGS + BUILD_ARGS
-        return run(*args)
+        out = run(*BUILD_ARGS)
+        click.secho("Successfully built package.", fg="green")
+        return out
+    except RuntimeError:
+        try:
+            args = PIPENV_RUN_ARGS + BUILD_ARGS
+            out = run(*args)
+            click.secho("Successfully built package.", fg="green")
+            return out
+        except Exception:
+            return click.secho("Failed to build package.", fg="red")
+
+
 
 
