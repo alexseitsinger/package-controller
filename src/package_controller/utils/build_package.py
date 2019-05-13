@@ -12,6 +12,7 @@ GIT_STATUS_ARGS = ["git", "status", "-s"]
 
 def build_package():
     status = run(*GIT_STATUS_ARGS)
+    print(status)
     if status is not None:
         raise RuntimeError("There are uncommited changes.")
     current_version = get_version()
