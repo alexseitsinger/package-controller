@@ -1,3 +1,17 @@
+<a name="v0.3.2"></a>
+## [v0.3.2](https://github.com/alexseitsinger/package_controller/compare/v0.3.1...v0.3.2) (2019-05-13)
+
+
+<a name="v0.3.1"></a>
+## [v0.3.1](https://github.com/alexseitsinger/package_controller/compare/v0.3.0...v0.3.1) (2019-05-13)
+
+### Bug Fixes
+- adds missing comma ([7131ae8](https://github.com/alexseitsinger/package_controller/commit/7131ae89d4553628ba244404540c262534297f13))
+
+### Code Refactoring
+- changes defaults ([730d2af](https://github.com/alexseitsinger/package_controller/commit/730d2afb66b6d1b84c7512f52071340e08e207df))
+
+
 <a name="v0.3.0"></a>
 ## [v0.3.0](https://github.com/alexseitsinger/package_controller/compare/v0.2.4...v0.3.0) (2019-05-13)
 
