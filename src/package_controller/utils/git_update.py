@@ -10,11 +10,10 @@ def git_update(current_version, next_version):
     git_add(init_module)
     commit_hash = git_commit(
         type="docs",
-        subject="Updates version",
-        description="Version bump from {} to {}".format(
-            current_version,
-            next_version,
-        )
+        subject="updates the version",
+        description="updates the version from {} to {}".format(
+            current_version, next_version
+        ),
     )
     tag_name = "v{}".format(next_version)
     git_tag(name=tag_name, hash=commit_hash)
@@ -22,7 +21,7 @@ def git_update(current_version, next_version):
     git_add(changelog)
     git_commit(
         type="docs",
-        subject="Updates changelog",
-        description="Updates the changelog for {}".format(tag_name),
+        subject="updates the changelog".format(tag_name),
+        description="updates the changelog for {}".format(tag_name),
     )
 
