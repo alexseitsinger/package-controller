@@ -5,7 +5,7 @@ from .find_file import find_file
 from .get_version import get_version
 
 
-GIT_PUSH_ARGS = ["git", "push" "origin", "master"]
+GIT_PUSH_ARGS = ["git", "push", "origin", "master"]
 GIT_PUSH_TAGS_ARGS = ["git", "push", "--tags"]
 TWINE_UPLOAD_ARGS = ["twine", "upload"]
 TARBALL_NAME = "{}-{}.tar.gz"
@@ -25,8 +25,9 @@ def release_package():
     # Check if the wheel and tarball files exist.
     if not all([os.path.exists(x) for x in [wheel, tarball]]):
         raise RuntimeError("Wheel and/or tarball does not exist.")
-    run(TWINE_UPLOAD_ARGS + [wheel, tarball])
-    run(GIT_PUSH_ARGS)
-    run(GIT_PUSH_TAGS_ARGS)
+    twine_upload_args = TWINE_UPLOAD_ARGS + [wheel, tarball]
+    run(*twine_upload_args)
+    run(*GIT_PUSH_ARGS)
+    run(*GIT_PUSH_TAGS_ARGS)
 
 
