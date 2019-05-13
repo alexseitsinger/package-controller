@@ -1,3 +1,19 @@
+<a name="v0.3.5"></a>
+## [v0.3.5](https://github.com/alexseitsinger/package_controller/compare/v0.3.4...v0.3.5) (2019-05-13)
+
+### Code Refactoring
+- attempts to fix status check ([4300e2f](https://github.com/alexseitsinger/package_controller/commit/4300e2fb0cfb55911af3b85d67badaed1c6e44ca))
+- attempts to fix status check ([9ffc669](https://github.com/alexseitsinger/package_controller/commit/9ffc6691a7edaa9ed4c0c0245ea849437b32c8fb))
+- changes command args location ([53ffe80](https://github.com/alexseitsinger/package_controller/commit/53ffe80a7489037add1dc36020ffe14fac4610d4))
+- changes commit messages ([63e078f](https://github.com/alexseitsinger/package_controller/commit/63e078f0013216b12cb6044e0b446f2a96fe3311))
+- changes output ([15be415](https://github.com/alexseitsinger/package_controller/commit/15be4158248fa9bd90cb80c27798cc2779a68f2c))
+- changes output ([0d38602](https://github.com/alexseitsinger/package_controller/commit/0d38602e37c9cb323bec9c478cf1b7aae09a82ef))
+- fixes status check ([26a6418](https://github.com/alexseitsinger/package_controller/commit/26a6418af1ba11b4df9c31933769b0c219b31251))
+
+### Features
+- adds a check for commit status ([2a285d7](https://github.com/alexseitsinger/package_controller/commit/2a285d74453557e104495af623371cfe9436baaf))
+
+
 <a name="v0.3.4"></a>
 ## [v0.3.4](https://github.com/alexseitsinger/package_controller/compare/v0.3.3...v0.3.4) (2019-05-13)
 
