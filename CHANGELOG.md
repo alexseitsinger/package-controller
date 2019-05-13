@@ -1,3 +1,15 @@
+<a name="v0.3.0"></a>
+## [v0.3.0](https://github.com/alexseitsinger/package_controller/compare/v0.2.4...v0.3.0) (2019-05-13)
+
+### Code Refactoring
+- moves modules ([948f65e](https://github.com/alexseitsinger/package_controller/commit/948f65ea82e43163ea8b446331a7184fcbfe8856))
+
+### Features
+- adds new commands ([4ddede1](https://github.com/alexseitsinger/package_controller/commit/4ddede171ce54f19bc344ebecdeae3f47af3afd1))
+- adds new utils ([6793416](https://github.com/alexseitsinger/package_controller/commit/6793416d56258f399ceedb2bfd56a00d94db8722))
+- imports new commands ([1c65eda](https://github.com/alexseitsinger/package_controller/commit/1c65eda004c23a1575d97de863dcc79dc18f7dcb))
+
+
 <a name="v0.2.4"></a>
 ## [v0.2.4](https://github.com/alexseitsinger/package_controller/compare/v0.2.3...v0.2.4) (2019-05-13)
 
