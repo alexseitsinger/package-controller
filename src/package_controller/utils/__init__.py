@@ -12,5 +12,5 @@ from .make_changelog import make_changelog
 from .save_version import save_version
 from .build_package import build_package
 from .release_package import release_package
-
+from .version_bump import version_bump
 
