@@ -10,5 +10,7 @@ from .git_commit import git_commit
 from .git_tag import git_tag
 from .make_changelog import make_changelog
 from .save_version import save_version
+from .build_package import build_package
+from .release_package import release_package
 
 
