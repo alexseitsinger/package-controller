@@ -1,3 +1,10 @@
+<a name="v0.2.4"></a>
+## [v0.2.4](https://github.com/alexseitsinger/package_controller/compare/v0.2.3...v0.2.4) (2019-05-13)
+
+### Bug Fixes
+- removes trailing comma ([71c35dd](https://github.com/alexseitsinger/package_controller/commit/71c35dd19d2cd070eb147c9c1caa812e12c2f52f))
+
+
 <a name="v0.2.3"></a>
 ## [v0.2.3](https://github.com/alexseitsinger/package_controller/compare/v0.2.2...v0.2.3) (2019-05-12)
 
