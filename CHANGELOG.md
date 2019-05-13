@@ -1,3 +1,16 @@
+<a name="v0.3.4"></a>
+## [v0.3.4](https://github.com/alexseitsinger/package_controller/compare/v0.3.3...v0.3.4) (2019-05-13)
+
+### Code Refactoring
+- deletes unused utils ([425a034](https://github.com/alexseitsinger/package_controller/commit/425a0347c896acba12461172304b5894718e1c3d))
+- updates cli commands ([b8898f0](https://github.com/alexseitsinger/package_controller/commit/b8898f0c5d0b419e8679edd6ea36e12a25e282ba))
+- updates package scope util imports ([6f6c7e1](https://github.com/alexseitsinger/package_controller/commit/6f6c7e1f8622bac335cc2db85a99fa996d3deef0))
+- updates util method ([dba49f1](https://github.com/alexseitsinger/package_controller/commit/dba49f1deb45091ec0fe179fa57c590ace749c25))
+
+### Features
+- adds util methods ([22e00d5](https://github.com/alexseitsinger/package_controller/commit/22e00d5c6b3ca082a409ea5a7afa317645c09c50))
+
+
 <a name="v0.3.3"></a>
 ## [v0.3.3](https://github.com/alexseitsinger/package_controller/compare/v0.3.2...v0.3.3) (2019-05-13)
 
