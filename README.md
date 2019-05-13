@@ -12,9 +12,9 @@ pip install package_controller
 
 ## Usage
 
-To increase the patch version
+To increase the major version
 ```
-pc version --patch (--git)
+pc version --major (--git)
 ```
 
 To increase the minor version
@@ -22,12 +22,23 @@ To increase the minor version
 pc version --minor (--git)
 ```
 
-To increase the major version
+To increase the patch version
 ```
-pc version --major (--git)
+pc version --patch (--git)
 ```
 
 To get the current version
 ```
 pc version
 ```
+
+To build the newest version.
+```
+pc build
+```
+
+To release the latest package.
+```
+pc release
+```
+
