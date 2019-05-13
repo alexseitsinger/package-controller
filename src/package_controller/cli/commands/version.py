@@ -1,7 +1,7 @@
 import click
 import semver
 
-from ..utils import (
+from ...utils import (
     get_version,
     save_version,
     git_update,
