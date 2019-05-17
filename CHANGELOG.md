@@ -1,3 +1,16 @@
+<a name="v0.3.6"></a>
+## [v0.3.6](https://github.com/alexseitsinger/package_controller/compare/v0.3.5...v0.3.6) (2019-05-17)
+
+### Code Refactoring
+- adds git status check to start of function ([e585e42](https://github.com/alexseitsinger/package_controller/commit/e585e42fc67251b6526222b6e288790e7e5510c4))
+- adds new utils to package scope ([206b52b](https://github.com/alexseitsinger/package_controller/commit/206b52b71b0256b1885f432f7352d1ba6a7454e1))
+- moves body of command to util instead ([fd16980](https://github.com/alexseitsinger/package_controller/commit/fd169808b631ae23dba50875f14199383f5cbe07))
+
+### Features
+- adds util for bumping version ([20fd430](https://github.com/alexseitsinger/package_controller/commit/20fd43009f1abfd5d6375cb8d9fe9c36f286d56c))
+- adds util for checking status ([804029a](https://github.com/alexseitsinger/package_controller/commit/804029a84916f5ed6ef40107ca9310c8664b0651))
+
+
 <a name="v0.3.5"></a>
 ## [v0.3.5](https://github.com/alexseitsinger/package_controller/compare/v0.3.4...v0.3.5) (2019-05-13)
 
