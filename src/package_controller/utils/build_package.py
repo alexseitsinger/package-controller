@@ -3,17 +3,15 @@ import os
 from .run import run
 from .get_version import get_version
 from .find_file import find_file
+from .git_status import git_status
 
 BUILD_ARGS = ["python", "setup.py", "sdist", "bdist_wheel"]
 PIPENV_RUN_ARGS = ["pipenv", "run"]
 TARBALL_NAME = "{}-{}.tar.gz"
 WHEEL_NAME = "{}-{}-py3-none-any.whl"
-GIT_STATUS_ARGS = ["git", "status", "-s"]
 
 def build_package():
-    status = run(*GIT_STATUS_ARGS)
-    if status:
-        raise RuntimeError("There are uncommited changes.")
+    git_status()
     current_version = get_version()
     setup_file = find_file("setup.py")
     root = os.path.dirname(setup_file)

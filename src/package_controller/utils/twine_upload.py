@@ -3,6 +3,7 @@ import os
 from .get_version import get_version
 from .find_file import find_file
 from .run import run
+from .git_status import git_status
 
 TWINE_UPLOAD_ARGS = ["twine", "upload"]
 TARBALL_NAME = "{}-{}.tar.gz"
@@ -10,6 +11,7 @@ WHEEL_NAME = "{}-{}-py3-none-any.whl"
 
 
 def twine_upload():
+    git_status()
     version = get_version()
     setup_module = find_file("setup.py")
     root = os.path.dirname(setup_module)
