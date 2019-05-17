@@ -22,10 +22,10 @@ def version(major, minor, patch, git):
             )
             if git is True:
                 git_update(old_version, new_version)
-            click.secho(message, fg="green")
+            click.secho(message, fg="green", bold=True)
         except RuntimeError as exc:
             click.secho("Failed to update version.", fg="red", bold=True)
             click.secho(str(exc), fg="red")
     else:
         message = "Current version: {}".format(get_version())
-        click.secho(message, fg="yellow")
+        click.secho(message, fg="yellow", bold=True)

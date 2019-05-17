@@ -26,14 +26,14 @@ def release(remote, branch):
         return
     try:
         git_push(remote=remote, branch=branch)
-        click.secho("Successfully pushed to git. ({}, {})".format(remote, branch), fg="green")
+        click.secho("Successfully pushed to git. ({}, {})".format(remote, branch), fg="green", bold=True)
     except RuntimeError as exc:
         click.secho("Failed to push to git. ({}, {})".format(remote, branch), fg="red", bold=True)
         click.secho(str(exc), fg="red")
         return
     try:
         git_push(tags=True)
-        click.secho("Successfully pushed tags to git.", fg="green")
+        click.secho("Successfully pushed tags to git.", fg="green", bold=True)
     except RuntimeError as exc:
         click.secho("Failed to push tags to git.", fg="red", bold=True)
         click.secho(str(exc), fg="red")
