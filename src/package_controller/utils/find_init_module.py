@@ -10,7 +10,9 @@ def find_init_module():
     # get the package root directory
     root_dir = os.path.dirname(os.path.abspath(setup_file))
     # get the package name from the root dir.
-    package_name = os.path.basename(root_dir)
+    directory_name = os.path.basename(root_dir)
+    # convert the directory name to a python-allowed package name.
+    package_name = directory_name.replace("-", "_")
     # Find the package source directory
     src_dir = os.path.join(root_dir, "src")
     if os.path.exists(src_dir):
