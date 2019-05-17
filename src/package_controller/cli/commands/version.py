@@ -24,8 +24,13 @@ def version(major, minor, patch, git):
                 git_update(old_version, new_version)
             click.secho(message, fg="green", bold=True)
         except RuntimeError as exc:
-            click.secho("Failed to update version.", fg="red", bold=True)
-            click.secho(str(exc), fg="red")
+            message = str(exc)
+            if message == "git-changelog is not installed.":
+                click.secho("Skipped making changelog.", fg="yellow", bold=True)
+                click.secho(message, fg="yellow")
+            else:
+                click.secho("Failed to update version.", fg="red", bold=True)
+                click.secho(message, fg="red")
     else:
         message = "Current version: {}".format(get_version())
         click.secho(message, fg="yellow", bold=True)
