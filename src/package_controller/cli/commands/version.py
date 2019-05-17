@@ -26,7 +26,7 @@ def version(major, minor, patch, git):
         except RuntimeError as exc:
             message = str(exc)
             if message == "git-changelog is not installed.":
-                click.secho("Skipped making changelog.", fg="yellow", bold=True)
+                click.secho("Skipped creating changelog.", fg="yellow", bold=True)
                 click.secho(message, fg="yellow")
             else:
                 click.secho("Failed to update version.", fg="red", bold=True)
