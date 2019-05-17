@@ -8,9 +8,11 @@ from .git_update import git_update
 from .git_add import git_add
 from .git_commit import git_commit
 from .git_tag import git_tag
+from .git_status import git_status
+from .git_push import git_push
 from .make_changelog import make_changelog
 from .save_version import save_version
 from .twine_upload import twine_upload
-from .git_push import git_push
 from .build_package import build_package
+from .bump_version import bump_version
 
