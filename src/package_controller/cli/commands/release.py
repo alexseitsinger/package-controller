@@ -21,9 +21,14 @@ def release(remote, branch):
             fg="green"
         )
     except RuntimeError as exc:
-        click.secho("Failed to upload to PyPi.", fg="red", bold=True)
-        click.secho(str(exc), fg="red")
-        return
+        message = str(exc)
+        if message == "twine is not installed.":
+            click.secho("Skipped uploading to PyPi.", fg="yellow", bold=True)
+            click.secho(message, fg="yellow")
+        else:
+            click.secho("Failed to upload to PyPi.", fg="red", bold=True)
+            click.secho(message, fg="red")
+            return
     try:
         git_push(remote=remote, branch=branch)
         click.secho("Successfully pushed to git. ({}, {})".format(remote, branch), fg="green", bold=True)
