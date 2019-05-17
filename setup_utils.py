@@ -1,22 +1,26 @@
 import os
 import re
+from io import open
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-PACKAGE_NAME = os.path.basename(ROOT)
+DIRECTORY_NAME = os.path.basename(ROOT)
+PACKAGE_NAME = DIRECTORY_NAME.replace("-", "_")
 RE_VARIABLE = r"{} = ['\"]([^'\"]*)['\"]"
 RE_README_SECTION_HEADING = r"#+ {}"
 RE_README_SECTION = r"{}[^#]*"
+RE_NEWLINES = r"{}\n+"
 
 
-def read_section(parts, heading, sentences=(0,)):
-    content = read(parts)
-    heading = RE_README_SECTION_HEADING.format(heading)
-    section_regex = RE_README_SECTION.format(heading)
+def read_section(path, title, sentences=(0,)):
+    content = read(path)
+    heading_regex = RE_README_SECTION_HEADING.format(title)
+    section_regex = RE_README_SECTION.format(heading_regex)
+    newline_regex = RE_NEWLINES.format(heading_regex)
     match = re.search(section_regex, content)
     try:
         desc = match.group(0)
         desc = desc.strip()
-        desc = re.sub(r"{}\n+".format(heading), "", desc)
+        desc = re.sub(newline_regex, "", desc)
         parts = desc.split(".")
         desc = ". ".join([x for x in parts if parts.index(x) in sentences])
         desc = desc.strip()

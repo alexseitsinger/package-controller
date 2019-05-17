@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 from setuptools import setup, find_packages
-from setup_utils import PACKAGE_NAME, read, read_section
+from setup_utils import DIRECTORY_NAME, PACKAGE_NAME, read, read_section
 
 URL = "https://github.com/alexseitsinger/{}".format(PACKAGE_NAME)
 README_NAME = "README.md"
@@ -15,7 +15,7 @@ setup(
     author="Alex Seitsinger",
     author_email="contact@alexseitsinger.com",
     url=URL,
-    install_requires=["click", "semver"],
+    install_requires=["click", "semver", "git-changelog"],
     entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_NAME)]},
     package_dir={"": "src"},
     packages=find_packages("src", exclude=["tests"]),
