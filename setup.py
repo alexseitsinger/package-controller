@@ -15,7 +15,7 @@ setup(
     author="Alex Seitsinger",
     author_email="contact@alexseitsinger.com",
     url=URL,
-    install_requires=["click", "semver", "git-changelog"],
+    install_requires=["click", "semver"],
     entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_NAME)]},
     package_dir={"": "src"},
     packages=find_packages("src", exclude=["tests"]),
