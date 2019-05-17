@@ -6,8 +6,11 @@ from .find_init_module import find_init_module
 
 
 def git_update(current_version, next_version):
+    # Get the init module that the version is saved to.
     init_module = find_init_module()
+    # Add it to git.
     git_add(init_module)
+    # Commit the change, and get the new hash.
     commit_hash = git_commit(
         type="docs",
         subject="updates the version",
@@ -15,8 +18,10 @@ def git_update(current_version, next_version):
             current_version, next_version
         ),
     )
+    # Create a new tag pointing to this commit.
     tag_name = "v{}".format(next_version)
     git_tag(name=tag_name, hash=commit_hash)
+    # Try to create the changelog.
     changelog = make_changelog()
     git_add(changelog)
     git_commit(
