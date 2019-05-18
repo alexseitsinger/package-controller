@@ -1,3 +1,7 @@
+<a name="v0.3.8"></a>
+## [v0.3.8](https://github.com/alexseitsinger/package_controller/compare/v0.3.7...v0.3.8) (2019-05-18)
+
+
 <a name="v0.3.7"></a>
 ## [v0.3.7](https://github.com/alexseitsinger/package_controller/compare/v0.3.6...v0.3.7) (2019-05-18)
 
