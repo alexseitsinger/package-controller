@@ -1,3 +1,10 @@
+<a name="v0.3.10"></a>
+## [v0.3.10](https://github.com/alexseitsinger/package_controller/compare/v0.3.9...v0.3.10) (2019-05-18)
+
+### Bug Fixes
+- fixes TypeError throwing ([726dbd5](https://github.com/alexseitsinger/package_controller/commit/726dbd5234844f163547a7dd51943a985b99a742))
+
+
 <a name="v0.3.9"></a>
 ## [v0.3.9](https://github.com/alexseitsinger/package_controller/compare/v0.3.8...v0.3.9) (2019-05-18)
 
