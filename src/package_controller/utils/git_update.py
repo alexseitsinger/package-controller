@@ -23,7 +23,7 @@ def git_update(current_version, next_version):
     )
     # Create a new tag pointing to this commit.
     tag_name = "v{}".format(next_version)
-    try
+    try:
         git_tag(name=tag_name, hash=commit_hash)
     except RuntimeError as exc:
         run("git", "reset", "--hard", last_commit_hash)
