@@ -17,7 +17,7 @@ def git_tag(name, hash=None):
         # If we get some output and it says the tag exists, continue...
         if message.startswith("fatal: tag") and message.endswith("already exists"):
             # Get the commit hash that is connected to the tag.
-            tagged_commit = run("git", "rev-list", "-n", 1, name)
+            tagged_commit = run("git", "rev-list", "-n", str(1), name)
             # If the commit does not exist, then delete the tag, and re-run this command.
             # Otherwise, raise an exception.
             if not assert_commit(tagged_commit):
