@@ -15,4 +15,5 @@ from .save_version import save_version
 from .twine_upload import twine_upload
 from .build_package import build_package
 from .bump_version import bump_version
+from .assert_commit import assert_commit
 
