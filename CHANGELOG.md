@@ -1,3 +1,10 @@
+<a name="v0.3.9"></a>
+## [v0.3.9](https://github.com/alexseitsinger/package_controller/compare/v0.3.8...v0.3.9) (2019-05-18)
+
+### Bug Fixes
+- fixes git tag exception catching ([ab98fe9](https://github.com/alexseitsinger/package_controller/commit/ab98fe9ba7be8c12f5db7ad7f366882d743b48d0))
+
+
 <a name="v0.3.8"></a>
 ## [v0.3.8](https://github.com/alexseitsinger/package_controller/compare/v0.3.7...v0.3.8) (2019-05-18)
 
