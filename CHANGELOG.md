@@ -1,3 +1,27 @@
+<a name="v0.3.7"></a>
+## [v0.3.7](https://github.com/alexseitsinger/package_controller/compare/v0.3.6...v0.3.7) (2019-05-18)
+
+### Bug Fixes
+- adds missing colon to try ([d38e24f](https://github.com/alexseitsinger/package_controller/commit/d38e24f5bbd724423db5b9b6bf087ff2cf5d0136))
+
+### Code Refactoring
+- added status message if changelog fails ([0239544](https://github.com/alexseitsinger/package_controller/commit/02395447c0232b6baeb0650fd28d55d52c779050))
+- adds check for executable ([2e018ac](https://github.com/alexseitsinger/package_controller/commit/2e018acc597997e737d30c322f1215c1801d6225))
+- adds new utils method to pakcage scope ([54afe73](https://github.com/alexseitsinger/package_controller/commit/54afe738f5bf0e4683756c02f5c51850d0e3b406))
+- adds skip for missing twine ([72daa0d](https://github.com/alexseitsinger/package_controller/commit/72daa0d0b708fd87f0de4741746f77a97c546708))
+- changes directory names to python-allowed package names ([afdc461](https://github.com/alexseitsinger/package_controller/commit/afdc4615c22bda8a05eaccbf5ab6dbb9c54c02e7))
+- changes output messsage for status ([013554f](https://github.com/alexseitsinger/package_controller/commit/013554f6164aaefef0540749d785501df3290737))
+- changes var name, adds check for exec ([c38bb6a](https://github.com/alexseitsinger/package_controller/commit/c38bb6af82b8ca3ff3cc369e71b49d424914b4d8))
+- makes initial messages bold ([eb994b6](https://github.com/alexseitsinger/package_controller/commit/eb994b6d7da29550950bfe372dc36185e166eb3a))
+- reset version ([336b353](https://github.com/alexseitsinger/package_controller/commit/336b353bcc9c874fac2726f248a023d502f3b77e))
+
+### Features
+- adds git reset if tag fails ([b8a59c9](https://github.com/alexseitsinger/package_controller/commit/b8a59c9495a31219a0200fdf9c92d6dfb880f2c1))
+- adds new util to check if commits exist ([4817e4a](https://github.com/alexseitsinger/package_controller/commit/4817e4a15c55dcd2894fbb8c2bbc7e0f55799a73))
+- adds tag deleting if points to bad commit ([8682397](https://github.com/alexseitsinger/package_controller/commit/8682397486f275c96f2cfc2611b14549e329e346))
+- adds which util to check for global executables ([8ce91fd](https://github.com/alexseitsinger/package_controller/commit/8ce91fdab6b0cf67e51a265c4ab1045225ac767a))
+
+
 <a name="v0.3.6"></a>
 ## [v0.3.6](https://github.com/alexseitsinger/package_controller/compare/v0.3.5...v0.3.6) (2019-05-17)
 
