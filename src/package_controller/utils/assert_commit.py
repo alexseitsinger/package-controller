@@ -1,9 +1,12 @@
-import subprocess
+from subprocess import Popen, PIPE
+
+GIT_LOG_ARGS = ["git", "log"]
+GREP_ARGS = ["grep"]
 
 
 def assert_commit(hash):
-    p1 = subprocess.Popen(["git", "log"], stdout=subprocess.PIPE)
-    p2 = subprocess.Popen(["grep", hash], stdin=p1.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p1 = Popen(GIT_LOG_ARGS, stdout=PIPE)
+    p2 = Popen(GREP_ARGS + [hash], stdin=p1.stdout, stdout=PIPE, stderr=PIPE)
     p1.stdout.close()
     stdout, stderr = p2.communicate()
     if stdout.strip().decode("utf-8") == "commit {}".format(hash):
