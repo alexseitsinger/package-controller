@@ -1,13 +1,16 @@
 import os
 import click
 
-from ...utils import build_package
+from ...utils.build_package import build_package
 
 
 @click.command()
-def build():
+@click.option(
+    "--force", required=False, default=False, is_flag=True,
+    help="Force building the package despite having uncommmited changes.")
+def build(force):
     try:
-        built = build_package()
+        built = build_package(force=force)
         click.secho("Successfully built package.", fg="green", bold=True)
         click.secho(
             "Files:\n    {}".format("\n    ".join([
