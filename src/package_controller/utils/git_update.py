@@ -16,8 +16,7 @@ def git_update(current_version, next_version):
     # Commit the change, and get the new hash.
     commit_hash = git_commit(
         type="docs",
-        subject="updates the version",
-        description="updates the version from {} to {}".format(
+        subject="updates the version from {} to {}".format(
             current_version, next_version
         ),
     )
@@ -33,7 +32,6 @@ def git_update(current_version, next_version):
     git_add(changelog)
     git_commit(
         type="docs",
-        subject="updates the changelog".format(tag_name),
-        description="updates the changelog for {}".format(tag_name),
+        subject="updates the changelog for {}".format(tag_name),
     )
 
