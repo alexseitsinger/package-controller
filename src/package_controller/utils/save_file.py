@@ -1,6 +1,8 @@
 import re
+from io import open
 
 RE_VARIABLE = r"(^{} = ['\"])([^'\"]*)(['\"])"
+
 
 def save_file(path, variable, value):
     encoding = "utf-8"
