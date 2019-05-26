@@ -15,6 +15,8 @@ def twine_upload():
     git_status()
     version = get_version()
     setup_module = find_file("setup.py")
+    if setup_module is None:
+        raise RuntimeError("No python package could be found.")
     root = os.path.dirname(setup_module)
     directory_name = os.path.basename(root)
     package_name = directory_name.replace("-", "_")
