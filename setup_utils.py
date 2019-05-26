@@ -2,6 +2,7 @@ import os
 import re
 from io import open
 
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DIRECTORY_NAME = os.path.basename(ROOT)
 PACKAGE_NAME = DIRECTORY_NAME.replace("-", "_")
