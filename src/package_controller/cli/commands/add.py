@@ -6,7 +6,7 @@ from ...utils.git_add import git_add
 
 @click.command()
 @click.argument("name", required=True)
-def commit(name):
+def add(name):
     try:
         git_add(name)
         click.secho("Successfully added files.", fg="green", bold=True)
