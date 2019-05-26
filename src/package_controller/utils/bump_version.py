@@ -5,8 +5,9 @@ from .get_version import get_version
 from .save_version import save_version
 
 
-def bump_version(major=False, minor=False, patch=False):
-    git_status()
+def bump_version(major=False, minor=False, patch=False, force=False):
+    if force is False:
+        git_status()
     current_version = get_version()
     next_version = None
     if major is True and all([x is False for x in [minor, patch]]):
