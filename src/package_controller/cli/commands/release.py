@@ -1,10 +1,8 @@
 import os
 import click
 
-from ...utils import (
-    twine_upload,
-    git_push,
-)
+from ...utils.twine_upload import twine_upload
+from ...utils.git_push import git_push
 
 
 @click.command()
