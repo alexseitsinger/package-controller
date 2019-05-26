@@ -50,9 +50,13 @@ def git_commit(commit_type, subject, description=None):
     subject = format_commit_text(subject)
     # Create the heading for the commit.
     heading = "{}: {}".format(commit_type, subject)
-    if len(heading) > 50:
-        raise RuntimeError(
-            "The commit heading must be 50 characters or less.")
+    heading_len = len(heading)
+    heading_len_max = 50
+    heading_len_diff = heading_len - heading_len_max
+    if heading_len_diff > 0:
+        raise RuntimeError("The heading is {} characters too long. "
+                           "It must be {} characters or less.".format(
+                           heading_len_diff, heading_len_max))
     # Create the commit args.
     commit_args = GIT_COMMIT_ARGS + ["-m", heading]
     # Iterate over the description, if possible, and convert each line into
