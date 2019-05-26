@@ -44,12 +44,12 @@ def format_commit_description(description, delimiter="."):
     return joined
 
 
-def git_commit(type, subject, description=None):
-    assert_commit_type(type)
+def git_commit(commit_type, subject, description=None):
+    assert_commit_type(commit_type)
     # Remove any excess whitespace from the subject.
     subject = format_commit_text(subject)
     # Create the heading for the commit.
-    heading = "{type}: {subject}".format(type=type, subject=subject)
+    heading = "{}: {}".format(commit_type, subject)
     if len(heading) > 50:
         raise RuntimeError(
             "The commit heading must be 50 characters or less.")
