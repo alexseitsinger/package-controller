@@ -10,8 +10,10 @@ PIPENV_RUN_ARGS = ["pipenv", "run"]
 TARBALL_NAME = "{}-{}.tar.gz"
 WHEEL_NAME = "{}-{}-py3-none-any.whl"
 
-def build_package():
-    git_status()
+
+def build_package(force=False):
+    if force is False:
+        git_status()
     current_version = get_version()
     setup_file = find_file("setup.py")
     root = os.path.dirname(setup_file)
