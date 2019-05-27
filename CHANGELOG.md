@@ -1,3 +1,36 @@
+<a name="v0.4.0"></a>
+## [v0.4.0](https://github.com/alexseitsinger/package_controller/compare/v0.3.10...v0.4.0) (2019-05-27)
+
+### Bug Fixes
+- renames method name correctly ([0fee27d](https://github.com/alexseitsinger/package_controller/commit/0fee27ddbb8002c1fbb577126fc100ef2818d7a5))
+- replaces vars with non reserved words ([3ae87dc](https://github.com/alexseitsinger/package_controller/commit/3ae87dc4e7b255c482464e94e044c9e3d242b36c))
+
+### Code Refactoring
+- Adds git_add_file method. ([c36cf70](https://github.com/alexseitsinger/package_controller/commit/c36cf70af4f201b3786233c60f8e20f7e8f80870))
+- Adds heading len exception description. ([ee3cfcf](https://github.com/alexseitsinger/package_controller/commit/ee3cfcfb2b9eda46d7e188d8720d4c7ce914d3c5))
+- changes imports ([873a00f](https://github.com/alexseitsinger/package_controller/commit/873a00fee8caa4ce0ae523a230cd7616823d94df))
+- changes imports ([855d60b](https://github.com/alexseitsinger/package_controller/commit/855d60b20e3f1666e0d832e7ecf9c334dbdd4d99))
+- Changes save_file to replace_line. ([8880ae1](https://github.com/alexseitsinger/package_controller/commit/8880ae182ba496e74e4a29054a393c2ecd39d815))
+- combines run args together ([73731fd](https://github.com/alexseitsinger/package_controller/commit/73731fd104d0193f0ae1e9bc80bd56119c5b81c5))
+- moves nested fns to module scope ([748fe0b](https://github.com/alexseitsinger/package_controller/commit/748fe0b1ffdbaf5d560ee1c61e3a129163297df1))
+- Raises error when cant find pkg. ([4fb75e8](https://github.com/alexseitsinger/package_controller/commit/4fb75e8f58fe3b0d6a0ef889e2c2c6a164305239))
+- removes description from commit messages ([0e8d405](https://github.com/alexseitsinger/package_controller/commit/0e8d405b709e0e9e3065dd08a937a08a2f175c29))
+- removes imports ([a1a65eb](https://github.com/alexseitsinger/package_controller/commit/a1a65eb051b85453b143b1467081600ebb82ae49))
+- removes imports ([b1b1f07](https://github.com/alexseitsinger/package_controller/commit/b1b1f075faf1a65230bc647e287aada28d43b013))
+
+### Features
+- adds add command to cli ([a276ac8](https://github.com/alexseitsinger/package_controller/commit/a276ac8e4b4348c1c5467a916caa3018d28ef932))
+- adds commit cli command ([38a7422](https://github.com/alexseitsinger/package_controller/commit/38a7422c7973b016bd16c10e7404bee76c9c7831))
+- adds force flag ([d7045d3](https://github.com/alexseitsinger/package_controller/commit/d7045d37481695faf8777e80840a3a95f77ff50b))
+- adds force flag ([e2a7174](https://github.com/alexseitsinger/package_controller/commit/e2a7174fb66086f58fea20c4caf0bffa80e1496a))
+- adds force flag opt. changes imports. ([494b4ca](https://github.com/alexseitsinger/package_controller/commit/494b4ca8a6fbef50833f1cee7b30b739ca5398e7))
+- adds force flag option ([83bb1c6](https://github.com/alexseitsinger/package_controller/commit/83bb1c6301c06bea1a6b6bb866773bc652659d47))
+- adds msg formatting and checking ([cc1b700](https://github.com/alexseitsinger/package_controller/commit/cc1b700befc3341eac822a28f72d0459bddd5037))
+- changes imports. adds commands ([018b943](https://github.com/alexseitsinger/package_controller/commit/018b94362633ee1d079bfa13b0d2ef152a2f9a3b))
+- imports open from io ([bc4d24e](https://github.com/alexseitsinger/package_controller/commit/bc4d24ea9c43e808f7937c3d7b6bf3519c3546f6))
+- updates to use util fn ([2661d7a](https://github.com/alexseitsinger/package_controller/commit/2661d7adfb5f12e2a3d0ff739cb633fb645847b8))
+
+
 <a name="v0.3.10"></a>
 ## [v0.3.10](https://github.com/alexseitsinger/package_controller/compare/v0.3.9...v0.3.10) (2019-05-18)
 
