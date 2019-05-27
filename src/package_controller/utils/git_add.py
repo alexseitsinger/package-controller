@@ -8,42 +8,39 @@ GIT_ADD_ARGS = ["git", "add"]
 AWK_ARGS = ["awk", "{print $NF}"]
 
 
-def get_staged_files():
+def _list_staged_files():
     p1 = Popen(GIT_STATUS_ARGS, stdout=PIPE)
     p2 = Popen(AWK_ARGS, stdin=p1.stdout, stdout=PIPE, stderr=PIPE)
     p1.stdout.close()
     out, err = p2.communicate()
-    decoded = out.decode("utf-8")
-    split = decoded.split()
-    return split
+    return out.decode("utf-8").split()
 
 
-def git_add_file(f):
+def _add_file(f):
     try:
         run(*GIT_ADD_ARGS + [f])
-        # Return the successful add file name.
         return f
     except RuntimeError as exc:
-        message = str(exc)
+        msg = str(exc)
         # If we get a failed add due to unmatching file. attempt to find it.
-        if message.startswith("fatal: pathspec") and message.endswith("did not match any files"):
-            for sf in get_staged_files():
-                # If we get a relative path, compare the end of the string.
-                if len(f.split(os.path.sep)) > 1 and sf.endswith(f):
-                    return git_add_file(sf)
-                # Otehrwise, compare basenames of files.
+        if msg.startswith("fatal: pathspec") and msg.endswith("did not match any files"):
+            for sf in _list_staged_files():
+                if os.path.sep in f:
+                    # path/to/dir/ -> path/to/dir/first.py, path/to/dir/second.py
+                    if f.endswith(os.path.sep):
+                        if sf.startswith(f):
+                            return _add_file(sf)
+                    # path/to/file.py -> path/to/file.py
+                    elif sf.endswith(f):
+                        return _add_file(sf)
+                # file.py -> path/to/file.py 
                 elif os.path.basename(sf) == os.path.basename(f):
-                    return git_add_file(sf)
+                    return _add_file(sf)
         # Otehrwise, just raise the original exception.
-        raise exc
+        raise RuntimeError("Failed to add file {}".format(f))
 
 
 def git_add(*files):
     if not len(files):
         raise RuntimeError("No files passed")
-    succeeded = []
-    for f in list(files):
-        fn = git_add_file(f)
-        if fn is not None:
-            succeeded += [fn]
-    return succeeded
+    return [ _add_file(x) for x in files ]
