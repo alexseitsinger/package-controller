@@ -31,7 +31,7 @@ setup(
         "Topic :: Documentation",
         "Topic :: Software Development :: Build Tools",
         "Topic :: Software Development :: Documentation",
-        "Topic :: Software Development :: Git",
+        "Topic :: Software Development :: Version Control :: Git",
         "Topic :: System :: Archiving :: Packaging",
         "Topic :: System :: Software Distribution",
         "Topic :: Utilities",
