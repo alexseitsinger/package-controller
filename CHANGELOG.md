@@ -1,3 +1,15 @@
+<a name="v0.4.3"></a>
+## [v0.4.3](https://github.com/alexseitsinger/package_controller/compare/v0.4.2...v0.4.3) (2019-05-27)
+
+### Code Refactoring
+- Adds changelog before tag. ([f416615](https://github.com/alexseitsinger/package_controller/commit/f416615caa743c620a09e4474a9ae5d30508f958))
+- Optimizes method. ([c23d7f1](https://github.com/alexseitsinger/package_controller/commit/c23d7f1bc56e2db3d672c168e58b1532070072f4))
+- Removes and replaces custom exceptions. ([5ea1d7c](https://github.com/alexseitsinger/package_controller/commit/5ea1d7c88c6b75f653be80231e1b85fb30d6e5d7))
+
+### Features
+- Replaces calls to which with assert_which. ([e5b05fd](https://github.com/alexseitsinger/package_controller/commit/e5b05fdb712691a0fe619f2cbd99bd7dae8b44f9))
+
+
 <a name="v0.4.2"></a>
 ## [v0.4.2](https://github.com/alexseitsinger/package_controller/compare/v0.4.1...v0.4.2) (2019-05-27)
 
