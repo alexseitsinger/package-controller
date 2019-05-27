@@ -16,3 +16,11 @@ def which(program):
             if is_exe(exe_file):
                 return exe_file
     return None
+
+
+def assert_which(name):
+    if which(name) is None:
+        raise RuntimeError("Executable not found. ({})".format(name))
+
+
+

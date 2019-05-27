@@ -2,6 +2,7 @@ import textwrap
 import re
 
 from .run import run
+from .which import assert_which
 
 
 GIT_COMMIT_ARGS = ["git", "commit"]
@@ -37,6 +38,7 @@ def format_commit_description(description):
 
 
 def git_commit(commit_type, subject, description=None):
+    assert_which("git")
     assert_commit_type(commit_type)
     # Remove any excess whitespace from the subject.
     subject = format_commit_text(subject)

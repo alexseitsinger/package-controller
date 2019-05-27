@@ -4,7 +4,7 @@ from .get_version import get_version
 from .find_file import find_file
 from .run import run
 from .git_status import git_status
-from .which import which
+from .which import assert_which
 
 TWINE_UPLOAD_ARGS = ["twine", "upload"]
 TARBALL_NAME = "{}-{}.tar.gz"
@@ -23,18 +23,13 @@ def twine_upload():
     wheel = os.path.join(dist_dir, wheel_name)
     tarball_name = TARBALL_NAME.format(package_name, version)
     tarball = os.path.join(dist_dir, tarball_name)
-    # Check if the wheel exists.
-    if not os.path.exists(wheel):
-        raise RuntimeError("Wheel does not exist. ({})".format(wheel))
-    # Check if the tarball exists.
-    if not os.path.exists(tarball):
-        raise RuntimeError("Tarball does not exist. ({})".format(tarball))
-    # Check if Twine exists on PATH.
-    twine = which("twine")
-    if twine is None:
-        raise RuntimeError("twine is not installed.")
-    # Upload the files to pypi.
     uploaded = [wheel, tarball]
-    twine_upload_args = TWINE_UPLOAD_ARGS + uploaded
-    run(*twine_upload_args)
+    for path in uploaded:
+        if not os.path.exists(path):
+            raise RuntimeError("File does not exist. ({})".format(path))
+    # Check if Twine exists on PATH.
+    assert_which("twine")
+    # Run the command
+    run(*TWINE_UPLOAD_ARGS + uploaded)
+    # Return the list of paths we uploaded.
     return uploaded
