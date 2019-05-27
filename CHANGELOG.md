@@ -1,3 +1,15 @@
+<a name="v0.4.2"></a>
+## [v0.4.2](https://github.com/alexseitsinger/package_controller/compare/v0.4.1...v0.4.2) (2019-05-27)
+
+### Bug Fixes
+- Fixes commits failing with description. ([1a51b92](https://github.com/alexseitsinger/package_controller/commit/1a51b92a7f0afd4be9a12e1c537746fc4ea44509))
+
+### Code Refactoring
+- Condenses func into single line. ([9021b13](https://github.com/alexseitsinger/package_controller/commit/9021b139ca9e20772e168be66cb8b4bb0ef974b7))
+- Find_file raises exception instead. ([2842fe7](https://github.com/alexseitsinger/package_controller/commit/2842fe7b5f20f2982cd354173a172623309fb23a))
+- Optimizes process. ([71f63b3](https://github.com/alexseitsinger/package_controller/commit/71f63b3f1d32c6f6680b031be19dca5f03a06a68))
+
+
 <a name="v0.4.1"></a>
 ## [v0.4.1](https://github.com/alexseitsinger/package_controller/compare/v0.4.0...v0.4.1) (2019-05-27)
 
