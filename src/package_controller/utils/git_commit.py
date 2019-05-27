@@ -27,21 +27,13 @@ def format_commit_text(text):
     return text
 
 
-def format_commit_description(description, delimiter="."):
-    # Try to split the description up into bits using the delimiter.
-    bits = None
-    if bits is None or isinstance(bits, list) and not len(bits):
-        bits = [
-            format_commit_text(x)
-            for x in re.split(RE_DESCRIPTION_DELIMITER, description)
-            if len(x)
-        ]
-    # convert the bits into a single string again, that is wrapped at 72 
-    # characters.
-    text = " ".join(bits)
-    wrapped = textwrap.wrap(text, width=72)
-    joined = "\n".join(wrapped)
-    return joined
+def format_commit_description(description):
+    text = " ".join([
+        format_commit_text(x)
+        for x in re.split(RE_DESCRIPTION_DELIMITER, description)
+        if len(x)
+    ])
+    return "\n".join(textwrap.wrap(text, width=72))
 
 
 def git_commit(commit_type, subject, description=None):
@@ -62,7 +54,7 @@ def git_commit(commit_type, subject, description=None):
     # Iterate over the description, if possible, and convert each line into
     # a new -m entry to use a newline in the commit message.
     if description is not None:
-        commit_args += format_commit_description(description)
+        commit_args += ["-m", format_commit_description(description)]
     # Run the command we've put togehter to create the commit.
     run(*commit_args)
     # Then, get and return the hash for the commit we just created.
