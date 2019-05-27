@@ -3,18 +3,17 @@ from io import open
 
 from ..exceptions import ReadFileException
 
+RE_VARIABLE = r"^{} = ['\"]([^'\"]*)['\"]"
 
 def read_file(path, variable=None):
     with open(path, "r", encoding="utf-8") as f:
         content = f.read()
         if variable is None:
             return content
-        regex = r"^{} = ['\"]([^'\"]*)['\"]".format(variable)
+        regex = RE_VARIABLE.format(variable)
         match = re.search(regex, content, re.M)
         if match:
             return match.group(1)
-        raise ReadFileException(
-            "Unable to read variable ({}) in file ({})".format(variable, path)
-        )
+        raise RuntimeError("Failed to read file. ({})".format(path))
 
 
