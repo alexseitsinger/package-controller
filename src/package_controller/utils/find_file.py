@@ -9,7 +9,7 @@ def find_file(file_name, current_dir=None):
     if file_name in file_list:
         return os.path.join(current_dir, file_name)
     elif current_dir == parent_dir:
-        return None
+        raise RuntimeError("Failed to find file {}".format(file_name))
     else:
         return find_file(file_name, parent_dir)
 

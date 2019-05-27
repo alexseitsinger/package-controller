@@ -16,8 +16,6 @@ def build_package(force=False):
         git_status()
     current_version = get_version()
     setup_file = find_file("setup.py")
-    if setup_file is None:
-        raise RuntimeError("No python package could be found.")
     root = os.path.dirname(setup_file)
     name = os.path.basename(root)
     dist_dir = os.path.join(root, "dist")

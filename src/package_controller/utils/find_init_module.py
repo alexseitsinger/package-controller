@@ -7,8 +7,6 @@ from .find_file import find_file
 def find_init_module():
     # Find the root dir for the package.
     setup_file = find_file("setup.py")
-    if setup_file is None:
-        raise RuntimeError("No python package could be found.")
     # get the package root directory
     root_dir = os.path.dirname(os.path.abspath(setup_file))
     # get the package name from the root dir.
