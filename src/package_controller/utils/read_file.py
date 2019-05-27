@@ -1,7 +1,6 @@
 import re
 from io import open
 
-from ..exceptions import ReadFileException
 
 RE_VARIABLE = r"^{} = ['\"]([^'\"]*)['\"]"
 

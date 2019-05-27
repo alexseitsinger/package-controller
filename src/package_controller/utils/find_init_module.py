@@ -1,6 +1,5 @@
 import os
 
-from ..exceptions import FindInitModuleException
 from .find_file import find_file
 
 
@@ -20,14 +19,12 @@ def find_init_module():
     else:
         package_dir = os.path.join(root_dir, package_name)
     if not os.path.exists(package_dir):
-        raise FindInitModuleException(
-            "The package directory does not exist. ({})".format(package_dir)
-        )
+        raise RuntimeError("The package directory does not exist. ({})".format(
+                           package_dir))
     # In the package source root, find the init module.
     init_module = os.path.join(package_dir, "__init__.py")
     if not os.path.exists(init_module):
-        raise FindInitModuleException(
-            "The init module does not exist. ({})".format(init_module)
-        )
+        raise RuntimeError("The init module does not exist. ({})".format(
+                           init_module))
     return init_module
 
