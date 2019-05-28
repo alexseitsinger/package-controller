@@ -3,38 +3,12 @@ import re
 
 from .run import run
 from .which import assert_which
-
+from .assert_commit_type import assert_commit_type
+from .format_commit_text import format_commit_text
+from .format_commit_description import format_commit_description
 
 GIT_COMMIT_ARGS = ["git", "commit"]
 GIT_LAST_COMMIT_HASH_ARGS = ["git", "rev-parse", "HEAD"]
-RE_DESCRIPTION_DELIMITER = r"(?![\w\d])\.\s+"
-COMMIT_TYPES_ALLOWED = [
-    "chore", "feat", "fix", "docs", "style", "refactor", "perf", "localize",
-    "test",
-]
-
-
-def assert_commit_type(name):
-    if not name in COMMIT_TYPES_ALLOWED:
-        raise RuntimeError("The commit type must be one of {}".format(
-            ", ".join(COMMIT_TYPES_ALLOWED)))
-
-
-def format_commit_text(text):
-    text = text.strip()
-    text = text.capitalize()
-    if not text.endswith("."):
-        text = "{}.".format(text)
-    return text
-
-
-def format_commit_description(description):
-    text = " ".join([
-        format_commit_text(x)
-        for x in re.split(RE_DESCRIPTION_DELIMITER, description)
-        if len(x)
-    ])
-    return "\n".join(textwrap.wrap(text, width=72))
 
 
 def git_commit(commit_type, subject, description=None):
