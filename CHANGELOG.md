@@ -1,3 +1,10 @@
+<a name="v0.6.0"></a>
+## [v0.6.0](https://github.com/alexseitsinger/package_controller/compare/v0.5.1...v0.6.0) (2019-05-28)
+
+### Code Refactoring
+- Changes release to fascade. ([76f93a5](https://github.com/alexseitsinger/package_controller/commit/76f93a5d597392e8851e7baf954f26c9bbc8879e))
+
+
 <a name="v0.5.1"></a>
 ## [v0.5.1](https://github.com/alexseitsinger/package_controller/compare/v0.5.0...v0.5.1) (2019-05-28)
 
