@@ -29,8 +29,10 @@ def version(major, minor, patch, no_git, force):
             if no_git is False:
                 commit_hash, tag_name = git_update(old_version, new_version)
             click.secho("Successfully updated version from {} to {}".format(old_version, new_version), fg="green", bold=True)
-            if all([x is not None for x in [commit_hash, tag_name]]):
-                click.secho("{}: {}".format(commit_hash, tag_name), fg="green")
+            if commit_hash is not None:
+                click.secho("Commit: {}".format(commit_hash), fg="green")
+            if tag_name is not None:
+                click.secho("Tag name: {}".format(tag_name), fg="green")
         except RuntimeError as exc:
             message = str(exc)
             if message == "git-changelog is not installed.":
