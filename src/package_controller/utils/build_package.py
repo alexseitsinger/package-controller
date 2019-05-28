@@ -1,4 +1,5 @@
 import os
+import json
 
 from .run import run
 from .get_version import get_version
@@ -50,21 +51,20 @@ def build_package_python():
 def build_package_node():
     assert_which("node")
     package_file = find_file("package.json")
-    root = os.path.dirname(package_file)
-    dist_dir = os.path.join(root, "dist")
-    output = os.path.join(dist_dir, "main.js")
+    built = []
+    with open(package_file, "r") as f:
+        package_file_json = json.loads(f.read())
+        built +=  [package_file_json["name"]]
     try:
         assert_which("yarn")
         run(*YARN_RUN_BUILD_ARGS)
-        if not os.path.exists(output):
-            raise RuntimeError("The node package output was not found. ({})".format(output))
-        return output
+        return built
     except RuntimeError as exc:
         msg = str(exc)
         if msg == "Executable was not found. (yarn)":
             assert_which("npm")
             run(*NPM_RUN_BUILD_ARGS)
-            return output
+            return built
         raise RuntimeError("Neither Yarn or NPM were found.")
 
 
