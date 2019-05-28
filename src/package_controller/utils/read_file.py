@@ -1,11 +1,11 @@
 import re
 from io import open
 
-
 RE_VARIABLE = r"^{} = ['\"]([^'\"]*)['\"]"
 
+
 def read_file(path, variable=None):
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, "r") as f:
         content = f.read()
         if variable is None:
             return content
