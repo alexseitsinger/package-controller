@@ -1,3 +1,25 @@
+<a name="v0.4.4"></a>
+## [v0.4.4](https://github.com/alexseitsinger/package_controller/compare/v0.4.3...v0.4.4)
+
+### Code Refactoring
+- Adds return value. ([5b50e1e](https://github.com/alexseitsinger/package_controller/commit/5b50e1eb666490d21c1471bf769a54fb990261d6))
+- Changes cli message location. ([eb1162d](https://github.com/alexseitsinger/package_controller/commit/eb1162d91ef3b316318a7aa382339ca01dd49081))
+- Changes cli output msg. ([db29c86](https://github.com/alexseitsinger/package_controller/commit/db29c86be48dcb85da6ce18136a592d551de4e41))
+- Changes git assertion method name. ([0f6379a](https://github.com/alexseitsinger/package_controller/commit/0f6379a155f97ea0146ebed414cb737b84f29b1d))
+- Converts to fascade for node and python. ([c05c07c](https://github.com/alexseitsinger/package_controller/commit/c05c07cf909e2adca6d644cc7da2585b0a8c4154))
+- Moves duplicated code to main fascade. ([f16b30b](https://github.com/alexseitsinger/package_controller/commit/f16b30bb0f45b8555dfad4ce68a457a216f9d2eb))
+- Moves helper funcs to own modules. ([8e98bba](https://github.com/alexseitsinger/package_controller/commit/8e98bba70cbc75b38c13d84a34b6fc26ab54d41a))
+- Moves helper method to its own module. ([c687f45](https://github.com/alexseitsinger/package_controller/commit/c687f459ecc0ab39208ef4d8683ef9235eb314c6))
+- Optimizes method. ([6af27d6](https://github.com/alexseitsinger/package_controller/commit/6af27d69e4da3c98c6d7d67b64138d532744feb7))
+- Removes encoding statement. ([15f09d9](https://github.com/alexseitsinger/package_controller/commit/15f09d994ecc87f49ad0ac481cc27f4b092cd30a))
+- Removes min() around index calc. ([d02be7c](https://github.com/alexseitsinger/package_controller/commit/d02be7cb497e7381fa9a856ca35c4282127d8760))
+- Renames module. ([eb1417e](https://github.com/alexseitsinger/package_controller/commit/eb1417e3562b5eaedff9cb1197635ad5ca93e0d6))
+
+### Features
+- Adds package type checking utils. ([c88760f](https://github.com/alexseitsinger/package_controller/commit/c88760f72b30e0d6f599040b3c5538fc785cb7a5))
+- Moves utils into their own modules. ([681912a](https://github.com/alexseitsinger/package_controller/commit/681912ad8d143b18b4da99bb470735ea3089e1fa))
+
+
 <a name="v0.4.3"></a>
 ## [v0.4.3](https://github.com/alexseitsinger/package_controller/compare/v0.4.2...v0.4.3) (2019-05-27)
 
