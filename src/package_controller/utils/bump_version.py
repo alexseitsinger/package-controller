@@ -8,25 +8,21 @@ from .find_file import find_file
 from .run import run
 from .is_python_package import is_python_package
 from .is_node_package import is_node_package
-from .git_add import git_add
-from .make_changelog import make_changelog
 
 
 def bump_version_python(old_version, new_version):
     assert_which("python")
     save_version(new_version)
-    return (old_version, new_version)
+    return (old_version, new_version,)
 
 
 def bump_version_node(old_version, new_version):
     assert_which("node")
     assert_which("yarn")
-    # create the changelog now.
-    git_add(make_changelog())
     # update the version...
     run("yarn", "version", "--new-version", new_version, "--message", new_version)
     # return the version numbers.
-    return (old_version, new_version)
+    return (old_version, new_version,)
 
 
 def bump_version(major=False, minor=False, patch=False, force=False):
