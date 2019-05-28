@@ -35,7 +35,7 @@ def bump_version(major=False, minor=False, patch=False, force=False):
     elif minor is True and all([x is False for x in [major, patch]]):
         new_version = semver.bump_minor(old_version)
     elif patch is True and all([x is False for x in [major, minor]]):
-        new_version = semver.bump_path(old_version)
+        new_version = semver.bump_patch(old_version)
     else:
         raise RuntimeError("Can only update one of major, minor, or patch")
     is_python = is_python_package()
