@@ -25,13 +25,12 @@ from ...utils.get_version import get_version
 def version(major, minor, patch, no_git, force):
     if any([x is True for x in [major, minor, patch]]):
         try:
-            old_version, new_version = bump_version(
-                major=major, minor=minor, patch=patch, force=force)
-            message = "Successfully updated version from {} to {}".format(
-                old_version, new_version)
+            old_version, new_version = bump_version(major=major, minor=minor, patch=patch, force=force)
             if no_git is False:
-                git_update(old_version, new_version)
-            click.secho(message, fg="green", bold=True)
+                commit_hash, tag_name = git_update(old_version, new_version)
+            click.secho("Successfully updated version from {} to {}".format(old_version, new_version), fg="green", bold=True)
+            if all([x is not None for x in [commit_hash, tag_name]]):
+                click.secho("{}: {}".format(commit_hash, tag_name), fg="green")
         except RuntimeError as exc:
             message = str(exc)
             if message == "git-changelog is not installed.":
