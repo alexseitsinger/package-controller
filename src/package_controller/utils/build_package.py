@@ -56,7 +56,7 @@ def build_package_node():
     try:
         assert_which("yarn")
         run(*YARN_RUN_BUILD_ARGS)
-        is not os.path.exists(output):
+        if not os.path.exists(output):
             raise RuntimeError("The node package output was not found. ({})".format(output))
         return output
     except RuntimeError as exc:
