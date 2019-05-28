@@ -2,49 +2,166 @@ import pytest
 import tempfile
 
 from package_controller.utils.assert_commit import assert_commit
+from package_controller.utils.assert_commit_type import assert_commit_type
+from package_controller.utils.assert_status import assert_status
 from package_controller.utils.build_package import build_package
 from package_controller.utils.bump_version import bump_version
 from package_controller.utils.find_file import find_file
 from package_controller.utils.find_init_module import find_init_module
+from package_controller.utils.format_commit_description import \
+    format_commit_description
+from package_controller.utils.format_commit_text import \
+    format_commit_text
 from package_controller.utils.get_version import get_version
-from package_controller.utils.git_add import (
-    git_add, 
-    git_add_file,
-    git_staged_files, 
-)
+from package_controller.utils.git_add import git_add
+from package_controller.utils.git_add_file import git_add_file
 from package_controller.utils.git_commit import git_commit
 from package_controller.utils.git_push import git_push
-from package_controller.utils.git_status import git_status
+from package_controller.utils.git_staged_files import git_staged_files
 from package_controller.utils.git_tag import git_tag
 from package_controller.utils.git_update import git_update
+from package_controller.utils.is_node_package import is_node_package
+from package_controller.utils.is_python_package import is_python_package
 from package_controller.utils.make_changelog import make_changelog
 from package_controller.utils.read_file import read_file
+from package_controller.utils.release_package import release_package
 from package_controller.utils.replace_line import replace_line
 from package_controller.utils.run import run
 from package_controller.utils.save_version import save_version
 from package_controller.utils.twine_upload import twine_upload
-from package_controller.utils.which import (
-    which, 
-    assert_which
-)
+from package_controller.utils.which import which
+from package_controller.utils.assert_which import assert_which
 
 
-def test_which():
-    assert "/bin/sh" == which("sh")
-
-
-def test_assert_which():
-    assert assert_which("sh") is None
-    with pytest.raises(RuntimeError, match=r"Executable not found. \(.+\)"):
-        assert_which("nonexistant_function_name")
-
-
-def test_save_version():
-    # Since this is just a fascade for replace_line, we don't need to test it.
+def test_assert_commit():
     pass
 
 
-def test_run():
+def test_assert_commit_type():
+    # Test with a valid type.
+    assert assert_commit_type("chore") == None
+
+    # Test with an invalid type.
+    with pytest.raises(AssertionError, match=r"^The commit type must be one of "):
+        assert_commit_type("non_existent_commit_type")
+
+
+def test_assert_status():
+    pass
+
+
+def test_assert_which():
+    # Test with a valid executable.
+    assert assert_which("sh") is None
+    
+    # Test with an invalid executable
+    with pytest.raises(AssertionError, match=r"^Executable was not found. \(.+\)"):
+        assert_which("nonexistant_exec_name")
+
+
+def test_build_package():
+    pass
+
+
+def test_bump_version():
+    pass
+
+
+def test_find_file():
+    pass
+
+
+def test_find_init_module():
+    pass
+
+
+def test_format_commit_description():
+    pass
+
+
+def test_format_commit_text():
+    pass
+
+
+def test_get_version():
+    # Create a temp file to use for the python reading. 
+    tmp = tempfile.NamedTemporaryFile()
+
+    # Set the content of the file.
+    with open(tmp.name, "w") as f:
+        f.write("__version__ = \"0.1.0\"")
+    
+    with open(tmp.name) as f:
+        # Test reading a valid variable from the file.
+        assert get_version(f.name, "__version__") == "0.1.0"
+        
+        # Test reading an invalid variable.
+        with pytest.raises(AttributeError):
+            get_version(f.name, "_version_")
+     
+    # Close the file so it gets deleted.
+    tmp.close()
+
+
+def test_git_add():
+    pass
+
+
+def test_git_add_file():
+    pass
+
+
+def test_git_commit():
+    pass
+
+
+def test_git_push():
+    pass
+
+
+def test_git_staged_files():
+    pass
+
+
+def test_git_tag():
+    pass
+
+
+def test_git_update():
+    pass
+
+
+def test_is_node_package():
+    pass
+
+
+def test_is_python_package():
+    pass
+
+
+def test_make_changelog():
+    pass
+
+
+def test_read_file():
+    version = "0.1.0"
+    variable = "__version__"
+    content = "{} = \"{}\"".format(variable, version)
+
+    # create the tmpfile
+    tmp = tempfile.NamedTemporaryFile()
+    with open(tmp.name, "w") as f:
+        f.write(content)
+
+    # test
+    assert read_file(tmp.name, variable) == version
+    assert read_file(tmp.name) == content
+
+    # close the file.
+    tmp.close()
+
+
+def test_release_package():
     pass
 
 
@@ -89,86 +206,31 @@ def test_replace_line():
     tmp.close()
 
 
-def test_read_file():
-    version = "0.1.0"
-    variable = "__version__"
-    content = "{} = \"{}\"".format(variable, version)
+def test_run():
+    # Test when run is invoked without arugments.
+    with pytest.raises(RuntimeError, match=r"^Arguments are required.$"):
+        run()
 
-    # create the tmpfile
-    tmp = tempfile.NamedTemporaryFile()
-    with open(tmp.name, "w") as f:
-        f.write(content)
+    # Test when invoked with an invalid executable.
+    with pytest.raises(AssertionError, match=r"Executable was not found. \(.+\)$"):
+        run("non_existent_exec")
 
-    # test
-    assert read_file(tmp.name, variable) == version
-    assert read_file(tmp.name) == content
-
-    # close the file.
-    tmp.close()
+    # Test when invoked with a valid executable.
+    assert run("echo", "example") == "example"
 
 
-def test_make_changelog():
+# Since this is just a fascade for replace_line, we don't need to test it.
+def test_save_version():
     pass
 
 
-def test_git_update():
+def test_twine_upload():
     pass
 
 
-def test_git_tag():
-    pass
-
-
-def test_git_status():
-    pass
-
-
-def test_git_push():
-    pass
-
-
-def test_git_add():
-    pass
-
-
-def test_git_add_file():
-    pass
-
-
-def test_git_staged_files():
-    pass
-
-
-def test_git_commit():
-    pass
-
-
-def test_get_version():
-    tmp = tempfile.NamedTemporaryFile()
-    with open(tmp.name, "w") as f:
-        f.write("__version__ = \"0.1.0\"")
-    with open(tmp.name) as f:
-        assert get_version(f.name, "__version__") == "0.1.0"
-    tmp.close()
-
-
-def test_find_init_module():
-    pass
-
-
-def test_find_file():
-    pass
-
-
-def test_bump_version():
-    pass
-
-
-def test_build_package():
-    pass
-
-
-def test_assert_commit():
-    pass
-
+def test_which():
+    # Test with a valid executable
+    assert which("sh") == "/bin/sh"
+    # Test with an invalid executable.
+    assert which("non_existant_exec_name") == None
 
