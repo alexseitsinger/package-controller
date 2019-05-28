@@ -1,3 +1,10 @@
+<a name="v0.6.1"></a>
+## [v0.6.1](https://github.com/alexseitsinger/package_controller/compare/v0.6.0...v0.6.1) (2019-05-28)
+
+### Code Refactoring
+- Fixes output message for node builds. ([c9641a3](https://github.com/alexseitsinger/package_controller/commit/c9641a3207df188b7d424e6dfbc7ae86fb9a00eb))
+
+
 <a name="v0.6.0"></a>
 ## [v0.6.0](https://github.com/alexseitsinger/package_controller/compare/v0.5.1...v0.6.0) (2019-05-28)
 
