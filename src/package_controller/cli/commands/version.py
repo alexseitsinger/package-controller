@@ -27,12 +27,8 @@ def version(major, minor, patch, no_git, force):
         try:
             old_version, new_version = bump_version(major=major, minor=minor, patch=patch, force=force)
             if no_git is False:
-                commit_hash, tag_name = git_update(old_version, new_version)
+                tag_name = git_update(old_version, new_version)
             click.secho("Successfully updated version from {} to {}".format(old_version, new_version), fg="green", bold=True)
-            if commit_hash is not None:
-                click.secho("Commit: {}".format(commit_hash), fg="green")
-            if tag_name is not None:
-                click.secho("Tag name: {}".format(tag_name), fg="green")
         except RuntimeError as exc:
             message = str(exc)
             if message == "git-changelog is not installed.":
