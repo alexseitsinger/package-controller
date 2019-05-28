@@ -18,7 +18,7 @@ def replace_line(path, pattern, replacement, prepended_lines=[]):
                     count = -1
                     for prepended_line in prepended_lines:
                         count += 1
-                        place = min(start_index, max(0, (start_index - (total_prepended - count))))
+                        place = max(0, (start_index - (total_prepended - count)))
                         try:
                             if old_lines[place] != prepended_line:
                                 new_file.write(prepended_line)
