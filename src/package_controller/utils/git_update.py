@@ -10,13 +10,12 @@ from .is_python_package import is_python_package
 def git_update(old_version, new_version):
     # save the last commit hash in case we need to reset.
     last_commit_hash = run("git", "rev-parse", "HEAD") 
-    
-    # create and add the changelog and init module.
-    git_add(make_changelog())
 
+    # If it's a python package, we've updated this version variable.
+    # Make sure to include it in the commit.
     if is_python_package():
         git_add(find_init_module())
-    
+
     # create the new commit.
     commit_hash = git_commit(
         commit_type="chore",
@@ -26,10 +25,20 @@ def git_update(old_version, new_version):
         )
     )
 
-    # Create a new tag pointing to this commit.
     try:
+        # Create a tag for the latest commit.
         tag_name = "v{}".format(new_version)
-        return git_tag(tag_name, commit_hash)
+        git_tag(tag_name, commit_hash)
+
+        # Create and add the changelog and init module.
+        git_add(make_changelog())
+        git_commit(
+            commit_type="chore",
+            subject="Updates the changelog for {}".format(tag_name)
+        )
+
+        # Return the commit hash, and tag name for use.
+        return (commit_hash, tag_name,)
     except RuntimeError as exc:
         run("git", "reset", "--hard", last_commit_hash)
         raise exc
