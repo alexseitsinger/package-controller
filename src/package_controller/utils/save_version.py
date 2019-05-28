@@ -10,8 +10,9 @@ VERSION_VARIABLE_COMMENTS = [
 ]
 
 
-def save_version(next_version):
-    init_module = find_init_module()
+def save_version(next_version, file_path=None):
+    if file_path is None:
+        file_path = find_init_module()
     pattern = RE_VARIABLE.format(VERSION_VARIABLE)
     replacement = "{} = \"{}\"".format(VERSION_VARIABLE, next_version)
-    replace_line(init_module, pattern, replacement, VERSION_VARIABLE_COMMENTS)
+    replace_line(file_path, pattern, replacement, VERSION_VARIABLE_COMMENTS)
