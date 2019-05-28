@@ -1,5 +1,20 @@
-<a name="v0.4.4"></a>
-## [v0.4.4](https://github.com/alexseitsinger/package_controller/compare/v0.4.3...v0.4.4)
+<a name="v0.5.1"></a>
+## [v0.5.1](https://github.com/alexseitsinger/package_controller/compare/v0.5.0...v0.5.1) (2019-05-28)
+
+### Bug Fixes
+- Fixes changelog incorrect runtime. ([6057b81](https://github.com/alexseitsinger/package_controller/commit/6057b815c9b062ae87a657a91491f53f6fa90178))
+- Fixes if statement. ([41cc25a](https://github.com/alexseitsinger/package_controller/commit/41cc25a7fc9e5ee3ed4d572ebadea2a8b151efe3))
+- Fixes misspelled patch method name. ([ecdc9d3](https://github.com/alexseitsinger/package_controller/commit/ecdc9d3e77dff8fa6c6b3d4ab677e6aa031f587a))
+- Makes extra commit python-specific. ([8cff3fc](https://github.com/alexseitsinger/package_controller/commit/8cff3fc2e28fd7a2bc9bda1cd78f18f56088f7fa))
+
+### Code Refactoring
+- Removes changelog call. ([328db76](https://github.com/alexseitsinger/package_controller/commit/328db76446cdbaac093c14af31edb9e58ac43e67))
+- Removes extra cli messages. ([91bc421](https://github.com/alexseitsinger/package_controller/commit/91bc421671bff6761984baacd5b77443b3c7dd72))
+- Removes fascade and uses same func. ([e91a808](https://github.com/alexseitsinger/package_controller/commit/e91a8084867c53613c6fd6ee3aa018f0f87e4249))
+
+
+<a name="v0.5.0"></a>
+## [v0.5.0](https://github.com/alexseitsinger/package_controller/compare/v0.4.3...v0.5.0) (2019-05-28)
 
 ### Code Refactoring
 - Adds return value. ([5b50e1e](https://github.com/alexseitsinger/package_controller/commit/5b50e1eb666490d21c1471bf769a54fb990261d6))
