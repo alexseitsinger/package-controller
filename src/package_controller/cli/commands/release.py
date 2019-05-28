@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...utils.twine_upload import twine_upload
+from ...utils.release_package import release_package
 from ...utils.git_push import git_push
 
 
@@ -10,7 +10,7 @@ from ...utils.git_push import git_push
 @click.option("--branch", default="master", required=False, help="The branch to push.")
 def release(remote, branch):
     try:
-        uploaded = twine_upload()
+        uploaded = release_package()
         click.secho("Successfully uploaded to PyPi.", fg="green", bold=True)
         click.secho(
             "Files:\n    {}".format("\n    ".join([
