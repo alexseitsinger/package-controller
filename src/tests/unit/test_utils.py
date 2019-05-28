@@ -33,8 +33,14 @@ from package_controller.utils.which import which
 from package_controller.utils.assert_which import assert_which
 
 
+
 def test_assert_commit():
-    pass
+    # Test the valid initial commit
+    assert assert_commit("0609384cdfe7aaa9eb45c32fce00b9d9b58694bb") is None
+
+    # Test an invalid commit hash.
+    with pytest.raises(AssertionError):
+        assert_commit("an_invalid_commit_hash")
 
 
 def test_assert_commit_type():
