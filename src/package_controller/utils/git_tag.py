@@ -11,7 +11,8 @@ def git_tag(name, commit_hash=None):
     if commit_hash is not None:
         args.append(commit_hash)
     try:
-        return run(*args)
+        run(*args)
+        return (commit_hash, name)
     except RuntimeError as exc:
         message = str(exc)
         # If we get some output and it says the tag exists, continue...
