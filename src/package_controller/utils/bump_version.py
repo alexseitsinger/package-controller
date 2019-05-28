@@ -12,43 +12,19 @@ from .git_add import git_add
 from .make_changelog import make_changelog
 
 
-def bump_version_python(major=False, minor=False, patch=False):
+def bump_version_python(old_version, new_version):
     assert_which("python")
-    old_version = get_version()
-    if major is True and all([x is False for x in [minor, patch]]):
-        new_version = semver.bump_major(old_version)
-    elif minor is True and all([x is False for x in [major, patch]]):
-        new_version = semver.bump_minor(old_version)
-    elif patch is True and all([x is False for x in [major, minor]]):
-        new_version = semver.bump_patch(old_version)
-    else:
-        raise RuntimeError("Can only update one of major, minor, or patch")
     save_version(new_version)
-    return (old_version, new_version,)
+    return (old_version, new_version)
 
 
-def bump_version_node(major=False, minor=False, patch=False):
+def bump_version_node(old_version, new_version):
     assert_which("node")
     assert_which("yarn")
-    if major is True and all([x is False for x in [minor, patch]]):
-        arg = "--major"
-    elif minor is True and all([x is False for x in [major, patch]]):
-        arg = "--minor"
-    elif patch is True and all([x is False for x in [major, minor]]):
-        arg = "--patch"
-    else:
-        raise RuntimeError("Can only update one of major, minor, or patch")
     # create the changelog now.
     git_add(make_changelog())
-    # get the current version
-    old_version = get_version()
     # update the version...
-    run("yarn", "version", arg)
-    # get the next version number.
-    new_version = get_version()
-    # check that its different.
-    if old_version == new_version:
-        raise RuntimeError("Node package versions are the same. ({}, {})".format(old_version, new_version))
+    run("yarn", "version", "--new-version", new_version, "--message", new_version)
     # return the version numbers.
     return (old_version, new_version)
 
@@ -56,12 +32,22 @@ def bump_version_node(major=False, minor=False, patch=False):
 def bump_version(major=False, minor=False, patch=False, force=False):
     if force is False:
         assert_status()
+    # get the current version
+    old_version = get_version()
+    if major is True and all([x is False for x in [minor, patch]]):
+        new_version = semver.bump_major(old_version)
+    elif minor is True and all([x is False for x in [major, patch]]):
+        new_version = semver.bump_minor(old_version)
+    elif patch is True and all([x is False for x in [major, minor]]):
+        new_version = semver.bump_path(old_version)
+    else:
+        raise RuntimeError("Can only update one of major, minor, or patch")
     is_python = is_python_package()
     is_node = is_node_package()
     if is_python and not is_node:
-        return bump_version_python(major=major, minor=minor, patch=patch)
+        return bump_version_python(old_version, new_version)
     elif is_node and not is_python:
-        return bump_version_node(major=major, minor=minor, patch=patch)
+        return bump_version_node(old_version, new_version)
     elif is_python and is_node:
         raise RuntimeError("Both python and node packages were detected.")
     else:
