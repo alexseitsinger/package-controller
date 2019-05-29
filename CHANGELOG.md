@@ -1,3 +1,25 @@
+<a name="v1.0.0"></a>
+## [v1.0.0](https://github.com/alexseitsinger/package_controller/compare/v0.6.1...v1.0.0) (2019-05-29)
+
+### Bug Fixes
+- Adds return value to exception attempt. ([a3139c5](https://github.com/alexseitsinger/package_controller/commit/a3139c5f200856fd7d00bf639deab2c04a570913))
+
+### Code Refactoring
+- Adds pyenv check if its py pkg. ([5a1e871](https://github.com/alexseitsinger/package_controller/commit/5a1e871b207f2ff67fa1da6fdcf7aa29a54e931e))
+- Changes exception to assertionerror. ([6e91c7b](https://github.com/alexseitsinger/package_controller/commit/6e91c7bd7e75391b7d486d17222f255b0b6a4e26))
+- Changes exception to attributeerror. ([7f5d172](https://github.com/alexseitsinger/package_controller/commit/7f5d17252af2663cfa17e1935f008c212131d7b8))
+- Changes import for assert_which. ([2d9dc65](https://github.com/alexseitsinger/package_controller/commit/2d9dc65d55c6fa1f3643c10bdaadb370dcfdfe82))
+- Moves assert_which to own module. ([c3d0ca8](https://github.com/alexseitsinger/package_controller/commit/c3d0ca8b9d025565266685a06634215681fcbea9))
+- Moves exceptions to module tuple. ([7e230e4](https://github.com/alexseitsinger/package_controller/commit/7e230e45d95574c3f2f7fb9091702f553ea567bb))
+- Optimizes method. ([51f2544](https://github.com/alexseitsinger/package_controller/commit/51f254407e3ddf2369238d70dc6668b8133f15b4))
+
+### Features
+- Add new util to match staged files. ([12d2a84](https://github.com/alexseitsinger/package_controller/commit/12d2a84411d0b2b2b9610c9ee83bff25c7eb5792))
+- Adds raise_exception arg for exceptions. ([70340fe](https://github.com/alexseitsinger/package_controller/commit/70340feeca714bc315b46d419de8320839ee4166))
+- Adds test command to cli and utils. ([5594211](https://github.com/alexseitsinger/package_controller/commit/5594211370eaa62302bbb072e4030e42f623a389))
+- Adds util module. ([d960ca0](https://github.com/alexseitsinger/package_controller/commit/d960ca04422c105a2a03b65cecab524788a81678))
+
+
 <a name="v0.6.1"></a>
 ## [v0.6.1](https://github.com/alexseitsinger/package_controller/compare/v0.6.0...v0.6.1) (2019-05-28)
 
