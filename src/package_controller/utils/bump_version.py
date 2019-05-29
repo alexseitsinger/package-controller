@@ -19,8 +19,9 @@ def bump_version_python(old_version, new_version):
 def bump_version_node(old_version, new_version):
     assert_which("node")
     assert_which("yarn")
-    # update the version...
-    run("yarn", "version", "--new-version", new_version, "--message", new_version)
+    # update the version.
+    message = "chore: {}".format(new_version)
+    run("yarn", "version", "--new-version", new_version, "--message", message)
     # return the version numbers.
     return (old_version, new_version,)
 
