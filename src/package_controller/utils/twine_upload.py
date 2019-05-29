@@ -4,7 +4,7 @@ from .get_version import get_version
 from .find_file import find_file
 from .run import run
 from .assert_status import assert_status
-from .which import assert_which
+from .assert_which import assert_which
 
 TWINE_UPLOAD_ARGS = ["twine", "upload"]
 TARBALL_NAME = "{}-{}.tar.gz"
@@ -26,7 +26,7 @@ def twine_upload():
     uploaded = [wheel, tarball]
     for path in uploaded:
         if not os.path.exists(path):
-            raise RuntimeError("File does not exist. ({})".format(path))
+            raise FileNotFoundError("File does not exist. ({})".format(path))
     # Check if Twine exists on PATH.
     assert_which("twine")
     # Run the command

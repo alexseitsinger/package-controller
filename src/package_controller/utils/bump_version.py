@@ -3,7 +3,7 @@ import semver
 from .assert_status import assert_status
 from .get_version import get_version
 from .save_version import save_version
-from .which import assert_which
+from .assert_which import assert_which
 from .find_file import find_file
 from .run import run
 from .is_python_package import is_python_package

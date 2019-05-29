@@ -2,7 +2,7 @@ import textwrap
 import re
 
 from .run import run
-from .which import assert_which
+from .assert_which import assert_which
 from .assert_commit_type import assert_commit_type
 from .format_commit_text import format_commit_text
 from .format_commit_description import format_commit_description

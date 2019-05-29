@@ -5,7 +5,7 @@ from .run import run
 from .get_version import get_version
 from .find_file import find_file
 from .assert_status import assert_status
-from .which import assert_which
+from .assert_which import assert_which
 from .is_python_package import is_python_package
 from .is_node_package import is_node_package
 
