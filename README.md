@@ -12,6 +12,11 @@ pip install package_controller
 
 ## Usage
 
+To run unit/integration tests.
+```
+pc test --unit | --integration
+```
+
 To add file(s) to a commit.
 ```
 pc add -f <path> (-f <path> ...)
@@ -42,7 +47,7 @@ To get the current version
 pc version
 ```
 
-To build the newest version.
+To build the current version.
 ```
 pc build (--force)
 ```
