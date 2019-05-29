@@ -13,6 +13,6 @@ def read_file(path, variable=None):
         match = re.search(regex, content, re.M)
         if match:
             return match.group(1)
-        raise RuntimeError("Failed to read file. ({})".format(path))
+        raise AttributeError("{} does not exist in {}".format(variable, path))
 
 
