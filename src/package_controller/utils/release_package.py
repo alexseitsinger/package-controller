@@ -10,14 +10,10 @@ from .find_file import find_file
 def release_package_node():
     package_file = find_file("package.json")
     package_name = None
-    package_version = None
     with open(package_file, "r") as f:
         package_file_json = json.loads(f.read())
         package_name = package_file_json["name"]
-        package_version = package_file_json["version"]
-    # publish the package oto npm/yarnpkg 
     run("yarn", "publish", "--access", "public")
-    # return the name of the package
     return [package_name]
 
 
