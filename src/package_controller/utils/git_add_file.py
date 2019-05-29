@@ -5,6 +5,8 @@ from .git_staged_file import git_staged_file
 
 
 def git_add_file(f):
+    if f is None:
+        raise IOError("A file name or path is required.")
     try:
         run("git", "add", f)
         return f
@@ -12,7 +14,9 @@ def git_add_file(f):
         msg = str(exc)
         # If we get a failed add due to unmatching file. attempt to find it.
         if msg.startswith("fatal: pathspec") and msg.endswith("did not match any files"):
-            return git_add_file(git_staged_file(f))
+            sf = git_staged_file(f)
+            if sf:
+                return git_add_file(sf)
         # Otehrwise, just raise the original exception.
         raise RuntimeError("Failed to add file {}".format(f))
 
