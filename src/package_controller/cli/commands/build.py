@@ -3,6 +3,13 @@ import click
 
 from ...utils.build_package import build_package
 
+FAILURE_EXCEPTIONS = (
+    RuntimeError,
+    AssertionError,
+    AttributeError,
+    FileNotFoundError,
+    NotADirectoryError,
+)
 
 @click.command()
 @click.option(
@@ -18,6 +25,6 @@ def build(force):
             ])),
             fg="green",
         )
-    except RuntimeError as exc:
+    except FAILURE_EXCEPTIONS as exc:
         click.secho("Failed to build package.", fg="red", bold=True)
         click.secho(str(exc), fg="red")

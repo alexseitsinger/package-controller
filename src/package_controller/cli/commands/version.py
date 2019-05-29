@@ -5,6 +5,14 @@ from ...utils.git_update import git_update
 from ...utils.bump_version import bump_version
 from ...utils.get_version import get_version
 
+FAILURE_EXCEPTIONS = (
+    RuntimeError,
+    AssertionError,
+    AttributeError,
+    FileNotFoundError,
+    NotADirectoryError,
+)
+
 
 @click.command()
 @click.option(
@@ -29,7 +37,7 @@ def version(major, minor, patch, no_git, force):
             if no_git is False:
                 tag_name = git_update(old_version, new_version)
             click.secho("Successfully updated version from {} to {}".format(old_version, new_version), fg="green", bold=True)
-        except RuntimeError as exc:
+        except FAILURE_EXCEPTIONS as exc:
             message = str(exc)
             if message == "git-changelog is not installed.":
                 click.secho("Skipped creating changelog.", fg="yellow", bold=True)
