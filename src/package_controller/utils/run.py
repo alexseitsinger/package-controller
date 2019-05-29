@@ -1,9 +1,19 @@
 import subprocess
 
+from .assert_which import assert_which
 
-def run(*args):
+
+def run(*args, raise_exception=True):
+    if not len(args):
+        raise RuntimeError("Arguments are required.")
+    assert_which(args[0])
     process = subprocess.run(args, capture_output=True)
+    out = process.stdout.strip().decode("utf-8")
+    err = process.stderr.strip().decode("utf-8")
     if process.returncode != 0:
-        message = process.stderr.strip().decode("utf-8")
-        raise RuntimeError(message)
-    return process.stdout.strip().decode("utf-8")
+        # We need to not raise an exception when we encounter one with pytest.
+        # We also need to return the stdout, instead of stderr, if we encounter 
+        # an exception with pytest.
+        if raise_exception is True:
+            raise RuntimeError(err)
+    return out
