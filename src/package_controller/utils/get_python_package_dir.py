@@ -1,4 +1,5 @@
 import os
+from setuptools import find_packages
 
 from .find_file import find_file
 
@@ -23,10 +24,16 @@ def get_python_package_dir():
         if not os.path.isdir(package_dir):
             package_name = directory_name.replace("-", "_")
             package_dir = os.path.join(root_dir, package_name)
-    # convert the directory name to a python-allowed package name.
+    # Try to use setuptools to find the package.
     if not os.path.isdir(package_dir):
-        raise NotADirectoryError(
-            "The package directory does not exist. ({})".format(package_dir))
+        try:
+            package_name = find_packages(src_dir, exclude=["tests", "tests.*"])[0]
+            package_dir = os.path.join(src_dir, package_name)
+        except IndexError:
+            pass
+    # Raise an exception if we couldnt find a package directory.
+    if not os.path.isdir(package_dir):
+        raise NotADirectoryError("The package directory could not be found.")
     # Return the path to the package dir.
     return package_dir
 
