@@ -1,3 +1,17 @@
+<a name="v1.0.1"></a>
+## [v1.0.1](https://github.com/alexseitsinger/package_controller/compare/v1.0.0...v1.0.1) (2019-05-30)
+
+### Code Refactoring
+- Adds chore: to commit msg. ([2a4e68c](https://github.com/alexseitsinger/package_controller/commit/2a4e68ce8de90ceb6d3160f9a9750ac5df1287a2))
+- Only capitalizes first letter of string. ([14dfb75](https://github.com/alexseitsinger/package_controller/commit/14dfb758a51ddfd7ab2c8ac9628bac8a95e15012))
+- Tries multiple filenames for whl/tars. ([7354724](https://github.com/alexseitsinger/package_controller/commit/73547241966a15c4b5998cc4fb418e5e361067a7))
+- Updated method. ([45beb12](https://github.com/alexseitsinger/package_controller/commit/45beb12d2cbdd56af39e0b43c8eea09978769b5a))
+- Uses new util method. ([dc1ccad](https://github.com/alexseitsinger/package_controller/commit/dc1ccadc1af9d7b2a0316ce41f2a3ac97738f3ab))
+
+### Features
+- Adds util. ([2357a3b](https://github.com/alexseitsinger/package_controller/commit/2357a3b6f82e07f1fb301a2551ee82ec7f025dfa))
+
+
 <a name="v1.0.0"></a>
 ## [v1.0.0](https://github.com/alexseitsinger/package_controller/compare/v0.6.1...v1.0.0) (2019-05-29)
 
