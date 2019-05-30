@@ -5,5 +5,5 @@ def is_node_package():
     try:
         find_file("package.json")
         return True
-    except RuntimeError as exc:
+    except FileNotFoundError:
         return False

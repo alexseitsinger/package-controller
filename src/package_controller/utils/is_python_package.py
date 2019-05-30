@@ -5,5 +5,5 @@ def is_python_package():
     try:
         find_file("setup.py")
         return True
-    except RuntimeError as exc:
+    except FileNotFoundError:
         return False
