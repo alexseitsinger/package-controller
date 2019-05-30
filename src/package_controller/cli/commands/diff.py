@@ -13,7 +13,7 @@ FAILURE_EXCEPTIONS = (
 
 
 @click.command()
-@click.option("--file", "-f", "file_", required=True)
+@click.argument("file_", required=True)
 def diff(file_):
     try:
         lines = git_diff(file_).split("\n")
