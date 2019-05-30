@@ -5,6 +5,7 @@ from .is_python_package import is_python_package
 from .is_node_package import is_node_package
 from .run import run
 from .find_file import find_file
+from .git_push import git_push
 
 
 def release_package_node():
@@ -21,9 +22,10 @@ def release_package_python():
     return twine_upload()
 
 
-def release_package():
+def release_package(remote="origin", branch="master", tag_name=None):
     is_python = is_python_package()
     is_node = is_node_package()
+    git_push(remote=remote, branch=branch, tag_name=tag_name)
     if is_python and not is_node:
         return release_package_python()
     elif is_node and not is_python:
