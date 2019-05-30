@@ -1,3 +1,20 @@
+<a name="v1.1.0"></a>
+## [v1.1.0](https://github.com/alexseitsinger/package_controller/compare/v1.0.1...v1.1.0) (2019-05-30)
+
+### Bug Fixes
+- Uses correct exception. ([d01b3f4](https://github.com/alexseitsinger/package_controller/commit/d01b3f4cc77ba9269086f825f6a6c994b23ae0d3))
+
+### Code Refactoring
+- Adds flat argument. ([de521c4](https://github.com/alexseitsinger/package_controller/commit/de521c4558c53265fb8d61e3589bdd4179af92b0))
+- Changes option to argument. ([09ea2d3](https://github.com/alexseitsinger/package_controller/commit/09ea2d318e1f41fd57ebe9624022dd0ad9bda6cf))
+- Moves git_push into fascade. ([50cd7ca](https://github.com/alexseitsinger/package_controller/commit/50cd7ca79d5c0a1ec72dc47099c114a5f70799e3))
+- Only pushes single tags. ([cf317b6](https://github.com/alexseitsinger/package_controller/commit/cf317b6fa16e701607f2ab5bff1cacc5365742e1))
+
+### Features
+- Adds git diff command. ([c79040e](https://github.com/alexseitsinger/package_controller/commit/c79040edfe873c119b08731e1bd6b1ee4ce4fce9))
+- Adds git repository assertion. ([f0175bd](https://github.com/alexseitsinger/package_controller/commit/f0175bda4bb2dc30d48a290333e76709d4a2facd))
+
+
 <a name="v1.0.1"></a>
 ## [v1.0.1](https://github.com/alexseitsinger/package_controller/compare/v1.0.0...v1.0.1) (2019-05-30)
 
