@@ -2,7 +2,7 @@
 
 ## Description
 
-A package that manages packages.
+A CLI tool that acts as a wrapper for various other programs to make updating and publishing python and node packages easier.
 
 ## Installation
 
@@ -11,6 +11,11 @@ pip install package_controller
 ```
 
 ## Usage
+
+To get the diff of a file.
+```
+pc diff path/to/file
+```
 
 To run unit/integration tests.
 ```
@@ -52,8 +57,8 @@ To build the current version.
 pc build (--force)
 ```
 
-To release the latest version. (to PyPi and Github)
+To release the latest version. (to PyPi (Python) or NPM (Node), and git)
 ```
-pc release
+pc release (--remote <remote> --branch <branch> --no-tag)
 ```
 
