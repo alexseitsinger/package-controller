@@ -1,9 +1,11 @@
 from .run import run
 from .assert_commit import assert_commit
+from .assert_git_repository import assert_git_repository
 
 GIT_TAG_ARGS = ["git", "tag"]
 
 def git_tag(name, commit_hash=None):
+    assert_git_repository()
     # Make sure the tag name is formatted correctly.
     if not name.startswith("v"):
         name = "v{}".format(name)

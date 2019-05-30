@@ -5,9 +5,12 @@ from .make_changelog import make_changelog
 from .find_init_module import find_init_module
 from .run import run
 from .is_python_package import is_python_package
+from .assert_git_repository import assert_git_repository
 
 
 def git_update(old_version, new_version):
+    assert_git_repository()
+
     # Create a tag for the latest commit.
     tag_name = "v{}".format(new_version)
     

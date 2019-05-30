@@ -3,6 +3,7 @@ import re
 
 from .run import run
 from .assert_which import assert_which
+from .assert_git_repository import assert_git_repository
 from .assert_commit_type import assert_commit_type
 from .format_commit_text import format_commit_text
 from .format_commit_description import format_commit_description
@@ -12,6 +13,7 @@ GIT_LAST_COMMIT_HASH_ARGS = ["git", "rev-parse", "HEAD"]
 
 
 def git_commit(commit_type, subject, description=None):
+    assert_git_repository()
     assert_which("git")
     assert_commit_type(commit_type)
     # Remove any excess whitespace from the subject.

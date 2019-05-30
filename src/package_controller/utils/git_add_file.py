@@ -2,9 +2,11 @@ import os
 
 from .run import run
 from .git_staged_file import git_staged_file
+from .assert_git_repository import assert_git_repository
 
 
 def git_add_file(f):
+    assert_git_repository()
     if f is None:
         raise IOError("A file name or path is required.")
     try:
