@@ -19,7 +19,7 @@ pc diff path/to/file
 
 To run unit/integration tests.
 ```
-pc test --unit | --integration
+pc test --unit --integration
 ```
 
 To add file(s) to a commit.
