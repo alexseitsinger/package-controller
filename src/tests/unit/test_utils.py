@@ -213,16 +213,12 @@ def test_replace_line():
 
 
 def test_run():
-    # Test when run is invoked without arugments.
-    with pytest.raises(RuntimeError, match=r"^Arguments are required.$"):
-        run()
-
     # Test when invoked with an invalid executable.
     with pytest.raises(AssertionError, match=r"Executable was not found. \(.+\)$"):
         run("non_existent_exec")
 
     # Test when invoked with a valid executable.
-    assert run("echo", "example") == "example"
+    assert run("echo example") == "example"
 
 
 # Since this is just a fascade for replace_line, we don't need to test it.
