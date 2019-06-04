@@ -10,12 +10,9 @@ from .is_python_package import is_python_package
 from .is_node_package import is_node_package
 
 
-BUILD_ARGS = ["python", "setup.py", "sdist", "bdist_wheel"]
-PIPENV_RUN_ARGS = ["pipenv", "run"]
 TARBALL_NAME = "{}-{}.tar.gz"
 WHEEL_NAME = "{}-{}-py3-none-any.whl"
-YARN_RUN_BUILD_ARGS = ["yarn", "run", "build"]
-NPM_RUN_BUILD_ARGS = ["npm", "run", "build"]
+BUILD_CMD = "python setup.py sdist bdist_wheel"
 
 
 def build_package_python():
@@ -32,20 +29,13 @@ def build_package_python():
     built = [wheel, tarball]
     for path in built:
         if os.path.exists(path):
-            raise RuntimeError("File already exists. ({})".format(path))
+            raise FileExistsError("File already exists. ({})".format(path))
     try:
         assert_which("pipenv")
-        run(*PIPENV_RUN_ARGS + BUILD_ARGS)
-        return built
-    # add check for exception message to ensure we either:
-    # 1. attempt the command with pipenv or another manager.
-    # 2. raise the exception since its something else.
-    except RuntimeError as exc:
-        msg = str(exc)
-        if msg == "Executable was not found. (pipenv)":
-            run(*BUILD_ARGS)
-            return built
-        raise RuntimeError("Failed to build python package using pipenv and python.")
+        run("pipenv run {}".format(BUILD_CMD))
+    except AssertionError:
+        run(BUILD_CMD)
+    return built
 
 
 def build_package_node():
@@ -54,18 +44,15 @@ def build_package_node():
     built = []
     with open(package_file, "r") as f:
         package_file_json = json.loads(f.read())
-        built +=  [package_file_json["name"]]
+        package_name = package_file_json["name"]
+        built += [package_name]
     try:
         assert_which("yarn")
-        run(*YARN_RUN_BUILD_ARGS)
-        return built
-    except RuntimeError as exc:
-        msg = str(exc)
-        if msg == "Executable was not found. (yarn)":
-            assert_which("npm")
-            run(*NPM_RUN_BUILD_ARGS)
-            return built
-        raise RuntimeError("Neither Yarn or NPM were found.")
+        run("yarn run build")
+    except AssertionError:
+        assert_which("npm")
+        run("npm run build")
+    return built
 
 
 def build_package(force=False):

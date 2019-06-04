@@ -9,4 +9,4 @@ def git_diff(f):
     if staged_file is None:
         raise FileNotFoundError(
             "Failed to find staged file matching {}".format(f))
-    return run("git", "diff", staged_file)
+    return run("git diff {}".format(staged_file))

@@ -49,6 +49,6 @@ def twine_upload():
     # Check if Twine exists on PATH.
     assert_which("twine")
     # Run the command
-    run(*TWINE_UPLOAD_ARGS + built)
+    run("twine upload {}".format(" ".join(built)))
     # Return the list of paths we uploaded.
     return built

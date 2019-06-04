@@ -1,5 +1,6 @@
 import json
 
+from .assert_which import assert_which
 from .twine_upload import twine_upload
 from .is_python_package import is_python_package
 from .is_node_package import is_node_package
@@ -9,16 +10,24 @@ from .git_push import git_push
 
 
 def release_package_node():
+    assert_which("node")
+    # get the package info
     package_file = find_file("package.json")
     package_name = None
     with open(package_file, "r") as f:
         package_file_json = json.loads(f.read())
         package_name = package_file_json["name"]
-    run("yarn", "publish", "--access", "public")
+    try:
+        assert_which("yarn")
+        run("yarn publish --access public")
+    except AssertionError:
+        assert_which("npm")
+        run("npm publish --access public")
     return [package_name]
 
 
 def release_package_python():
+    assert_which("python")
     return twine_upload()
 
 

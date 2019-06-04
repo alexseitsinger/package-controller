@@ -10,7 +10,7 @@ def git_add_file(f):
     if f is None:
         raise IOError("A file name or path is required.")
     try:
-        run("git", "add", f)
+        run("git add {}".format(f))
         return f
     except RuntimeError as exc:
         msg = str(exc)

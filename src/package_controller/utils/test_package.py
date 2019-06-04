@@ -8,7 +8,13 @@ from .run import run
 
 
 def test_package_node():
-    pass
+    assert_which("node")
+    try:
+        assert_which("yarn")
+        return run("yarn run test")
+    except AssertionError:
+        assert_which("npm")
+        return run("npm run test")
 
 
 def test_package_python(unit, integration):
@@ -32,14 +38,14 @@ def test_package_python(unit, integration):
         unit_tests_dir = os.path.join(tests_dir, "unit")
         if not os.path.isdir(unit_tests_dir):
             raise NotADirectoryError("Unit tests directory does not exist. ({})".format(unit_tests_dir))
-        unit_tests_output = run("pipenv", "run", "pytest", unit_tests_dir, raise_exception=False)
+        unit_tests_output = run("pipenv run pytest {}".format(unit_tests_dir), raise_exception=False)
 
     integration_tests_output = None
     if integration is True:
         integration_tests_dir = os.path.join(tests_dir, "integration")
         if not os.path.isdir(integration_tests_dir):
             raise NotADirectoryError("Integration tests directory does not exist. ({})".format(integration_tests_dir))
-        integration_tests_output = run("pipenv", "run", "pytest", integration_tests_dir, raise_exception=False)
+        integration_tests_output = run("pipenv run pytest {}".format(integration_tests_dir), raise_exception=False)
 
     # Return the outputs for console messages.
     return (unit_tests_output, integration_tests_output,)
