@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...utils.git.add import add as git_add
+from ...library.git.add import add as git_add
 
 FAILURE_EXCEPTIONS = (
     RuntimeError,

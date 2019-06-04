@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...utils.fascades.build_package import build_package
+from ...library.fascades.build_package import build_package
 
 FAILURE_EXCEPTIONS = (
     RuntimeError,

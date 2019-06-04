@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...utils.git.commit import commit as git_commit
+from ...library.git.commit import commit as git_commit
 
 FAILURE_EXCEPTIONS = (
     RuntimeError,

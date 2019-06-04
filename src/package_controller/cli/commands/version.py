@@ -1,9 +1,9 @@
 import click
 import semver
 
-from ...utils.git.update import update
-from ...utils.fascades.bump_version import bump_version
-from ...utils.fascades.get_version import get_version
+from ...library.git.update import update
+from ...library.fascades.bump_version import bump_version
+from ...library.fascades.get_version import get_version
 
 FAILURE_EXCEPTIONS = (
     RuntimeError,

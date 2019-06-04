@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...utils.git.diff import diff as git_diff
+from ...library.git.diff import diff as git_diff
 
 FAILURE_EXCEPTIONS = (
     RuntimeError,

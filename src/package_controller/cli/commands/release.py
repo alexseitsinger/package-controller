@@ -1,8 +1,8 @@
 import os
 import click
 
-from ...utils.fascades.release_package import release_package
-from ...utils.fascades.get_version import get_version
+from ...library.fascades.release_package import release_package
+from ...library.fascades.get_version import get_version
 
 FAILURE_EXCEPTIONS = (
     NotADirectoryError,
