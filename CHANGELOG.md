@@ -1,3 +1,15 @@
+<a name="v1.2.0"></a>
+## [v1.2.0](https://github.com/alexseitsinger/package_controller/compare/v1.1.0...v1.2.0) (2019-06-04)
+
+### Code Refactoring
+- Changes `run` commands to single string. ([c259ec3](https://github.com/alexseitsinger/package_controller/commit/c259ec3ee4384151b486dbc1e443f3cf9e8def8c))
+- Changes from from `*args` to string. ([2106165](https://github.com/alexseitsinger/package_controller/commit/2106165d222522412cd6a76bff2479e84d0ad689))
+- Updates message check for exception. ([f955b96](https://github.com/alexseitsinger/package_controller/commit/f955b964b66b0c5e46746b68f3d3ee6e14cec0ba))
+
+### Features
+- Adds extra util methods. ([2215246](https://github.com/alexseitsinger/package_controller/commit/22152460d36f3fe85e66734e685aad309b052e23))
+
+
 <a name="v1.1.0"></a>
 ## [v1.1.0](https://github.com/alexseitsinger/package_controller/compare/v1.0.1...v1.1.0) (2019-05-30)
 
