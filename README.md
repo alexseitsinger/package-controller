@@ -7,7 +7,7 @@ A CLI tool that acts as a wrapper for various other programs to make updating an
 ## Installation
 
 ```
-pip install package_controller
+pip install package-controller
 ```
 
 ## Usage
