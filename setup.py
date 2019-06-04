@@ -1,28 +1,33 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 from setuptools import setup, find_packages
-from setup_utils import DIRECTORY_NAME, PACKAGE_NAME, read, read_section
+from setup_utils import (
+    README_NAME, read, read_markdown
+)
 
-URL = "https://github.com/alexseitsinger/{}".format(PACKAGE_NAME)
-README_NAME = "README.md"
+PACKAGE_NAME = "package-controller"
+PACKAGE_DIR = PACKAGE_NAME.replace("-", "_")
+GITHUB_URL = "https://github.com/alexseitsinger/{}".format(PACKAGE_NAME)
+HOMEPAGE_URL = "https://www.alexseitsinger.com/packages/python/{}".format(PACKAGE_NAME)
 
 setup(
     name=PACKAGE_NAME,
-    version=read(("src", PACKAGE_NAME, "__init__.py",), "__version__"),
-    description=read_section((README_NAME,), "Description", (0,)),
+    version=read(("src", PACKAGE_DIR, "__init__.py",), "__version__"),
+    description=read_markdown((README_NAME,), "Description", (0,)),
     long_description=read((README_NAME,)),
     long_description_content_type="text/markdown",
     author="Alex Seitsinger",
-    author_email="contact@alexseitsinger.com",
-    url=URL,
+    author_email="software@alexseitsinger.com",
+    url=HOMEPAGE_URL,
     install_requires=["click", "semver"],
-    entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_NAME)]},
+    entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_DIR)]},
     package_dir={"": "src"},
     packages=find_packages("src", exclude=["tests"]),
     include_package_data=True,
     license="BSD 2-Clause License",
     keywords=["package", "semantic version", "git", "distribution"],
     classifiers=[
+        "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
@@ -39,7 +44,8 @@ setup(
         "Operating System :: OS Independent",
     ],
     project_urls={
-        "Source": URL,
-        "Tracker": "{}/issues".format(URL)
+        "Documentation": HOMEPAGE_URL,
+        "Source": GITHUB_URL,
+        "Tracker": "{}/issues".format(GITHUB_URL)
     }
 )

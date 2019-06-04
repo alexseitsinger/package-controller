@@ -2,17 +2,14 @@ import os
 import re
 from io import open
 
-
-ROOT = os.path.dirname(os.path.abspath(__file__))
-DIRECTORY_NAME = os.path.basename(ROOT)
-PACKAGE_NAME = DIRECTORY_NAME.replace("-", "_")
 RE_VARIABLE = r"{} = ['\"]([^'\"]*)['\"]"
 RE_README_SECTION_HEADING = r"#+ {}"
 RE_README_SECTION = r"{}[^#]*"
 RE_NEWLINES = r"{}\n+"
+README_NAME = "README.md"
 
 
-def read_section(path, title, sentences=(0,)):
+def read_markdown(path, title, sentences=(0,)):
     content = read(path)
     heading_regex = RE_README_SECTION_HEADING.format(title)
     section_regex = RE_README_SECTION.format(heading_regex)
@@ -31,7 +28,7 @@ def read_section(path, title, sentences=(0,)):
 
 
 def read(parts, variable=None):
-    path = os.path.join(ROOT, *parts)
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), *parts)
     with open(path, 'r', encoding='utf-8') as f:
         content = f.read()
     if variable is None:
