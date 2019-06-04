@@ -1,3 +1,17 @@
+<a name="v2.0.0"></a>
+## [v2.0.0](https://github.com/alexseitsinger/package_controller/compare/v1.2.1...v2.0.0) (2019-06-04)
+
+### Bug Fixes
+- Fixes variable named the same as method. ([3b6ad9e](https://github.com/alexseitsinger/package_controller/commit/3b6ad9e73d9002014c1ca7c924176df9c816a8c6))
+- Renames util import. ([4d8ec85](https://github.com/alexseitsinger/package_controller/commit/4d8ec8518b1eb38ebbe662e0311c9f6f48a446aa))
+
+### Code Refactoring
+- Changes imports from util packages. ([15598db](https://github.com/alexseitsinger/package_controller/commit/15598db3853c19a5ba52d98b770bcf979f10f6c5))
+- Imports from library instead of utils. ([9019e7a](https://github.com/alexseitsinger/package_controller/commit/9019e7a042482d4818d847ee7cd02532f0715537))
+- Moves utils into own packages. ([4d6be37](https://github.com/alexseitsinger/package_controller/commit/4d6be3747c23da7e1a1c1a8b8efc592a2e0418b9))
+- Renames utils to library. ([be1d797](https://github.com/alexseitsinger/package_controller/commit/be1d79759971e0520f74c84557808ed33b76a895))
+
+
 <a name="v1.2.1"></a>
 ## [v1.2.1](https://github.com/alexseitsinger/package_controller/compare/v1.2.0...v1.2.1) (2019-06-04)
 
