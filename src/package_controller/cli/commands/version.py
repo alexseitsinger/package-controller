@@ -1,9 +1,9 @@
 import click
 import semver
 
-from ...utils.git_update import git_update
-from ...utils.bump_version import bump_version
-from ...utils.get_version import get_version
+from ...utils.git.update import update
+from ...utils.fascades.bump_version import bump_version
+from ...utils.fascades.get_version import get_version
 
 FAILURE_EXCEPTIONS = (
     RuntimeError,
@@ -39,7 +39,7 @@ def version(major, minor, patch, no_git, force):
         try:
             old_version, new_version = bump_version(major=major, minor=minor, patch=patch, force=force)
             if no_git is False:
-                tag_name = git_update(old_version, new_version)
+                tag_name = update(old_version, new_version)
             click.secho("Successfully updated version from {} to {}".format(old_version, new_version), fg="green", bold=True)
         except FAILURE_EXCEPTIONS as exc:
             message = str(exc)

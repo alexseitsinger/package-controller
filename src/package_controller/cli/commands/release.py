@@ -1,9 +1,8 @@
 import os
 import click
 
-from ...utils.release_package import release_package
-from ...utils.git_push import git_push
-from ...utils.get_version import get_version
+from ...utils.fascades.release_package import release_package
+from ...utils.fascades.get_version import get_version
 
 FAILURE_EXCEPTIONS = (
     NotADirectoryError,
