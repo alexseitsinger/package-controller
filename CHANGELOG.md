@@ -1,3 +1,10 @@
+<a name="v1.2.1"></a>
+## [v1.2.1](https://github.com/alexseitsinger/package_controller/compare/v1.2.0...v1.2.1) (2019-06-04)
+
+### Bug Fixes
+- Changes `RuntimeError` to `AssertionError`. ([37977cf](https://github.com/alexseitsinger/package_controller/commit/37977cfbfd9599787f3eb4c9a0d734f2e595a3c5))
+
+
 <a name="v1.2.0"></a>
 ## [v1.2.0](https://github.com/alexseitsinger/package_controller/compare/v1.1.0...v1.2.0) (2019-06-04)
 
