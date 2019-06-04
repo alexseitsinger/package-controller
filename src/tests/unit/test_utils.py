@@ -1,48 +1,48 @@
 import pytest
 import tempfile
 
-from package_controller.utils.git.add import add
-from package_controller.utils.git.assert_commit import assert_commit
-from package_controller.utils.git.assert_commit_heading_length import assert_commit_heading_length
-from package_controller.utils.git.assert_commit_type import assert_commit_type
-from package_controller.utils.git.assert_remotes import assert_remotes
-from package_controller.utils.git.assert_repository import assert_repository
-from package_controller.utils.git.assert_status import assert_status
-from package_controller.utils.git.format_commit_description import format_commit_description
-from package_controller.utils.git.format_commit_text import format_commit_text
-from package_controller.utils.git.add_file import add_file
-from package_controller.utils.git.commit import commit
-from package_controller.utils.git.diff import diff
-from package_controller.utils.git.is_repository import is_repository
-from package_controller.utils.git.make_changelog import make_changelog
-from package_controller.utils.git.push import push
-from package_controller.utils.git.staged_file import staged_file
-from package_controller.utils.git.staged_files import staged_files
-from package_controller.utils.git.tag import tag
-from package_controller.utils.git.update import update
+from package_controller.library.git.add import add
+from package_controller.library.git.assert_commit import assert_commit
+from package_controller.library.git.assert_commit_heading_length import assert_commit_heading_length
+from package_controller.library.git.assert_commit_type import assert_commit_type
+from package_controller.library.git.assert_remotes import assert_remotes
+from package_controller.library.git.assert_repository import assert_repository
+from package_controller.library.git.assert_status import assert_status
+from package_controller.library.git.format_commit_description import format_commit_description
+from package_controller.library.git.format_commit_text import format_commit_text
+from package_controller.library.git.add_file import add_file
+from package_controller.library.git.commit import commit
+from package_controller.library.git.diff import diff
+from package_controller.library.git.is_repository import is_repository
+from package_controller.library.git.make_changelog import make_changelog
+from package_controller.library.git.push import push
+from package_controller.library.git.staged_file import staged_file
+from package_controller.library.git.staged_files import staged_files
+from package_controller.library.git.tag import tag
+from package_controller.library.git.update import update
 
-from package_controller.utils.python.find_init_module import find_init_module
-from package_controller.utils.python.get_python_package_dir import get_python_package_dir
-from package_controller.utils.python.is_python_package import is_python_package
-from package_controller.utils.python.save_version import save_version
-from package_controller.utils.python.twine_upload import twine_upload
+from package_controller.library.python.find_init_module import find_init_module
+from package_controller.library.python.get_python_package_dir import get_python_package_dir
+from package_controller.library.python.is_python_package import is_python_package
+from package_controller.library.python.save_version import save_version
+from package_controller.library.python.twine_upload import twine_upload
 
-from package_controller.utils.node.is_node_package import is_node_package
+from package_controller.library.node.is_node_package import is_node_package
 
-from package_controller.utils.generic.assert_which import assert_which
-from package_controller.utils.generic.find_file import find_file
-from package_controller.utils.generic.is_executable import is_executable
-from package_controller.utils.generic.read_file import read_file
-from package_controller.utils.generic.replace_line import replace_line
-from package_controller.utils.generic.run import run
-from package_controller.utils.generic.which import which
+from package_controller.library.generic.assert_which import assert_which
+from package_controller.library.generic.find_file import find_file
+from package_controller.library.generic.is_executable import is_executable
+from package_controller.library.generic.read_file import read_file
+from package_controller.library.generic.replace_line import replace_line
+from package_controller.library.generic.run import run
+from package_controller.library.generic.which import which
 
-from package_controller.utils.fascades.build_package import build_package
-from package_controller.utils.fascades.bump_version import bump_version
-from package_controller.utils.fascades.get_version import get_version
-from package_controller.utils.fascades.release_package import release_package
+from package_controller.library.fascades.build_package import build_package
+from package_controller.library.fascades.bump_version import bump_version
+from package_controller.library.fascades.get_version import get_version
+from package_controller.library.fascades.release_package import release_package
 # Importing this causes pytest to raise an Exception since that's what invokes this.
-#from package_controller.utils.fascades.test_package import test_package
+#from package_controller.library.fascades.test_package import test_package
 
 
 def test_assert_commit():
