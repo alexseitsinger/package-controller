@@ -1,11 +1,11 @@
 import subprocess
+import shlex
 
 from .assert_which import assert_which
 
 
-def run(*args, raise_exception=True):
-    if not len(args):
-        raise RuntimeError("Arguments are required.")
+def run(cmd, raise_exception=True):
+    args = shlex.split(cmd)
     assert_which(args[0])
     process = subprocess.run(args, capture_output=True)
     out = process.stdout.strip().decode("utf-8")
