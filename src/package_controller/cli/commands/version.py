@@ -13,6 +13,10 @@ FAILURE_EXCEPTIONS = (
     NotADirectoryError,
 )
 
+CHANGELOG_EXCEPTION_MESSAGES = (
+    "No git remotes detected, so can't make a changelog.",
+    "git-changelog is not installed.",
+)
 
 @click.command()
 @click.option(
@@ -39,7 +43,7 @@ def version(major, minor, patch, no_git, force):
             click.secho("Successfully updated version from {} to {}".format(old_version, new_version), fg="green", bold=True)
         except FAILURE_EXCEPTIONS as exc:
             message = str(exc)
-            if message == "git-changelog is not installed.":
+            if message in CHANGELOG_EXCEPTION_MESSAGES:
                 click.secho("Skipped creating changelog.", fg="yellow", bold=True)
                 click.secho(message, fg="yellow")
             else:
