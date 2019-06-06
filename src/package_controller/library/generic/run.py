@@ -5,7 +5,9 @@ from .assert_which import assert_which
 
 
 def run(cmd, raise_exception=True):
-    args = shlex.split(cmd)
+    args = cmd
+    if isinstance(args, str):
+        args = shlex.split(args)
     assert_which(args[0])
     process = subprocess.run(args, capture_output=True)
     out = process.stdout.strip().decode("utf-8")
