@@ -14,5 +14,3 @@ def read_file(path, variable=None):
         if match:
             return match.group(1)
         raise AttributeError("{} does not exist in {}".format(variable, path))
-
-

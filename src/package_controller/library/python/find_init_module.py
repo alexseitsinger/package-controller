@@ -10,6 +10,6 @@ def find_init_module():
     init_module = os.path.join(package_dir, "__init__.py")
     if not os.path.exists(init_module):
         raise FileNotFoundError(
-            "The init module does not exist. ({})".format(init_module))
+            "The init module does not exist. ({})".format(init_module)
+        )
     return init_module
-

@@ -21,5 +21,3 @@ main.add_command(diff)
 main.add_command(release)
 main.add_command(test)
 main.add_command(version)
-
-

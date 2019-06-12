@@ -68,4 +68,3 @@ def build_package(force=False):
         raise RuntimeError("Both python and node packages were detected.")
     else:
         raise RuntimeError("No python or node package was detected.")
-

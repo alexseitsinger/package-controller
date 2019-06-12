@@ -14,4 +14,3 @@ def assert_which(name):
             if len(out.decode("utf-8")):
                 return None
         raise AssertionError("Executable was not found. ({})".format(name))
-
