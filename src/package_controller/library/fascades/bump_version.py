@@ -1,6 +1,7 @@
 import semver
 
 from .get_version import get_version
+from .update_documentation import update_documentation
 from ..generic.assert_which import assert_which
 from ..generic.find_file import find_file
 from ..generic.run import run
@@ -13,17 +14,22 @@ from ..python.is_python_package import is_python_package
 def bump_version_python(old_version, new_version):
     assert_which("python")
     save_version(new_version)
-    return (old_version, new_version,)
+    return (old_version, new_version)
 
 
 def bump_version_node(old_version, new_version):
     assert_which("node")
     assert_which("yarn")
+
     # update the version.
     message = "chore: {}".format(new_version)
     run("yarn version --new-version {} --message '{}'".format(new_version, message))
+
+    # create new documentation
+    update_documentation()
+
     # return the version numbers.
-    return (old_version, new_version,)
+    return (old_version, new_version)
 
 
 def bump_version(major=False, minor=False, patch=False, force=False):
@@ -49,4 +55,3 @@ def bump_version(major=False, minor=False, patch=False, force=False):
         raise RuntimeError("Both python and node packages were detected.")
     else:
         raise RuntimeError("No python or node package was detected.")
-
