@@ -1,4 +1,5 @@
 import json
+import toml
 from io import open
 from ..generic.run import run
 from ..generic.assert_which import assert_which
@@ -6,10 +7,39 @@ from ..python.is_python_package import is_python_package
 from ..node.is_node_package import is_node_package
 from ..generic.find_file import find_file
 from ..generic.replace_line import replace_line
+from ..python.get_python_package_version import get_python_package_version
+
+
+def update_versions_python(toml_dict, name):
+    deps = toml_dict.get(name, None)
+    if deps is None:
+        return
+    for k, v in deps.items():
+        version = v
+        if version == "*":
+            version = get_python_package_version(k)
+            toml_dict[name][k] = "=={}".format(version)
 
 
 def pin_versions_python(production, development):
-    pass
+    pipfile = find_file("Pipfile")
+
+    toml_dict = None
+    with open(pipfile, "r") as f:
+        toml_dict = toml.loads(f.read())
+
+    if toml_dict is None:
+        raise RuntimeError("Failed to read Pipfile")
+
+    if production is True:
+        update_versions_python(toml_dict, "packages")
+    if development is True:
+        update_versions_python(toml_dict, "dev-packages")
+
+    with open(pipfile, "w") as f:
+        f.write(toml.dumps(toml_dict))
+
+    return {"production": production, "development": development}
 
 
 def update_versions_node(json_dict, key):
