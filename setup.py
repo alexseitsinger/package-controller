@@ -18,7 +18,7 @@ setup(
     author="Alex Seitsinger",
     author_email="software@alexseitsinger.com",
     url=HOMEPAGE_URL,
-    install_requires=["click", "semver"],
+    install_requires=["click", "semver", "toml"],
     entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_DIR)]},
     package_dir={"": "src"},
     packages=find_packages("src", exclude=["tests"]),
