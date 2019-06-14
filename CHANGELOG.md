@@ -1,3 +1,14 @@
+<a name="v2.1.0"></a>
+## [v2.1.0](https://github.com/alexseitsinger/package-controller/compare/v2.0.2...v2.1.0) (2019-06-14)
+
+### Features
+- Adds documentation to version bump for node. ([a30d889](https://github.com/alexseitsinger/package-controller/commit/a30d889d3a79d0ed3de001d84cac1cc5ca5915e7))
+- Adds get_python_package_version util. ([bd1ee7b](https://github.com/alexseitsinger/package-controller/commit/bd1ee7b5887bd3411f47196115f2fa1f75dac9aa))
+- Adds pin/unpin commands for node. ([4e93216](https://github.com/alexseitsinger/package-controller/commit/4e93216cb0a7cf67a6f81c3fc1fc4cb9fbaa929b))
+- Adds pin/unpin for python. ([294816d](https://github.com/alexseitsinger/package-controller/commit/294816dc4fd1e104e899f43600d9f9403dff9882))
+- Adds pipe_commands util. ([7c03221](https://github.com/alexseitsinger/package-controller/commit/7c0322163681b86e71ba7174a11a7e2fa997fb2f))
+
+
 <a name="v2.0.2"></a>
 ## [v2.0.2](https://github.com/alexseitsinger/package-controller/compare/v2.0.1...v2.0.2) (2019-06-06)
 
