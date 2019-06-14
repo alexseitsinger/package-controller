@@ -12,6 +12,16 @@ pip install package-controller
 
 ## Usage
 
+To pin the package versions for python or node.
+```
+pc pin --development | --production | --peer | --optional
+```
+
+To unpin the package versions for python or node.
+```
+pc unpin --development | --production | --peer | --optional
+```
+
 To get the diff of a file.
 ```
 pc diff path/to/file
