@@ -4,12 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-semver = "*"
-click = "*"
-package-controller = {editable = true,path = "."}
-pytest = "*"
+semver = "==2.8.1"
+click = "==7.0"
+pytest = "==4.6.3"
+toml = "==0.10.0"
 
 [packages]
 
 [requires]
 python_version = "3.7"
+
+[dev-packages.package-controller]
+editable = true
+path = "."
