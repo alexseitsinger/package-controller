@@ -7,7 +7,6 @@ from ..git.push import push
 from ..node.is_node_package import is_node_package
 from ..python.is_python_package import is_python_package
 from ..python.twine_upload import twine_upload
-from ..generic.run_interactive import run_interactive
 
 
 def release_package_node(otp=None):
