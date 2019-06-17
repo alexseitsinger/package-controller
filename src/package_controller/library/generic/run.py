@@ -14,7 +14,7 @@ def run(cmd, raise_exception=True):
     err = process.stderr.strip().decode("utf-8")
     if process.returncode != 0:
         # We need to not raise an exception when we encounter one with pytest.
-        # We also need to return the stdout, instead of stderr, if we encounter 
+        # We also need to return the stdout, instead of stderr, if we encounter
         # an exception with pytest.
         if raise_exception is True:
             raise RuntimeError(err)
