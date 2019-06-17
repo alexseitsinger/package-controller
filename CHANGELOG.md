@@ -1,3 +1,14 @@
+<a name="v2.2.0"></a>
+## [v2.2.0](https://github.com/alexseitsinger/package-controller/compare/v2.1.0...v2.2.0) (2019-06-17)
+
+### Bug Fixes
+- Adds check for updating documentation. ([b5294fd](https://github.com/alexseitsinger/package-controller/commit/b5294fdcc719ed971aa0270be81c1ad945807b54))
+- Removes non-existent import. ([2107474](https://github.com/alexseitsinger/package-controller/commit/21074741fa0940093fd797829bc2666a41a90183))
+
+### Features
+- Makes yarn release non-interactive. ([a63b334](https://github.com/alexseitsinger/package-controller/commit/a63b3342c35ba9be5a9d85045abce40d1682c7d0))
+
+
 <a name="v2.1.0"></a>
 ## [v2.1.0](https://github.com/alexseitsinger/package-controller/compare/v2.0.2...v2.1.0) (2019-06-14)
 
