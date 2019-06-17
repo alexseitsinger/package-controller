@@ -7,6 +7,7 @@ from ..generic.assert_which import assert_which
 from ..generic.run import run
 from ..git.add import add
 from ..git.commit import commit
+from ..git.assert_status import assert_status
 
 README_NAME = "README.md"
 
@@ -14,12 +15,15 @@ README_NAME = "README.md"
 def update_documentation_node():
     assert_which("documentation")
     run("documentation build ./src/index.js -f md -o {}".format(README_NAME))
-    add(README_NAME)
-    current_version = get_version()
-    commit(
-        commit_type="docs",
-        subject="Updates documentation for {}.".format(current_version),
-    )
+    try:
+        assert_status()
+    except AssertionError:
+        add(README_NAME)
+        current_version = get_version()
+        commit(
+            commit_type="docs",
+            subject="Updates documentation for {}.".format(current_version),
+        )
     return README_NAME
 
 
