@@ -14,7 +14,24 @@ README_NAME = "README.md"
 
 def update_documentation_node():
     assert_which("documentation")
-    run("documentation build ./src/index.js -f md -o {}".format(README_NAME))
+    # Find the index file from the current directory.
+    index_files = [
+        os.path.join(os.getcwd(), "index.js"),
+        os.path.join(os.getcwd(), "src/index.js"),
+    ]
+    index_file = None
+    for f in index_files:
+        if index_file is not None:
+            continue
+        if os.path.isfile(f):
+            index_file = f
+    # If the index file isn't found, raise an exception.
+    if index_file is None:
+        raise RuntimeError("Couldn't find index file for documentation.")
+    # Create the relative path for the index file.
+    index_file_rel_path = os.path.relpath(index_file, os.getcwd())
+    # Create the documentation using the index file found.
+    run("documentation build {} -f md -o {}".format(index_file_rel_path, README_NAME))
     try:
         assert_status()
     except AssertionError:
