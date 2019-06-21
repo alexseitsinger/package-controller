@@ -1,3 +1,10 @@
+<a name="v2.3.0"></a>
+## [v2.3.0](https://github.com/alexseitsinger/package-controller/compare/v2.2.0...v2.3.0) (2019-06-21)
+
+### Bug Fixes
+- Finds index file to create docs from. ([7f4d64d](https://github.com/alexseitsinger/package-controller/commit/7f4d64d8954ec2caa4f2eebb4b73ec783a139276))
+
+
 <a name="v2.2.0"></a>
 ## [v2.2.0](https://github.com/alexseitsinger/package-controller/compare/v2.1.0...v2.2.0) (2019-06-17)
 
