@@ -1,9 +1,7 @@
 import semver
 
 from .get_version import get_version
-from .update_documentation import update_documentation
 from ..generic.assert_which import assert_which
-from ..generic.find_file import find_file
 from ..generic.run import run
 from ..git.assert_status import assert_status
 from ..node.is_node_package import is_node_package
@@ -24,9 +22,6 @@ def bump_version_node(old_version, new_version):
     # update the version.
     message = "chore: {}".format(new_version)
     run("yarn version --new-version {} --message '{}'".format(new_version, message))
-
-    # create new documentation
-    update_documentation()
 
     # return the version numbers.
     return (old_version, new_version)
