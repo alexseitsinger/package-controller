@@ -14,12 +14,12 @@ def update_documentation_node():
     assert_which("documentation")
     root_dir = os.getcwd()
     index_file = find_index_file(root_dir)
-    readme_file = create_readme(index_file, README_NAME)
+    readme_file = create_readme(root_dir, index_file, README_NAME)
     try:
         assert_readme_content(readme_file)
     except AssertionError:
         print("Creating {} from entire src directory.".format(README_NAME))
-        readme_file = create_readme("src/**", README_NAME)
+        readme_file = create_readme(root_dir, "src/**", README_NAME)
     return readme_file
 
 
