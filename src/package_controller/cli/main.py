@@ -4,6 +4,7 @@ from .commands.add import add
 from .commands.build import build
 from .commands.commit import commit
 from .commands.diff import diff
+from .commands.document import document
 from .commands.pin import pin
 from .commands.unpin import unpin
 from .commands.release import release
@@ -20,6 +21,7 @@ main.add_command(add)
 main.add_command(build)
 main.add_command(commit)
 main.add_command(diff)
+main.add_command(document)
 main.add_command(pin)
 main.add_command(unpin)
 main.add_command(release)
