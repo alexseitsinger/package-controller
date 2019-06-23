@@ -1,0 +1,17 @@
+from ..generic.assert_status import assert_status
+from ..fascades.get_version import get_version
+from .commit import commit
+from .add import add
+
+
+def commit_readme_file(relative_readme_path):
+    try:
+        assert_status()
+    except AssertionError:
+        current_version = get_version()
+        add(relative_readme_path)
+        commit_hash = commit(
+            commit_type="docs",
+            subject="Updates documentation for v{}.".format(current_version),
+        )
+    return relative_readme_path
