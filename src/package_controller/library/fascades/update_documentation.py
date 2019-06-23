@@ -10,7 +10,7 @@ from ..generic.assert_readme_content import assert_readme_content
 README_NAME = "README.md"
 
 
-def update_documentation_node():
+def update_documentation_node(status_message):
     assert_which("documentation")
     root_dir = os.getcwd()
     # Find the package's index file, or raise an exception.
@@ -23,7 +23,7 @@ def update_documentation_node():
     except AssertionError:
         # If it is empty, attempt to create another README from the src
         # directory instead of just the index file.
-        print("Creating {} from entire src directory.".format(README_NAME))
+        status_message("Creating {} from entire src directory.".format(README_NAME))
         readme_file = create_readme(root_dir, "src/**", README_NAME)
         # If it's still empty, raise another exception.
         assert_readme_content(readme_file)
@@ -34,13 +34,13 @@ def update_documentation_python():
     pass
 
 
-def update_documentation():
+def update_documentation(status_message):
     is_python = is_python_package()
     is_node = is_node_package()
     if is_python and not is_node:
         return update_documentation_python()
     elif is_node and not is_python:
-        return update_documentation_node()
+        return update_documentation_node(status_message)
     elif is_node and is_python:
         raise RuntimeError("Both python and node packages were detected.")
     else:

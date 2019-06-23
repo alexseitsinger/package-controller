@@ -15,7 +15,9 @@ FAILURE_EXCEPTIONS = (
 @click.command()
 def document():
     try:
-        readme_file = update_documentation()
+        readme_file = update_documentation(
+            status_message=lambda x: click.secho(x, fg="yellow")
+        )
         click.secho("Successfully created documentation.", fg="green", bold=True)
     except FAILURE_EXCEPTIONS as exc:
         click.secho("Failed to create documentation.", fg="red", bold=True)
