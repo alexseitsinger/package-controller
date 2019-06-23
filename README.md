@@ -6,11 +6,29 @@ A CLI tool that acts as a wrapper for various other programs to make updating an
 
 ## Installation
 
+Preferred:
+```
+pipx install package-controller
+```
+
+Alternative:
+
+```
+pipenv install package-controller
+```
+
+Default:
+
 ```
 pip install package-controller
 ```
 
 ## Usage
+
+To create new documentation for the package.
+```
+pc document
+```
 
 To pin the package versions for python or node.
 ```
