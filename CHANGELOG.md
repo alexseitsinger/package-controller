@@ -1,3 +1,22 @@
+<a name="v2.4.0"></a>
+## [v2.4.0](https://github.com/alexseitsinger/package-controller/compare/v2.3.0...v2.4.0) (2019-06-24)
+
+### Bug Fixes
+- Fixes import for assert_status. ([9433bb0](https://github.com/alexseitsinger/package-controller/commit/9433bb0e34ec4088db7ba3b53ede1faca769f7be))
+- Fixes line counting. ([70a6844](https://github.com/alexseitsinger/package-controller/commit/70a6844c372c585130d115a79e43dd698031199c))
+
+### Code Refactoring
+- Adds root_dir argument. ([8bf5bb6](https://github.com/alexseitsinger/package-controller/commit/8bf5bb63f5b0456d178058ce0982a7aac6ff14a3))
+- Removes update_documentation() call. ([8f79316](https://github.com/alexseitsinger/package-controller/commit/8f79316a0c6ab349192cf8873732fc456108f5f5))
+- Splits method into utils. ([f62a8c0](https://github.com/alexseitsinger/package-controller/commit/f62a8c0ac156782bc4ece16f252adaf55820d868))
+
+### Features
+- Adds document command. ([bdc8ac8](https://github.com/alexseitsinger/package-controller/commit/bdc8ac85c04e08faec8c3d39abcc10857cbe9ded))
+- Adds git commit when docs are made. ([27e8d9e](https://github.com/alexseitsinger/package-controller/commit/27e8d9ea920ad183aec41f8545f274d68851727a))
+- Creates README from src dir as fallback. ([73a4e89](https://github.com/alexseitsinger/package-controller/commit/73a4e8939801ed285beca05209d3d91842d7f173))
+- Passes status_message command to fascade. ([2094cb2](https://github.com/alexseitsinger/package-controller/commit/2094cb2310a3369783577b185391ee430a1e923a))
+
+
 <a name="v2.3.0"></a>
 ## [v2.3.0](https://github.com/alexseitsinger/package-controller/compare/v2.2.0...v2.3.0) (2019-06-21)
 
