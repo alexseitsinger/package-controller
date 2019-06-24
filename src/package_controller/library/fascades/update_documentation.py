@@ -6,6 +6,7 @@ from ..generic.assert_which import assert_which
 from ..node.create_readme import create_readme
 from ..node.find_index_file import find_index_file
 from ..generic.assert_readme_content import assert_readme_content
+from ..git.commit_readme_file import commit_readme_file
 
 README_NAME = "README.md"
 
@@ -27,6 +28,7 @@ def update_documentation_node(status_message):
         readme_file = create_readme(root_dir, "src/**", README_NAME)
         # If it's still empty, raise another exception.
         assert_readme_content(readme_file)
+    commit_readme_file(readme_file)
     return readme_file
 
 
