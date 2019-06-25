@@ -15,20 +15,15 @@ def update_documentation_node(status_message):
     assert_which("documentation")
     root_dir = os.getcwd()
     # Find the package's index file, or raise an exception.
-    index_file = find_index_file(root_dir)
+    if not os.path.isdir(os.path.join(root_dir, "src")):
+        raise RuntimeError("There is no src directory.")
     # Attempt to create the README from the index file first.
-    readme_file = create_readme(root_dir, index_file, README_NAME)
+    readme_file = create_readme(root_dir, "src/**", README_NAME)
     # Check if the created README is empty...
-    try:
-        assert_readme_content(readme_file)
-    except AssertionError:
-        # If it is empty, attempt to create another README from the src
-        # directory instead of just the index file.
-        status_message("Creating {} from entire src directory.".format(README_NAME))
-        readme_file = create_readme(root_dir, "src/**", README_NAME)
-        # If it's still empty, raise another exception.
-        assert_readme_content(readme_file)
+    assert_readme_content(readme_file)
+    # Commit the file to git.
     commit_readme_file(readme_file)
+    # return the path to the readme file.
     return readme_file
 
 
