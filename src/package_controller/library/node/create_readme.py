@@ -2,7 +2,7 @@ import os
 
 from ..generic.run import run
 
-COMMAND = "documentation build {input_file} -f {output_format} -o {output_file}"
+COMMAND = "documentation build {input_file} -f {output_format} -o {output_file} --markdown-toc false"
 
 
 def create_readme(root_dir, input_path, output_name):
