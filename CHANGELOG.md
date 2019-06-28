@@ -1,3 +1,15 @@
+<a name="v2.5.0"></a>
+## [v2.5.0](https://github.com/alexseitsinger/package-controller/compare/v2.4.0...v2.5.0) (2019-06-28)
+
+### Code Refactoring
+- Defaults to create README from src dir. ([639251e](https://github.com/alexseitsinger/package-controller/commit/639251ef39fc64b81c6d21e3b5e47f8bf955c4bd))
+- Removes TOC from README. ([595f464](https://github.com/alexseitsinger/package-controller/commit/595f464d9fea540195392e6c48e43c08f74efdfe))
+- Trys making docs from dir, then index. ([1ec1cab](https://github.com/alexseitsinger/package-controller/commit/1ec1cab9191b0c9919cf3b40910c8a9fb340b076))
+
+### Features
+- Deletes invalid tags before bumping version. ([1d08b29](https://github.com/alexseitsinger/package-controller/commit/1d08b299e246801123405bdad34acc17ca8a4724))
+
+
 <a name="v2.4.0"></a>
 ## [v2.4.0](https://github.com/alexseitsinger/package-controller/compare/v2.3.0...v2.4.0) (2019-06-24)
 
