@@ -7,6 +7,7 @@ from ..git.assert_status import assert_status
 from ..node.is_node_package import is_node_package
 from ..python.save_version import save_version
 from ..python.is_python_package import is_python_package
+from ..git.assert_commit import assert_commit
 
 
 def bump_version_python(old_version, new_version):
@@ -18,6 +19,16 @@ def bump_version_python(old_version, new_version):
 def bump_version_node(old_version, new_version):
     assert_which("node")
     assert_which("yarn")
+
+    # Check if the tag already exists on a non-exist commit.
+    tag_name = "v{}".format(new_version)
+    tagged_commit = run("git rev-list -n 1 {}".format(tag_name))
+    if tagged_commit is not None:
+        try:
+            assert_commit(tagged_commit)
+        except AssertionError:
+            print("Deleting tag ({}) for non-existent commit.".format(tag_name))
+            run("git tag -d {}".format(tag_name))
 
     # update the version.
     message = "chore: {}".format(new_version)
