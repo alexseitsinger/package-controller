@@ -9,8 +9,7 @@ def get_latest_changelog(tag_name):
     out = run(cmd)
     section = out.split("\n\n\n")[0]
     heading, body = section.split("\n\n", 1)
-    regex = r"(v(?:\.\d+)+)"
-    repl_heading = re.sub(regex, heading, tag_name)
+    repl_heading = re.sub(r"v(\.?\d+)+", tag_name, heading)
     final = "\n\n".join([repl_heading, body])
     return final
 
