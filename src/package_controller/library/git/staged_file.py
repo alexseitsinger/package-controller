@@ -6,10 +6,10 @@ from .assert_repository import assert_repository
 
 def staged_file(f=None):
     assert_repository()
-    fn = os.path.basename(f)
     staged = staged_files()
     if f is None and len(staged) == 1:
         return staged[0]
+    fn = os.path.basename(f)
     for sf in staged:
         if f == sf:
             return sf
