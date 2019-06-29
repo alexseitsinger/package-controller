@@ -3,15 +3,23 @@ from .assert_commit import assert_commit
 from .assert_repository import assert_repository
 
 
+def get_target_changelog(number=1):
+    cmd = "git-changelog -t angular -s angular ."
+    out = run(cmd)
+    section = out.split("\n\n\n")[number]
+    return section
+
+
 def tag(name, commit_hash=None):
     assert_repository()
     # Make sure the tag name is formatted correctly.
     if not name.startswith("v"):
         name = "v{}".format(name)
     # Create the args we're going to use.
-    cmd = "git tag {}".format(name)
+    message = get_target_changelog()
+    cmd = "git tag -a {} -m '{}'".format(name, message)
     if commit_hash is not None:
-        cmd = " ".join([cmd, commit_hash])
+        cmd += " {}".format(commit_hash)
     # Try to run the git tag command.
     # If it succeeds, return the commit hash and the tag name in a tuple.
     # If it fails, and its due to a tag already existing, try to replace it
@@ -19,7 +27,7 @@ def tag(name, commit_hash=None):
     # Otherwise, raise an exception.
     try:
         run(cmd)
-        return (commit_hash, name,)
+        return (commit_hash, name)
     except RuntimeError as exc:
         msg = str(exc)
         # If we get some output and it says the tag exists, continue.
@@ -29,11 +37,17 @@ def tag(name, commit_hash=None):
             # If the commit does not exist, then delete the tag, and re-run this command.
             try:
                 assert_commit(tagged_commit)
-                raise RuntimeError("The tag {} already exists on the commit {}.".format(name, tagged_commit))
+                raise RuntimeError(
+                    "The tag {} already exists on the commit {}.".format(
+                        name, tagged_commit
+                    )
+                )
             except AssertionError as exc:
-                print("Deleting the tag {} that points to the non-existant commit {}.".format(name, tagged_commit))
+                print(
+                    "Deleting the tag {} that points to the non-existant commit {}.".format(
+                        name, tagged_commit
+                    )
+                )
                 run("git tag -d {}".format(name))
                 return tag(name, commit_hash)
         raise exc
-
-
