@@ -1,3 +1,10 @@
+<a name="v2.6.0"></a>
+## [v2.6.0](https://github.com/alexseitsinger/package-controller/compare/v2.5.0...v2.6.0) (2019-06-29)
+
+### Features
+- Adds force for git push. ([46eed79](https://github.com/alexseitsinger/package-controller/commit/46eed79b58954d6b076cb53eb8ce22b94bca0469))
+
+
 <a name="v2.5.0"></a>
 ## [v2.5.0](https://github.com/alexseitsinger/package-controller/compare/v2.4.0...v2.5.0) (2019-06-28)
 
