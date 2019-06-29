@@ -11,7 +11,6 @@ def commit_readme_file(relative_readme_path):
         current_version = get_version()
         add(relative_readme_path)
         commit_hash = commit(
-            commit_type="docs",
-            subject="Updates documentation for v{}.".format(current_version),
+            "docs", "Updates documentation for v{}.".format(current_version)
         )
     return relative_readme_path

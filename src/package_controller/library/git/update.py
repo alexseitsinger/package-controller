@@ -25,11 +25,10 @@ def update(old_version, new_version):
 
         # create the new commit.
         commit_hash = commit(
-            commit_type="chore",
-            subject=new_version,
-            description="Updates the version from {} to {}".format(
-                old_version, new_version
-            )
+            "chore",
+            "{new_version}. Updates the version from {old_version} to {new_version}.".format(
+                new_version, old_version
+            ),
         )
 
         # Create the tag.
@@ -41,10 +40,7 @@ def update(old_version, new_version):
 
     # Create and add the changelog and init module.
     add(make_changelog())
-    commit(
-        commit_type="chore",
-        subject="Updates the changelog for {}".format(tag_name)
-    )
+    commit("chore", "Updates the changelog for {}".format(tag_name))
 
     # return the tag name to use somewhere else.
     return tag_name
