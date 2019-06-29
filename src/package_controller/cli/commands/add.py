@@ -13,7 +13,7 @@ FAILURE_EXCEPTIONS = (
 
 
 @click.command()
-@click.option("--files", "-f", required=True, multiple=True)
+@click.argument("files", required=False, nargs=-1)
 def add(files):
     try:
         succeeded = git_add(*files)
