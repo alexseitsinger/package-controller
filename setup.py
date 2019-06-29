@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 from setuptools import setup, find_packages
-from setup_utils import README_NAME, read, read_markdown
+from setup_utils import read, read_markdown
 
 PACKAGE_NAME = "package-controller"
 PACKAGE_ROOT_NAME = "package_controller"
 GITHUB_URL = "https://github.com/alexseitsinger/{}".format(PACKAGE_NAME)
 HOMEPAGE_URL = "https://www.alexseitsinger.com/packages/python/{}".format(PACKAGE_NAME)
+README_NAME = "README.md"
 
 
 setup(
