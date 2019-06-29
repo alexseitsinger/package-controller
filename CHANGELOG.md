@@ -1,3 +1,32 @@
+<a name="v2.8.0"></a>
+## [v2.8.0](https://github.com/alexseitsinger/package-controller/compare/v2.6.0...v2.8.0) (2019-06-29)
+
+### Bug Fixes
+- Attempts to fix no file arg save. ([0cb3035](https://github.com/alexseitsinger/package-controller/commit/0cb3035f7a0856c4e751bf259432e272cef9698a))
+- Fixes commit command args. ([20724bb](https://github.com/alexseitsinger/package-controller/commit/20724bb800ad43fe841d0bc3d95a17079bcb1843))
+- Fixes missing variables in format call. ([68433e6](https://github.com/alexseitsinger/package-controller/commit/68433e666b907af516926fecb16343d338c26b62))
+- Fixes TypeError on None arg. ([54ddde8](https://github.com/alexseitsinger/package-controller/commit/54ddde843a6ecdffba9d479f220bd73e7bdb438b))
+- Makes add_file work without args. ([e3933a5](https://github.com/alexseitsinger/package-controller/commit/e3933a53a1dcdcc5b77b4383d88a0b2e4f69314b))
+
+### Code Refactoring
+- Adds elif instead of if. ([913d8db](https://github.com/alexseitsinger/package-controller/commit/913d8db62923d242da423112fcdf71938ef9c90c))
+- Attempts to fix tag changelog heading. ([07e93ca](https://github.com/alexseitsinger/package-controller/commit/07e93ca23045ab9bac8973c11118034dae5700d2))
+- Attempts to fix tag changelog heading. ([59697cb](https://github.com/alexseitsinger/package-controller/commit/59697cb096a72e2cc112839dce784c0dbed1d1b6))
+- Fixes heading of tag changelog. ([ca9b555](https://github.com/alexseitsinger/package-controller/commit/ca9b5551c4cd675965d8c3a9285d1062aa4e32ac))
+- Fixes tag changelog heading. ([3450f81](https://github.com/alexseitsinger/package-controller/commit/3450f81aeda29cf2283346ce84c009f3fcddf88a))
+- Makes file arg optional. ([d72cc08](https://github.com/alexseitsinger/package-controller/commit/d72cc08fa67e65b04d6f09c458b92e8e6295b9a6))
+- Makes files arg wild/optional. ([c5761d1](https://github.com/alexseitsinger/package-controller/commit/c5761d1d25d91e0d1fe49c565611f05c227585b6))
+- Makes subject,description from one arg. ([b693ee7](https://github.com/alexseitsinger/package-controller/commit/b693ee73da1e7989845faf1b108566a46b6c7f16))
+- Removes exception for no file names. ([748b3cd](https://github.com/alexseitsinger/package-controller/commit/748b3cdd8a5fd961f1863670c4ed193e9db9887c))
+- Tries to fix heading for tag changelog. ([ab4b1e2](https://github.com/alexseitsinger/package-controller/commit/ab4b1e26a3bdbf0dbc0992b6159672399fe920ea))
+- Tries to fix tag changelog heading. ([c1a51d0](https://github.com/alexseitsinger/package-controller/commit/c1a51d031d7b6e91e173a9400c28007358affc63))
+- Uses top of changelog. ([5b196c4](https://github.com/alexseitsinger/package-controller/commit/5b196c4fafca02848b7e5053f9f6b356c7b47149))
+
+### Features
+- Adds save command. ([4c3773e](https://github.com/alexseitsinger/package-controller/commit/4c3773e98b250a12c099057e7f39f4439b56e8f7))
+- Creates annotated tags with git-changelog. ([cf698d4](https://github.com/alexseitsinger/package-controller/commit/cf698d45e092a71701991bbdf64b6a0d38929663))
+
+
 <a name="v2.6.0"></a>
 ## [v2.6.0](https://github.com/alexseitsinger/package-controller/compare/v2.5.0...v2.6.0) (2019-06-29)
 
