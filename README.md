@@ -25,6 +25,11 @@ pip install package-controller
 
 ## Usage
 
+To stage and commit in one command:
+```
+pc save -t <type> -m <message> (<file>, <file>, <file>...)
+```
+
 To create new documentation for the package.
 ```
 pc document
@@ -52,12 +57,12 @@ pc test --unit --integration
 
 To add file(s) to a commit.
 ```
-pc add -f <path> (-f <path> ...)
+pc add (<file>, <file>, ...)
 ```
 
 To create the commit.
 ```
-pc commit -t <type> -s <subject> (-d <description>)
+pc commit -t <type> -m <message>
 ```
 
 To increase the major version
@@ -87,6 +92,6 @@ pc build (--force)
 
 To release the latest version. (to PyPi (Python) or NPM (Node), and git)
 ```
-pc release (--remote <remote> --branch <branch> --no-tag)
+pc release (--remote <remote> --branch <branch> --no-tag --force)
 ```
 
