@@ -4,4 +4,7 @@ from .assert_repository import assert_repository
 
 def add(*files):
     assert_repository()
-    return [add_file(x) for x in files]
+    if len(files) == 0:
+        return [add_file()]
+    else:
+        return [add_file(x) for x in files]
