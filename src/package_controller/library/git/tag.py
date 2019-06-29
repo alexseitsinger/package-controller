@@ -16,7 +16,7 @@ def tag(name, commit_hash=None):
     if not name.startswith("v"):
         name = "v{}".format(name)
     # Create the args we're going to use.
-    message = get_target_changelog()
+    message = get_target_changelog(0)
     cmd = "git tag -a {} -m '{}'".format(name, message)
     if commit_hash is not None:
         cmd += " {}".format(commit_hash)
