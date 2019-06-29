@@ -4,14 +4,14 @@ from setuptools import setup, find_packages
 from setup_utils import README_NAME, read, read_markdown
 
 PACKAGE_NAME = "package-controller"
-PACKAGE_DIR = PACKAGE_NAME.replace("-", "_")
+PACKAGE_ROOT_NAME = "package_controller"
 GITHUB_URL = "https://github.com/alexseitsinger/{}".format(PACKAGE_NAME)
 HOMEPAGE_URL = "https://www.alexseitsinger.com/packages/python/{}".format(PACKAGE_NAME)
 
 
 setup(
     name=PACKAGE_NAME,
-    version=read(("src", PACKAGE_DIR, "__init__.py"), "__version__"),
+    version=read(("src", PACKAGE_ROOT_NAME, "__init__.py"), "__version__"),
     description=read_markdown((README_NAME,), "Description", (0,)),
     long_description=read((README_NAME,)),
     long_description_content_type="text/markdown",
@@ -19,7 +19,7 @@ setup(
     author_email="software@alexseitsinger.com",
     url=HOMEPAGE_URL,
     install_requires=["click", "semver", "toml"],
-    entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_DIR)]},
+    entry_points={"console_scripts": ["pc={}.cli:main".format(PACKAGE_ROOT_NAME)]},
     package_dir={"": "src"},
     packages=find_packages("src", exclude=["tests"]),
     include_package_data=True,
