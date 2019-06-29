@@ -1,16 +1,18 @@
 from ..generic.run import run
 from .assert_commit import assert_commit
 from .assert_repository import assert_repository
+import re
 
 
-def get_target_changelog(tag_name, number=1):
+def get_latest_changelog(tag_name):
     cmd = "git-changelog -t angular -s angular ."
     out = run(cmd)
-    section = out.split("\n\n\n")[number]
-    bits = section.split()
-    bits.pop(0)
-    bits.insert(1, '<a name="{}"></a>'.format(tag_name))
-    return "".join(bits)
+    section = out.split("\n\n\n")[0]
+    heading, body = section.split("\n\n", 1)
+    regex = r"(v(?:\.\d+)+)"
+    repl_heading = re.sub(regex, heading, tag_name)
+    final = "\n\n".join([repl_heading, body])
+    return final
 
 
 def tag(name, commit_hash=None):
@@ -19,7 +21,7 @@ def tag(name, commit_hash=None):
     if not name.startswith("v"):
         name = "v{}".format(name)
     # Create the args we're going to use.
-    message = get_target_changelog(name, 0)
+    message = get_latest_changelog(name)
     cmd = "git tag -a {} -m '{}'".format(name, message)
     if commit_hash is not None:
         cmd += " {}".format(commit_hash)
