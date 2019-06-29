@@ -8,8 +8,9 @@ def get_target_changelog(tag_name, number=1):
     out = run(cmd)
     section = out.split("\n\n\n")[number]
     bits = section.split()
-    bits[0] = '<a name="{}"></a>'.format(tag_name)
-    return "\n".join(bits)
+    bits.pop(0)
+    bits.insert(1, '<a name="{}"></a>'.format(tag_name))
+    return "".join(bits)
 
 
 def tag(name, commit_hash=None):
