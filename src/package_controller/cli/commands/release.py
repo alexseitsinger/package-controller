@@ -20,7 +20,10 @@ FAILURE_EXCEPTIONS = (
 @click.option(
     "--branch", "-b", default="master", required=False, help="The branch to push to."
 )
-@click.option("--otp", required=False, help="The OTP code for NPM.")
+@click.option("--otp", "-o", required=False, help="The OTP code for NPM.")
+@click.option(
+    "--force", "-f", required=False, is_flag=True, default=False, help="Force git push."
+)
 @click.option(
     "--no-tag",
     "-nt",
@@ -29,13 +32,13 @@ FAILURE_EXCEPTIONS = (
     is_flag=True,
     help="If true, will not push the tag.",
 )
-def release(remote, branch, otp, no_tag):
+def release(remote, branch, otp, no_tag, force):
     try:
         tag_name = None
         if no_tag is False:
             tag_name = "v{}".format(get_version())
         uploaded = release_package(
-            remote=remote, branch=branch, tag_name=tag_name, otp=otp
+            remote=remote, branch=branch, tag_name=tag_name, otp=otp, force=force
         )
         click.secho("Successfully released package.", fg="green", bold=True)
         if uploaded is not None:
