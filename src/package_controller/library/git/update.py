@@ -27,7 +27,7 @@ def update(old_version, new_version):
         commit_hash = commit(
             "chore",
             "{new_version}. Updates the version from {old_version} to {new_version}.".format(
-                new_version, old_version
+                new_version=new_version, old_version=old_version
             ),
         )
 
