@@ -18,6 +18,6 @@ def staged_file(f):
             # path/to/file.py -> some/(path/to/file.py)
             if sf.endswith(f):
                 return sf
-        # file.py -> path/to/(file.py) 
-        if os.path.basename(sf) == fn:
+        # file.py -> path/to/(file.py)
+        elif os.path.basename(sf) == fn:
             return sf
