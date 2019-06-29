@@ -7,6 +7,8 @@ from .assert_repository import assert_repository
 
 def add_file(f=None):
     assert_repository()
+    if f is None:
+        return add_file(staged_file())
     try:
         run("git add {}".format(f))
         return f
