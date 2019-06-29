@@ -10,24 +10,26 @@ from .format_commit_text import format_commit_text
 from .format_commit_description import format_commit_description
 
 
-def commit(commit_type, subject, description=None):
+def get_commit_messages(commit_type, message):
+    bits = message.split(". ", 1)
+    subject = bits.pop(0)
+    heading = "{}: {}".format(commit_type, format_commit_text(subject))
+    assert_commit_heading_length(heading)
+    if len(bits):
+        description = format_commit_description(". ".join(bits))
+    else:
+        description = ""
+    return [heading, description]
+
+
+def commit(commit_type, message):
     assert_repository()
     assert_which("git")
     assert_commit_type(commit_type)
-    # Remove any excess whitespace from the subject.
-    subject = format_commit_text(subject)
-    # Create the heading for the commit.
-    heading = "{}: {}".format(commit_type, subject)
-    assert_commit_heading_length(heading)
-    # Create the commit args.
+    heading, description = get_commit_messages(commit_type, message)
     cmd = "git commit -m '{}'".format(heading)
-    # Iterate over the description, if possible, and convert each line into
-    # a new -m entry to use a newline in the commit message.
-    if description is not None:
-        formatted_description = format_commit_description(description)
-        cmd = " ".join([cmd, "-m '{}'".format(formatted_description)])
-    # Run the command we've put togehter to create the commit.
+    if len(description):
+        cmd += " -m '{}'".format(description)
     run(cmd)
     last_commit_hash = run("git rev-parse HEAD")
     return last_commit_hash
-
