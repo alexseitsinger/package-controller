@@ -16,7 +16,7 @@ FAILURE_EXCEPTIONS = (
 @click.command(name="save")
 @click.option("--type", "-t", "type_", required=True, help="The commit type.")
 @click.option("--message", "-m", required=True, help="The commit message.")
-@click.argument("files", required=True, nargs=-1)
+@click.argument("files", required=False, nargs=-1)
 def save_command(type_, message, files):
     try:
         staged = add(*files)

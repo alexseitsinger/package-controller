@@ -4,10 +4,13 @@ from .staged_files import staged_files
 from .assert_repository import assert_repository
 
 
-def staged_file(f):
+def staged_file(f=None):
     assert_repository()
     fn = os.path.basename(f)
-    for sf in staged_files():
+    staged = staged_files()
+    if f is None and len(staged) == 1:
+        return staged[0]
+    for sf in staged:
         if f == sf:
             return sf
         if os.path.sep in f:
