@@ -27,7 +27,7 @@ EXCEPTIONS_EXPECTED = (
 )
 @click.option(
     "--prerelease",
-    "p",
+    "-p",
     required=False,
     is_flag=True,
     default=False,
