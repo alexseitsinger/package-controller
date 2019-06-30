@@ -26,7 +26,7 @@ def release(
         owner_name=owner_name,
         repo_name=repo_name,
         tag_name=tag_name,
-        body=get_latest_changelog(tag_name),
+        body=get_latest_changelog(),
         target=branch_name,
         prerelease=prerelease,
         draft=draft,
