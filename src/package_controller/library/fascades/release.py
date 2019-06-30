@@ -11,4 +11,5 @@ def release(remote="origin", branch="master", force=False):
     push(remote, branch, tag, force)
     # Create a new release on GitHUb for the tag we just created.
     changelog = get_latest_changelog(tag)
-    create_release(tag, changelog)
+    released = create_release(tag, changelog)
+    return released

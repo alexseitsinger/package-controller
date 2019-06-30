@@ -23,7 +23,7 @@ EXCEPTIONS_EXPECTED = (
 )
 def release_command(remote, branch, force):
     try:
-        result = release(remote, branch, force)
+        released = release(remote, branch, force)
         click.secho("Successfully released package.", fg="green", bold=True)
     except EXCEPTIONS_EXPECTED as exc:
         message = str(exc)
