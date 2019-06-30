@@ -1,3 +1,16 @@
+<a name="v3.0.1"></a>
+## [v3.0.1](https://github.com/alexseitsinger/package-controller/compare/v3.0.0...v3.0.1) (2019-06-30)
+
+### Bug Fixes
+- Adds exception handler for empty changelogs. ([918f677](https://github.com/alexseitsinger/package-controller/commit/918f677d0e84414327d3ca8e5a6ae708b8c85661))
+- Correctly throws exception. ([df5f56f](https://github.com/alexseitsinger/package-controller/commit/df5f56f007e66a374c21e268fb9c3c79f32ca20d))
+
+### Code Refactoring
+- Removes unnecessary argument. ([243a742](https://github.com/alexseitsinger/package-controller/commit/243a742e84a04bad6da759478f12f02b2620c880))
+- Removes unused import. ([3c0228f](https://github.com/alexseitsinger/package-controller/commit/3c0228f191a10a92928f973b76d5faa5509dd743))
+- Renames authenticated to authorized. ([09855e7](https://github.com/alexseitsinger/package-controller/commit/09855e72159cf09c7875a371951374293eda5805))
+
+
 <a name="v3.0.0"></a>
 ## [v3.0.0](https://github.com/alexseitsinger/package-controller/compare/v2.8.0...v3.0.0) (2019-06-30)
 
