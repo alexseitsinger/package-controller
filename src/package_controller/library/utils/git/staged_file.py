@@ -7,8 +7,10 @@ from .assert_repository import assert_repository
 def staged_file(f=None):
     assert_repository()
     staged = staged_files()
-    if f is None and len(staged) == 1:
-        return staged[0]
+    if f is None:
+        if len(staged) == 1:
+            return staged[0]
+        raise RuntimeError("No files specified.")
     fn = os.path.basename(f)
     for sf in staged:
         if f == sf:
