@@ -8,6 +8,7 @@ semver = "==2.8.1"
 click = "==7.0"
 pytest = "==4.6.3"
 toml = "==0.10.0"
+requests = "==2.22.0"
 
 [packages]
 
