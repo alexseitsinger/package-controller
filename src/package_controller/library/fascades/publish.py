@@ -49,7 +49,7 @@ def publish_python():
     return twine_upload()
 
 
-def publish(access, otp):
+def publish(access="public", otp=None):
     is_python = is_python_package()
     is_node = is_node_package()
     if is_python and not is_node:
