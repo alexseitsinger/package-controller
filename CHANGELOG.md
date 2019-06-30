@@ -1,3 +1,35 @@
+<a name="v3.0.0"></a>
+## [v3.0.0](https://github.com/alexseitsinger/package-controller/compare/v2.8.0...v3.0.0) (2019-06-30)
+
+### Bug Fixes
+- Adds missing - in `release_command`. ([bfa373e](https://github.com/alexseitsinger/package-controller/commit/bfa373eef6665ed4dba7729a91e939ff5d5647f4))
+- Adds missing default values for args. ([298744a](https://github.com/alexseitsinger/package-controller/commit/298744a35e438af52558fcc215a414f65014c454))
+- Adds missing file deletion in `build`. ([9481417](https://github.com/alexseitsinger/package-controller/commit/948141769ccdc71eb2d3332879b7d66d7afea34c))
+- Fixes wheel name format. ([a9ca05c](https://github.com/alexseitsinger/package-controller/commit/a9ca05cd84c3b74099c72b25531770b487f3e7e3))
+
+### Code Refactoring
+- Adds return value to release. ([260981c](https://github.com/alexseitsinger/package-controller/commit/260981cb3d19e6b2ff7f18cf9fc64514bd8561ac))
+- Changes arguments. ([ce66c23](https://github.com/alexseitsinger/package-controller/commit/ce66c23e0762deafddf10eaaa9f8ba8192682f64))
+- Changes get_version to version. ([4c212d6](https://github.com/alexseitsinger/package-controller/commit/4c212d67883d063e1b123e18de5d7fa97845298f))
+- Changes to lightweight tags. ([02fa5df](https://github.com/alexseitsinger/package-controller/commit/02fa5df42b2435c788b995416b225dc4ed9b405a))
+- Creates new library module import. ([b054716](https://github.com/alexseitsinger/package-controller/commit/b054716ec47bb30454d3326d91f1805e2f4e8322))
+- Moves create_release to github library. ([3213566](https://github.com/alexseitsinger/package-controller/commit/3213566c1dc079ea91f741a2cc4fa630f26957a9))
+- Moves modules around. ([20e7779](https://github.com/alexseitsinger/package-controller/commit/20e77791b5e4205ec1757c70cabbe353d3d85414))
+- Renamed commands. ([16b6760](https://github.com/alexseitsinger/package-controller/commit/16b6760a4264b4de3841f1f12aec5e7c3bb531d6))
+- Set draft to False by default. ([5d20700](https://github.com/alexseitsinger/package-controller/commit/5d20700421af31d3c626c2ab631ed63c41616f22))
+- Shortened publish command. ([4f3c46a](https://github.com/alexseitsinger/package-controller/commit/4f3c46aaeeeff97f3fbf990f123a2da1ecde577e))
+- Updates push. ([be8ba4b](https://github.com/alexseitsinger/package-controller/commit/be8ba4ba66dd434d6abdd8b14b804113295336ea))
+- Updates release method. ([414227b](https://github.com/alexseitsinger/package-controller/commit/414227ba81a08d35df2b15593c0c21df297d7c30))
+
+### Features
+- Adds `create_release` module. ([fe3a901](https://github.com/alexseitsinger/package-controller/commit/fe3a9014f6e9f0b2496875d5a89dac72b4d548ad))
+- Adds `get_latest_changelog` module. ([1239cbf](https://github.com/alexseitsinger/package-controller/commit/1239cbfefd6a0d1419114a7af0a52378887265ef))
+- Adds `get_remote_info` git library module. ([cc64687](https://github.com/alexseitsinger/package-controller/commit/cc6468759edb9ecf17511a62fdc62c1f515ebb66))
+- Adds generic module. ([6bd4775](https://github.com/alexseitsinger/package-controller/commit/6bd4775c7ab53226f1f05d29453386271125b7e7))
+- Adds github library. ([f5c5528](https://github.com/alexseitsinger/package-controller/commit/f5c552819f10ea6dd5bb2619bd80698e9ae2b963))
+- Adds prerelease,draft flag options. ([1b4813d](https://github.com/alexseitsinger/package-controller/commit/1b4813d4de7cfaea124b73b4f15f79f70caa7973))
+
+
 <a name="v2.8.0"></a>
 ## [v2.8.0](https://github.com/alexseitsinger/package-controller/compare/v2.6.0...v2.8.0) (2019-06-29)
 
