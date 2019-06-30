@@ -1,15 +1,33 @@
-from ..git.push import push
-from ..git.create_release import create_release
-from ..git.get_latest_changelog import get_latest_changelog
+import os
+import json
+
 from ..fascades.version import version
+from ..generic.run import run
+from ..git.push import push
+from ..git.get_latest_changelog import get_latest_changelog
+from ..git.get_remote_info import get_remote_info
+from ..github.create_release import create_release
 
 
-def release(remote="origin", branch="master", force=False):
+def release(
+    remote_name="origin",
+    branch_name="master",
+    force=False,
+    prerelease=False,
+    draft=True,
+):
     # Get the tag name if we're creating one.
-    tag = "v{}".format(version())
+    tag_name = "v{}".format(version())
     # Push our changes.
-    push(remote, branch, tag, force)
+    push(remote_name, branch_name, tag_name, force)
     # Create a new release on GitHUb for the tag we just created.
-    changelog = get_latest_changelog(tag)
-    released = create_release(tag, changelog)
-    return released
+    owner_name, repo_name = get_remote_info(remote_name)
+    return create_release(
+        owner_name=owner_name,
+        repo_name=repo_name,
+        tag_name=tag_name,
+        body=get_latest_changelog(tag_name),
+        target=branch_name,
+        prerelease=prerelease,
+        draft=draft,
+    )
