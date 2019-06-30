@@ -15,7 +15,7 @@ def create_release(
     body,
     target="master",
     name=None,
-    draft=True,
+    draft=False,
     prerelease=False,
     timeout=10.0,
 ):

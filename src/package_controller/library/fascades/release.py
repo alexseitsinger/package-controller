@@ -14,7 +14,7 @@ def release(
     branch_name="master",
     force=False,
     prerelease=False,
-    draft=True,
+    draft=False,
 ):
     # Get the tag name if we're creating one.
     tag_name = "v{}".format(version())
