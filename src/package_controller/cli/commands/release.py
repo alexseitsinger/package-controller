@@ -16,14 +16,34 @@ EXCEPTIONS_EXPECTED = (
     "--remote", "-r", default="origin", required=False, help="The remote to push to."
 )
 @click.option(
-    "--branch", "-b", default="master", required=False, help="The branch to push to."
+    "--branch",
+    "-b",
+    default="master",
+    required=False,
+    help="The branch/target to push/release to.",
 )
 @click.option(
     "--force", "-f", required=False, is_flag=True, default=False, help="Force git push."
 )
-def release_command(remote, branch, force):
+@click.option(
+    "--prerelease",
+    "p",
+    required=False,
+    is_flag=True,
+    default=False,
+    help="If true, is prerelease.",
+)
+@click.option(
+    "--draft",
+    "-d",
+    required=False,
+    is_flag=True,
+    default=False,
+    help="If true, is a draft.",
+)
+def release_command(remote, branch, force, prerelease, draft):
     try:
-        released = release(remote, branch, force)
+        response = release(remote, branch, force, prerelease, draft)
         click.secho("Successfully released package.", fg="green", bold=True)
     except EXCEPTIONS_EXPECTED as exc:
         message = str(exc)
