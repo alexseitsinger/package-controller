@@ -28,10 +28,11 @@ def build_python(replace=False):
     tarball = os.path.join(dist_dir, tarball_name)
     built = [wheel, tarball]
     for path in built:
-        if os.path.exists(path):
+        if os.path.isfile(path):
             if replace is False:
                 raise FileExistsError("File already exists. ({})".format(path))
-            # delete files...
+            print("Deleting stale dist file: {}.".format(os.path.basename(path)))
+            os.remove(path)
     try:
         assert_which("pipenv")
         run("pipenv run {}".format(BUILD_CMD))
