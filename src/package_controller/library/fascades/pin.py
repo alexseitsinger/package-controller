@@ -10,7 +10,7 @@ from ..generic.replace_line import replace_line
 from ..python.get_python_package_version import get_python_package_version
 
 
-def update_versions_python(toml_dict, name):
+def pin_versions_python(toml_dict, name):
     deps = toml_dict.get(name, None)
     if deps is None:
         return
@@ -21,7 +21,7 @@ def update_versions_python(toml_dict, name):
             toml_dict[name][k] = "=={}".format(version)
 
 
-def pin_versions_python(production, development):
+def pin_python(production, development):
     pipfile = find_file("Pipfile")
 
     toml_dict = None
@@ -32,9 +32,9 @@ def pin_versions_python(production, development):
         raise RuntimeError("Failed to read Pipfile")
 
     if production is True:
-        update_versions_python(toml_dict, "packages")
+        pin_versions_python(toml_dict, "packages")
     if development is True:
-        update_versions_python(toml_dict, "dev-packages")
+        pin_versions_python(toml_dict, "dev-packages")
 
     with open(pipfile, "w") as f:
         f.write(toml.dumps(toml_dict))
@@ -42,7 +42,7 @@ def pin_versions_python(production, development):
     return {"production": production, "development": development}
 
 
-def update_versions_node(json_dict, key):
+def pin_versions_node(json_dict, key):
     deps = json_dict.get(key, None)
     if deps is None:
         return
@@ -53,7 +53,7 @@ def update_versions_node(json_dict, key):
         deps[k] = version
 
 
-def pin_versions_node(production, development, peer, optional):
+def pin_node(production, development, peer, optional):
     # Find the package file we're going to alter.
     package_file = find_file("package.json")
 
@@ -69,13 +69,13 @@ def pin_versions_node(production, development, peer, optional):
 
     # Process the deps
     if production is True:
-        update_versions_node(original_content, "dependencies")
+        pin_versions_node(original_content, "dependencies")
     if development is True:
-        update_versions_node(original_content, "devDependencies")
+        pin_versions_node(original_content, "devDependencies")
     if peer is True:
-        update_versions_node(original_content, "peerDependencies")
+        pin_versions_node(original_content, "peerDependencies")
     if optional is True:
-        update_versions_node(original_content, "optionalDependencies")
+        pin_versions_node(original_content, "optionalDependencies")
 
     # Write the new content to the file.
     with open(package_file, "w") as f:
@@ -90,15 +90,13 @@ def pin_versions_node(production, development, peer, optional):
     }
 
 
-def pin_versions(production=False, development=False, optional=False, peer=False):
+def pin(production=False, development=False, optional=False, peer=False):
     is_python = is_python_package()
     is_node = is_node_package()
     if is_python and not is_node:
-        return pin_versions_python(production=production, development=development)
+        return pin_python(production, development)
     elif is_node and not is_python:
-        return pin_versions_node(
-            production=production, development=development, optional=optional, peer=peer
-        )
+        return pin_node(production, development, optional, peer)
     elif is_node and is_python:
         raise RuntimeError("Both python and node packages were detected.")
     else:

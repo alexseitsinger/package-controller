@@ -1,9 +1,9 @@
 import os
 import click
 
-from ...library.fascades.update_documentation import update_documentation
+from ...library.fascades.document import document
 
-FAILURE_EXCEPTIONS = (
+EXCEPTIONS_EXPECTED = (
     RuntimeError,
     AssertionError,
     AttributeError,
@@ -12,13 +12,11 @@ FAILURE_EXCEPTIONS = (
 )
 
 
-@click.command()
-def document():
+@click.command(name="document")
+def document_command():
     try:
-        readme_file = update_documentation(
-            status_message=lambda x: click.secho(x, fg="yellow")
-        )
+        readme_file = document(status_message=lambda x: click.secho(x, fg="yellow"))
         click.secho("Successfully created documentation.", fg="green", bold=True)
-    except FAILURE_EXCEPTIONS as exc:
+    except EXCEPTIONS_EXPECTED as exc:
         click.secho("Failed to create documentation.", fg="red", bold=True)
         click.secho(str(exc), fg="red")

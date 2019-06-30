@@ -1,9 +1,9 @@
 import click
 
-from ...library.fascades.unpin_versions import unpin_versions
+from ...library.fascades.unpin import unpin
 
 
-FAILURE_EXCEPTIONS = (
+EXCEPTIONS_EXPECTED = (
     RuntimeError,
     AssertionError,
     AttributeError,
@@ -12,7 +12,7 @@ FAILURE_EXCEPTIONS = (
 )
 
 
-@click.command()
+@click.command(name="unpin")
 @click.option(
     "--production",
     is_flag=True,
@@ -37,11 +37,9 @@ FAILURE_EXCEPTIONS = (
     default=False,
     help="Unpin the versions of optional dependencies.",
 )
-def unpin(production, development, peer, optional):
+def unpin_command(production, development, peer, optional):
     try:
-        unpinned = unpin_versions(
-            production=production, development=development, optional=optional, peer=peer
-        )
+        unpinned = unpin(production, development, optional, peer)
         names = []
         for k, v in unpinned.items():
             if v is True:
@@ -51,6 +49,6 @@ def unpin(production, development, peer, optional):
                 "\n".join(names)
             )
             click.secho(message, fg="green", bold=True)
-    except FAILURE_EXCEPTIONS as exc:
+    except EXCEPTIONS_EXPECTED as exc:
         click.secho("Failed to unpin versions.", fg="red", bold=True)
         click.secho(str(exc), fg="red")

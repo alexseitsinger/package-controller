@@ -11,7 +11,7 @@ from ..git.commit_readme_file import commit_readme_file
 README_NAME = "README.md"
 
 
-def update_documentation_node(status_message):
+def document_node(status_message):
     assert_which("documentation")
     root_dir = os.getcwd()
     input_file = "src/**"
@@ -31,17 +31,17 @@ def update_documentation_node(status_message):
     return readme_file
 
 
-def update_documentation_python():
+def document_python():
     pass
 
 
-def update_documentation(status_message):
+def document(status_message):
     is_python = is_python_package()
     is_node = is_node_package()
     if is_python and not is_node:
-        return update_documentation_python()
+        return document_python()
     elif is_node and not is_python:
-        return update_documentation_node(status_message)
+        return document_node(status_message)
     elif is_node and is_python:
         raise RuntimeError("Both python and node packages were detected.")
     else:

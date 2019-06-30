@@ -1,9 +1,9 @@
 import os
 import click
 
-from ...library.git.diff import diff as git_diff
+from ...library.git.diff import diff
 
-FAILURE_EXCEPTIONS = (
+EXCEPTIONS_EXPECTED = (
     RuntimeError,
     AssertionError,
     AttributeError,
@@ -12,11 +12,11 @@ FAILURE_EXCEPTIONS = (
 )
 
 
-@click.command()
-@click.argument("file_", required=True)
-def diff(file_):
+@click.command(name="diff")
+@click.argument("file_")
+def diff_command(file_):
     try:
-        lines = git_diff(file_).split("\n")
+        lines = diff(file_).split("\n")
         for line in lines:
             if line.startswith("+"):
                 click.secho(line, fg="green")
@@ -26,6 +26,6 @@ def diff(file_):
                 click.secho(line, fg="yellow")
             else:
                 click.echo(line)
-    except FAILURE_EXCEPTIONS as exc:
+    except EXCEPTIONS_EXPECTED as exc:
         click.secho("Failed to diff file.", fg="red", bold=True)
         click.secho(str(exc), fg="red")

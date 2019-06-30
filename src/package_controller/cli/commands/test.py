@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...library.fascades.test_package import test_package
+from ...library.fascades.test import test
 
 FAILURE_EXCEPTIONS = (
     NotADirectoryError,
@@ -12,12 +12,12 @@ FAILURE_EXCEPTIONS = (
 )
 
 
-@click.command()
+@click.command(name="test")
 @click.option("--unit", "-u", required=False, default=False, is_flag=True)
 @click.option("--integration", "-i", required=False, default=False, is_flag=True)
-def test(unit, integration):
+def test_command(unit, integration):
     try:
-        unit_tests_output, integration_tests_output = test_package(unit, integration)
+        unit_tests_output, integration_tests_output = test(unit, integration)
         if unit_tests_output is not None:
             click.secho("Unit:\n", fg="green", bold=True)
             click.secho(unit_tests_output, fg="yellow")
@@ -27,5 +27,3 @@ def test(unit, integration):
     except FAILURE_EXCEPTIONS as exc:
         click.secho("Failed to test package.", fg="red", bold=True)
         click.secho(str(exc), fg="red")
-
-

@@ -1,6 +1,6 @@
 import click
 
-from ...library.fascades.pin_versions import pin_versions
+from ...library.fascades.pin import pin
 
 
 FAILURE_EXCEPTIONS = (
@@ -12,7 +12,7 @@ FAILURE_EXCEPTIONS = (
 )
 
 
-@click.command()
+@click.command(name="pin")
 @click.option(
     "--production",
     is_flag=True,
@@ -34,11 +34,9 @@ FAILURE_EXCEPTIONS = (
     default=False,
     help="Pin the versions of optional dependencies.",
 )
-def pin(production, development, peer, optional):
+def pin_command(production, development, peer, optional):
     try:
-        pinned = pin_versions(
-            production=production, development=development, optional=optional, peer=peer
-        )
+        pinned = pin(production, development, optional, peer)
         names = []
         for k, v in pinned.items():
             if v is True:

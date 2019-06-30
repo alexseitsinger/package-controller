@@ -1,30 +1,43 @@
 import os
 import click
 
-from ...library.fascades.build_package import build_package
+from ...library.fascades.build import build
 
-FAILURE_EXCEPTIONS = (
+EXCEPTIONS_EXPECTED = (
     RuntimeError,
     AssertionError,
     AttributeError,
+    FileExistsError,
     FileNotFoundError,
     NotADirectoryError,
 )
 
-@click.command()
+
+@click.command(name="build")
 @click.option(
-    "--force", required=False, default=False, is_flag=True,
-    help="Force building the package despite having uncommmited changes.")
-def build(force):
+    "--replace",
+    required=False,
+    default=False,
+    is_flag=True,
+    help="If true, replaces existing built files.",
+)
+@click.option(
+    "--force",
+    required=False,
+    default=False,
+    is_flag=True,
+    help="Force building the package despite having uncommmited changes.",
+)
+def build_command(replace, force):
     try:
-        built = build_package(force=force)
+        built = build(replace, force)
         click.secho("Successfully built package.", fg="green", bold=True)
         click.secho(
-            "Files:\n    {}".format("\n    ".join([
-                os.path.basename(x) for x in built
-            ])),
+            "Files:\n    {}".format(
+                "\n    ".join([os.path.basename(x) for x in built])
+            ),
             fg="green",
         )
-    except FAILURE_EXCEPTIONS as exc:
+    except EXCEPTIONS_EXPECTED as exc:
         click.secho("Failed to build package.", fg="red", bold=True)
         click.secho(str(exc), fg="red")

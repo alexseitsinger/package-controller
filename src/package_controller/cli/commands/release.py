@@ -1,10 +1,8 @@
-import os
 import click
 
-from ...library.fascades.release_package import release_package
-from ...library.fascades.get_version import get_version
+from ...library.fascades.release import release
 
-FAILURE_EXCEPTIONS = (
+EXCEPTIONS_EXPECTED = (
     NotADirectoryError,
     AssertionError,
     RuntimeError,
@@ -13,42 +11,21 @@ FAILURE_EXCEPTIONS = (
 )
 
 
-@click.command()
+@click.command(name="release")
 @click.option(
     "--remote", "-r", default="origin", required=False, help="The remote to push to."
 )
 @click.option(
     "--branch", "-b", default="master", required=False, help="The branch to push to."
 )
-@click.option("--otp", "-o", required=False, help="The OTP code for NPM.")
 @click.option(
     "--force", "-f", required=False, is_flag=True, default=False, help="Force git push."
 )
-@click.option(
-    "--no-tag",
-    "-nt",
-    default=False,
-    required=False,
-    is_flag=True,
-    help="If true, will not push the tag.",
-)
-def release(remote, branch, otp, no_tag, force):
+def release_command(remote, branch, force):
     try:
-        tag_name = None
-        if no_tag is False:
-            tag_name = "v{}".format(get_version())
-        uploaded = release_package(
-            remote=remote, branch=branch, tag_name=tag_name, otp=otp, force=force
-        )
+        result = release(remote, branch, force)
         click.secho("Successfully released package.", fg="green", bold=True)
-        if uploaded is not None:
-            click.secho(
-                "Files:\n    {}".format(
-                    "\n    ".join([os.path.basename(x) for x in uploaded])
-                ),
-                fg="green",
-            )
-    except FAILURE_EXCEPTIONS as exc:
+    except EXCEPTIONS_EXPECTED as exc:
         message = str(exc)
         click.secho("Failed to release package.", fg="red", bold=True)
         click.secho(message, fg="red")

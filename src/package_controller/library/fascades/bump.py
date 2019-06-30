@@ -1,6 +1,6 @@
 import semver
 
-from .get_version import get_version
+from .version import version
 from ..generic.assert_which import assert_which
 from ..generic.run import run
 from ..git.assert_status import assert_status
@@ -10,25 +10,25 @@ from ..python.is_python_package import is_python_package
 from ..git.assert_commit import assert_commit
 
 
-def bump_version_python(old_version, new_version):
+def bump_python(old_version, new_version):
     assert_which("python")
     save_version(new_version)
     return (old_version, new_version)
 
 
-def bump_version_node(old_version, new_version):
+def bump_node(old_version, new_version):
     assert_which("node")
     assert_which("yarn")
 
     # Check if the tag already exists on a non-exist commit.
-    tag_name = "v{}".format(new_version)
-    tagged_commit = run("git rev-list -n 1 {}".format(tag_name))
+    tag = "v{}".format(new_version)
+    tagged_commit = run("git rev-list -n 1 {}".format(tag))
     if tagged_commit is not None:
         try:
             assert_commit(tagged_commit)
         except AssertionError:
-            print("Deleting tag ({}) for non-existent commit.".format(tag_name))
-            run("git tag -d {}".format(tag_name))
+            print("Deleting tag ({}) for non-existent commit.".format(tag))
+            run("git tag -d {}".format(tag))
 
     # update the version.
     message = "chore: {}".format(new_version)
@@ -38,11 +38,11 @@ def bump_version_node(old_version, new_version):
     return (old_version, new_version)
 
 
-def bump_version(major=False, minor=False, patch=False, force=False):
+def bump(major=False, minor=False, patch=False, force=False):
     if force is False:
         assert_status()
     # get the current version
-    old_version = get_version()
+    old_version = version()
     if major is True and all([x is False for x in [minor, patch]]):
         new_version = semver.bump_major(old_version)
     elif minor is True and all([x is False for x in [major, patch]]):
@@ -54,9 +54,9 @@ def bump_version(major=False, minor=False, patch=False, force=False):
     is_python = is_python_package()
     is_node = is_node_package()
     if is_python and not is_node:
-        return bump_version_python(old_version, new_version)
+        return bump_python(old_version, new_version)
     elif is_node and not is_python:
-        return bump_version_node(old_version, new_version)
+        return bump_node(old_version, new_version)
     elif is_python and is_node:
         raise RuntimeError("Both python and node packages were detected.")
     else:
