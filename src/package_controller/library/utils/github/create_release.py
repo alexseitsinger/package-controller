@@ -2,10 +2,10 @@ import json
 import requests
 
 from .get_personal_access_token import get_personal_access_token
-from .get_authenticated_session import get_authenticated_session
+from .get_authorized_session import get_authorized_session
 
 
-GITHUB_RELEASES_URL = "https://github.com/repos/{}/{}/releases"
+GITHUB_RELEASES_URL = "https://api.github.com/repos/{}/{}/releases"
 
 
 def create_release(
@@ -23,7 +23,7 @@ def create_release(
         name = tag_name
     try:
         url = GITHUB_RELEASES_URL.format(owner_name, repo_name)
-        response = get_authenticated_session(owner_name).post(
+        response = get_authorized_session(owner_name).post(
             url,
             data=json.dumps(
                 {
@@ -41,7 +41,7 @@ def create_release(
         if not str(response.status_code).startswith("2"):
             raise RuntimeError(
                 "Failed to create release.\n\n{}\n\n{}: {}".format(
-                    url, response.status_code, response.text
+                    url, response.status_code
                 )
             )
         return response.json()
