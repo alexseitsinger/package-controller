@@ -10,9 +10,7 @@ def tag(name, commit_hash=None):
     # Make sure the tag name is formatted correctly.
     if not name.startswith("v"):
         name = "v{}".format(name)
-    # Create the args we're going to use.
-    message = get_latest_changelog(name)
-    cmd = "git tag -a {} -m '{}'".format(name, message)
+    cmd = "git tag {}".format(name)
     if commit_hash is not None:
         cmd += " {}".format(commit_hash)
     # Try to run the git tag command.
