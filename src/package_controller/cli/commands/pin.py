@@ -1,6 +1,6 @@
 import click
 
-from ...library.fascades.pin import pin
+from ...library.commands.pin import pin
 
 
 FAILURE_EXCEPTIONS = (

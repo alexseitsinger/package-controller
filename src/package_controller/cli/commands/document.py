@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...library.fascades.document import document
+from ...library.commands.document import document
 
 EXCEPTIONS_EXPECTED = (
     RuntimeError,

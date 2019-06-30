@@ -1,6 +1,6 @@
 import click
 
-from ...library.fascades.version import version
+from ...library.commands.version import version
 
 
 @click.command(name="version")

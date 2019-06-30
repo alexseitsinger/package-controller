@@ -1,6 +1,6 @@
 import click
 
-from ...library.fascades.publish import publish
+from ...library.commands.publish import publish
 
 EXCEPTIONS_EXPECTED = (
     NotADirectoryError,

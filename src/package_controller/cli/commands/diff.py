@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...library.git.diff import diff
+from ...library.utils.git.diff import diff
 
 EXCEPTIONS_EXPECTED = (
     RuntimeError,

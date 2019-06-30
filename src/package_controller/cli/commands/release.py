@@ -1,6 +1,6 @@
 import click
 
-from ...library.fascades.release import release
+from ...library.commands.release import release
 
 EXCEPTIONS_EXPECTED = (
     NotADirectoryError,

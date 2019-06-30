@@ -1,6 +1,6 @@
 import click
 
-from ...library.fascades.unpin import unpin
+from ...library.commands.unpin import unpin
 
 
 EXCEPTIONS_EXPECTED = (

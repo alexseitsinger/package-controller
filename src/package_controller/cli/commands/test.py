@@ -1,7 +1,7 @@
 import os
 import click
 
-from ...library.fascades.test import test
+from ...library.commands.test import test
 
 FAILURE_EXCEPTIONS = (
     NotADirectoryError,
