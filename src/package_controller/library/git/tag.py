@@ -1,17 +1,8 @@
 from ..generic.run import run
 from .assert_commit import assert_commit
 from .assert_repository import assert_repository
+from .get_latest_changelog import get_latest_changelog
 import re
-
-
-def get_latest_changelog(tag_name):
-    cmd = "git-changelog -t angular -s angular ."
-    out = run(cmd)
-    section = out.split("\n\n\n")[0]
-    heading, body = section.split("\n\n", 1)
-    repl_heading = re.sub(r"v(\.?\d+)+", tag_name, heading)
-    final = "\n\n".join([repl_heading, body])
-    return final
 
 
 def tag(name, commit_hash=None):
