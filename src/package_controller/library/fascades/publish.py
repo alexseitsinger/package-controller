@@ -9,13 +9,11 @@ from ..python.is_python_package import is_python_package
 from ..python.twine_upload import twine_upload
 
 
-YARN_PUBLISH_COMMAND = (
-    "yarn publish --non-interactive --access {access} --new-version {new_version}"
-)
+YARN_PUBLISH_COMMAND = "yarn publish --non-interactive --access {} --new-version {}"
 
 
 def get_yarn_publish_command(new_version, access="public", otp=None):
-    cmd = YARN_PUBLISH_COMMAND.format(access=access, new_version=new_version)
+    cmd = YARN_PUBLISH_COMMAND.format(access, new_version)
     if otp is not None:
         cmd = " ".join([cmd, "--otp {}".format(otp)])
     return cmd
