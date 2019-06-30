@@ -3,7 +3,6 @@ import re
 from ..run import run
 from .assert_commit import assert_commit
 from .assert_repository import assert_repository
-from .get_latest_changelog import get_latest_changelog
 
 
 def tag(name, commit_hash=None):
