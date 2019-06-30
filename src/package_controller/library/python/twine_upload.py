@@ -1,6 +1,6 @@
 import os
 
-from ..fascades.get_version import get_version
+from ..fascades.version import version
 from ..generic.assert_which import assert_which
 from ..generic.find_file import find_file
 from ..generic.run import run
@@ -13,23 +13,16 @@ WHEEL_NAME = "{}-{}-py3-none-any.whl"
 
 def twine_upload():
     assert_status()
-    version = get_version()
+    current_version = version()
     setup_module = find_file("setup.py")
     root = os.path.dirname(setup_module)
     directory_name = os.path.basename(root)
     dist_dir = os.path.join(root, "dist")
     if not os.path.isdir(dist_dir):
         raise NotADirectoryError("Dist directory does not exist.")
-    package_names = [
-        directory_name,
-        directory_name.replace("-", "_"),
-    ]
-    wheel_names = [
-        WHEEL_NAME.format(x, version) for x in package_names
-    ]
-    tarball_names = [
-        TARBALL_NAME.format(x, version) for x in package_names
-    ]
+    package_names = [directory_name, directory_name.replace("-", "_")]
+    wheel_names = [WHEEL_NAME.format(x, current_version) for x in package_names]
+    tarball_names = [TARBALL_NAME.format(x, current_version) for x in package_names]
     wheel = None
     for wheel_name in wheel_names:
         if wheel is None:
