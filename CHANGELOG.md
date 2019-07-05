@@ -1,3 +1,18 @@
+<a name="v3.1.0"></a>
+## [v3.1.0](https://github.com/alexseitsinger/package-controller/compare/v3.0.1...v3.1.0) (2019-07-05)
+
+### Code Refactoring
+- Adds headers to all sessions. ([0cf3d1d](https://github.com/alexseitsinger/package-controller/commit/0cf3d1db9eab0f0db0b91fd4e6a1184df22048f3))
+- Changes for get_config module api. ([9968f65](https://github.com/alexseitsinger/package-controller/commit/9968f65a002bd2204096cacf9f390dad5854b517))
+- Read_file uses variable for python only. ([eb0f921](https://github.com/alexseitsinger/package-controller/commit/eb0f921c07db2dac4196994c7d4961e0048dafbc))
+- Renames get_package_controller_file. ([f38ca19](https://github.com/alexseitsinger/package-controller/commit/f38ca1964a48cc810565b2a4f19d52d4bb2e02f8))
+
+### Features
+- Adds create_personal_repository module. ([2d607d9](https://github.com/alexseitsinger/package-controller/commit/2d607d96a2c4674746d7082d5aaf8a5c7a045d2a))
+- Adds gitignore library util module. ([d750d8e](https://github.com/alexseitsinger/package-controller/commit/d750d8ef5781d9895d3b53b6702b8416c1c67784))
+- Adds init cli and library command. ([c2b6d52](https://github.com/alexseitsinger/package-controller/commit/c2b6d52ab02c14d503734ef51b4b3eaff3e00479))
+
+
 <a name="v3.0.1"></a>
 ## [v3.0.1](https://github.com/alexseitsinger/package-controller/compare/v3.0.0...v3.0.1) (2019-06-30)
 
