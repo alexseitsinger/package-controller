@@ -1,3 +1,15 @@
+<a name="v3.2.0"></a>
+## [v3.2.0](https://github.com/alexseitsinger/package-controller/compare/v3.1.0...v3.2.0) (2019-07-06)
+
+### Code Refactoring
+- Adds unsave,resave,undo commands. ([1d95895](https://github.com/alexseitsinger/package-controller/commit/1d95895546df66d1601b9d02a80ac759adea95c5))
+
+### Features
+- Adds resave cli and library command. ([1453e73](https://github.com/alexseitsinger/package-controller/commit/1453e737def4538fec0be179637780378284b53e))
+- Adds undo cli and library commands. ([7dc4a7d](https://github.com/alexseitsinger/package-controller/commit/7dc4a7da26121689b5605598183882da7182e80e))
+- Adds unsave cli and library commands. ([c240ab2](https://github.com/alexseitsinger/package-controller/commit/c240ab20bf4c678a398190a4b54390dc6d737c56))
+
+
 <a name="v3.1.0"></a>
 ## [v3.1.0](https://github.com/alexseitsinger/package-controller/compare/v3.0.1...v3.1.0) (2019-07-05)
 
