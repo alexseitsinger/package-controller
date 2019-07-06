@@ -22,7 +22,7 @@ def unpin_versions_python(toml_dict, name):
             toml_dict[name][k] = "*"
 
 
-def unpin_python(production, development):
+def unpin_python(development):
     pipfile = find_file("Pipfile")
 
     toml_dict = None
@@ -32,15 +32,14 @@ def unpin_python(production, development):
     if toml_dict is None:
         raise RuntimeError("Failed to read Pipfile")
 
-    if production is True:
-        unpin_versions_python(toml_dict, "packages")
+    unpin_versions_python(toml_dict, "packages")
     if development is True:
         unpin_versions_python(toml_dict, "dev-packages")
 
     with open(pipfile, "w") as f:
         f.write(toml.dumps(toml_dict))
 
-    return {"production": production, "development": development}
+    return {"packages": True, "dev-packages": development}
 
 
 def unpin_versions_node(json_dict, key):
@@ -54,7 +53,7 @@ def unpin_versions_node(json_dict, key):
         deps[k] = version
 
 
-def unpin_node(production, development, peer, optional):
+def unpin_node(development, peer, optional):
     # Find the package file we're going to alter.
     package_file = find_file("package.json")
 
@@ -69,8 +68,7 @@ def unpin_node(production, development, peer, optional):
         raise RuntimeError("Failed to read package file.")
 
     # Process the deps
-    if production is True:
-        unpin_versions_node(original_content, "dependencies")
+    unpin_versions_node(original_content, "dependencies")
     if development is True:
         unpin_versions_node(original_content, "devDependencies")
     if peer is True:
@@ -84,20 +82,20 @@ def unpin_node(production, development, peer, optional):
 
     # Return a dictionary of each section that was pinned.
     return {
-        "production": production,
-        "development": development,
-        "optional": optional,
-        "peer": peer,
+        "dependencies": True,
+        "devDependencies": development,
+        "optionalDependencies": optional,
+        "peerDependencies": peer,
     }
 
 
-def unpin(production=False, development=False, optional=False, peer=False):
+def unpin(development=False, optional=False, peer=False):
     is_python = is_python_package()
     is_node = is_node_package()
     if is_python and not is_node:
-        return unpin_python(production, development)
+        return unpin_python(development)
     elif is_node and not is_python:
-        return unpin_node(production, development, optional, peer)
+        return unpin_node(development, optional, peer)
     elif is_node and is_python:
         raise RuntimeError("Both python and node packages were detected.")
     else:

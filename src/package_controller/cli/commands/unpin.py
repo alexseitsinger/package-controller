@@ -14,12 +14,6 @@ EXCEPTIONS_EXPECTED = (
 
 @click.command(name="unpin")
 @click.option(
-    "--production",
-    is_flag=True,
-    default=False,
-    help="Unpin the versions of production dependencies.",
-)
-@click.option(
     "--development",
     is_flag=True,
     default=False,
@@ -37,9 +31,9 @@ EXCEPTIONS_EXPECTED = (
     default=False,
     help="Unpin the versions of optional dependencies.",
 )
-def unpin_command(production, development, peer, optional):
+def unpin_command(development, peer, optional):
     try:
-        unpinned = unpin(production, development, optional, peer)
+        unpinned = unpin(development, optional, peer)
         names = []
         for k, v in unpinned.items():
             if v is True:

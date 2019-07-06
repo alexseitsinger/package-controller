@@ -14,12 +14,6 @@ FAILURE_EXCEPTIONS = (
 
 @click.command(name="pin")
 @click.option(
-    "--production",
-    is_flag=True,
-    default=False,
-    help="Pin the versions of production dependencies.",
-)
-@click.option(
     "--development",
     is_flag=True,
     default=False,
@@ -34,9 +28,9 @@ FAILURE_EXCEPTIONS = (
     default=False,
     help="Pin the versions of optional dependencies.",
 )
-def pin_command(production, development, peer, optional):
+def pin_command(development, peer, optional):
     try:
-        pinned = pin(production, development, optional, peer)
+        pinned = pin(development, optional, peer)
         names = []
         for k, v in pinned.items():
             if v is True:
