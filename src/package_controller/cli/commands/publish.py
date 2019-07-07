@@ -12,9 +12,13 @@ EXCEPTIONS_EXPECTED = (
 
 
 @click.command(name="publish")
-def publish_command():
+@click.option(
+    "--access", "-a", default="public", required=False, help="The access level for NPM."
+)
+@click.option("--otp", "-o", required=False, help="The OTP code for NPM.")
+def publish_command(access, otp):
     try:
-        result = publish()
+        result = publish(access, otp)
         click.secho("Successfully published package.", fg="green", bold=True)
     except EXCEPTIONS_EXPECTED as exc:
         message = str(exc)
