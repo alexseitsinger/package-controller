@@ -21,14 +21,21 @@ def bump_node(old_version, new_version):
     assert_which("yarn")
 
     # Check if the tag already exists on a non-exist commit.
-    tag = "v{}".format(new_version)
-    tagged_commit = run("git rev-list -n 1 {}".format(tag))
-    if tagged_commit is not None:
-        try:
-            assert_commit(tagged_commit)
-        except AssertionError:
-            print("Deleting tag ({}) for non-existent commit.".format(tag))
-            run("git tag -d {}".format(tag))
+    try:
+        tag = "v{}".format(new_version)
+        tagged_commit = run("git rev-list -n 1 {}".format(tag))
+        if tagged_commit is not None:
+            try:
+                assert_commit(tagged_commit)
+            except AssertionError:
+                print("Deleting tag ({}) for non-existent commit.".format(tag))
+                run("git tag -d {}".format(tag))
+    except RuntimeError as exc:
+        msg = str(exc)
+        if msg.startswith("fatal: ambiguous argument"):
+            pass
+        else:
+            raise exc
 
     # update the version.
     message = "chore: {}".format(new_version)
