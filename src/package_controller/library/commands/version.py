@@ -20,9 +20,7 @@ def version_python(file_path=None, variable=PYTHON_VERSION_VARIABLE):
 def version_node(file_path=None):
     if file_path is None:
         file_path = find_file("package.json")
-    content = read_file(file_path)
-    content_json = json.loads(content)
-    return content_json["version"]
+    return read_file(file_path, "version")
 
 
 def version(file_path=None, variable=PYTHON_VERSION_VARIABLE):
