@@ -1,3 +1,15 @@
+<a name="v3.2.1"></a>
+## [v3.2.1](https://github.com/alexseitsinger/package-controller/compare/v3.2.0...v3.2.1) (2019-07-07)
+
+### Bug Fixes
+- Adds arguemnts for publishing to NPM. ([8afac47](https://github.com/alexseitsinger/package-controller/commit/8afac47f45b7db2fdc98d154113acd0644453e9e))
+- Fixes error when checking for tag. ([5d5aeca](https://github.com/alexseitsinger/package-controller/commit/5d5aeca63413db60695e926d66576750170a93d4))
+- Fixes version output for node. ([1d1ada7](https://github.com/alexseitsinger/package-controller/commit/1d1ada726b3971e0a7c57948578205d81e045c4b))
+
+### Code Refactoring
+- Adds default pin/unpin targets. ([1e18277](https://github.com/alexseitsinger/package-controller/commit/1e182778f448174d633e4ddf0c44420f6369832d))
+
+
 <a name="v3.2.0"></a>
 ## [v3.2.0](https://github.com/alexseitsinger/package-controller/compare/v3.1.0...v3.2.0) (2019-07-06)
 
