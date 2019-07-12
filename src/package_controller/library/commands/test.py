@@ -7,14 +7,16 @@ from ..utils.node.is_node_package import is_node_package
 from ..utils.python.is_python_package import is_python_package
 
 
-def test_node():
+def test_node(unit, integration):
     assert_which("node")
     try:
         assert_which("yarn")
-        return run("yarn run test")
+        out = run("yarn run test")
+        return (out, None)
     except AssertionError:
         assert_which("npm")
-        return run("npm run test")
+        out = run("npm run test")
+        return (out, None)
 
 
 def test_python(unit, integration):
