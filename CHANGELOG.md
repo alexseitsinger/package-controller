@@ -1,3 +1,16 @@
+<a name="v3.3.0"></a>
+## [v3.3.0](https://github.com/alexseitsinger/package-controller/compare/v3.2.1...v3.3.0) (2019-08-21)
+
+### Bug Fixes
+- Fixes test cli return value. ([ef0964c](https://github.com/alexseitsinger/package-controller/commit/ef0964ced1f0f0ed5952fa3be6b1ddca2058f1ed))
+
+### Code Refactoring
+- Updates error message. ([2c9220a](https://github.com/alexseitsinger/package-controller/commit/2c9220a028b1125409f584292c1c7f91c8bf6722))
+
+### Features
+- Adds submit command. ([c514b8b](https://github.com/alexseitsinger/package-controller/commit/c514b8b313b122bc08b94cdd4bc29b9ee2031132))
+
+
 <a name="v3.2.1"></a>
 ## [v3.2.1](https://github.com/alexseitsinger/package-controller/compare/v3.2.0...v3.2.1) (2019-07-07)
 
