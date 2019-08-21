@@ -14,6 +14,7 @@ from .commands.pin import pin_command
 from .commands.unpin import unpin_command
 from .commands.release import release_command
 from .commands.publish import publish_command
+from .commands.submit import submit_command
 
 
 @click.group()
@@ -35,3 +36,4 @@ main.add_command(pin_command)
 main.add_command(unpin_command)
 main.add_command(release_command)
 main.add_command(publish_command)
+main.add_command(submit_command)
