@@ -39,7 +39,11 @@ def twine_upload():
     built = [wheel, tarball]
     for built_file in built:
         if built_file is None or not os.path.exists(built_file):
-            raise FileNotFoundError("File does not exist. ({})".format(built_file))
+            raise FileNotFoundError(
+                "There is no built package(s) for version {}. Please run `pc build` to create a distribution.".format(
+                    current_version
+                )
+            )
     # Check if Twine exists on PATH.
     assert_which("twine")
     # Run the command
